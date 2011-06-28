@@ -194,6 +194,5 @@ class RowModel {
   {
     return $this->data;
   }
-
 }
 ?>

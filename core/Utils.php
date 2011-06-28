@@ -136,4 +136,13 @@ class Utils {
     return $DbConnection->getArrayPair($sql);
   }
   
+  public static function genRandomString($length='45') {
+    $characters = "0123456789abcdefghijklmnopqrstuvwxyz";
+    $char_num = strlen($characters);
+    $string = "";    
+    for ($p = 0; $p < $length; $p++) {
+        $string .= $characters[mt_rand(0, $char_num)];
+    }
+    return $string;
+  }    
 }
