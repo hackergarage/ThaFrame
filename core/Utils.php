@@ -144,5 +144,14 @@ class Utils {
         $string .= $characters[mt_rand(0, $char_num)];
     }
     return $string;
-  }    
+  }  
+
+  public static function escapeParagraph($string) {
+    return nl2br(htmlspecialchars($string));
+  }
+  
+
+  public static function escapeLine($string) {
+    return htmlspecialchars($string);
+  }
 }
