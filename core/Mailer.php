@@ -35,13 +35,15 @@ class Mailer {
    * @param body $body
    * @return True on success false otherwise
    */
-  public function send($email, $full_name, $subject, $body) {
+  public function send($email, $full_name, $subject, $body, $html=false) {
     $Message = Swift_Message::newInstance();
     $Message->setSubject($subject);
     $Message->setFrom(array(EMAIL_FROM => EMAIL_NAME));
     $Message->setTo( array($email => $full_name) );
     $Message->setBody($body);
-    
+    if($html) {
+      $Message->setContentType("text/html");
+    }
     return $this->__Mailer->send($Message);
   }
 }

@@ -33,7 +33,7 @@ class Session
         return false;
       } 
     }
-    if ($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
+    if (!isset($_SESSION['ip']) && $_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
       self::$_error = 'Ip Changed!';
       return false;
     }
@@ -64,7 +64,6 @@ class Session
         }
         
         if ( !$User->load() ) {
-          print_r($_SESSION['user_id']);
           self::$_error = "Couldn't Load User";
           
           return false;
