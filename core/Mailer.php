@@ -17,13 +17,14 @@ class Mailer {
   private $__Mailer= Null;
   
   public function __construct() {
-    if (EMAIL_SSL) {
-      $Transport = Swift_SmtpTransport::newInstance(EMAIL_SERVER, EMAIL_PORT,'ssl');
+  	$Config=Config::getInstance();
+    if ($Config->email_ssl) {
+      $Transport = Swift_SmtpTransport::newInstance($Config->email_server, $Config->email_port,'ssl');
     }else{
-      $Transport = Swift_SmtpTransport::newInstance(EMAIL_SERVER, EMAIL_PORT);
+      $Transport = Swift_SmtpTransport::newInstance($Config->email_server, $Config->email_port);
     }
-    $Transport->setUsername(EMAIL_LOGIN);
-    $Transport->setPassword(EMAIL_PASSWORD);
+    $Transport->setUsername($Config->email_login);
+    $Transport->setPassword($Config->email_password);
     
     $this->__Mailer = Swift_Mailer::newInstance($Transport);
   }
@@ -36,9 +37,10 @@ class Mailer {
    * @return True on success false otherwise
    */
   public function send($email, $full_name, $subject, $body) {
+  	$Config=Config::getInstance();
     $Message = Swift_Message::newInstance();
     $Message->setSubject($subject);
-    $Message->setFrom(array(EMAIL_FROM => EMAIL_NAME));
+    $Message->setFrom(array($Config->email_from => $Config->email_name ));
     $Message->setTo( array($email => $full_name) );
     $Message->setBody($body);
     
