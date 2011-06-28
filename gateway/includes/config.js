@@ -49,8 +49,8 @@ function BasicConfig() {
 		resizable: true,
 		title: $('#overlay h3').attr('innerHTML')
 	});
-	$( "input:submit, ul.action a").button();
-	
+	$( "input:submit, input:button,  ul.action a").button();
+		
 	//Behaviors
 	$("form:not(.filter) :input:visible:enabled:first").focus();
 	

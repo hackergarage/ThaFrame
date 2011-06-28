@@ -16,6 +16,8 @@ class Mailer {
    */
   private $__Mailer= Null;
   
+  private $__last_error='';
+  
   public function __construct() {
   	$Config=Config::getInstance();
     if ($Config->email_ssl) {
@@ -40,13 +42,26 @@ class Mailer {
   public function send($email, $full_name, $subject, $body, $html=false) {
   	$Config=Config::getInstance();
     $Message = Swift_Message::newInstance();
-    $Message->setSubject($subject);
-    $Message->setFrom(array($Config->email_from => $Config->email_name ));
-    $Message->setTo( array($email => $full_name) );
-    $Message->setBody($body);
-    if($html) {
-      $Message->setContentType("text/html");
+    
+    $success=true;
+    try {
+      $Message->setSubject($subject);
+      $Message->setFrom(array($Config->email_from => $Config->email_name ));
+      $Message->setTo( array($email => $full_name) );
+      $Message->setBody($body);
+      
+      if($html) {
+        $Message->setContentType("text/html");
+      }
+      $this->__Mailer->send($Message);
+    } catch (Exception $e) {
+      $this->__last_error = $e->getMessage();
+      $success=false;
     }
-    return $this->__Mailer->send($Message);
+    return $success;
+  }
+  
+  public function getLastError() {
+    return $this->__last_error;
   }
 }
