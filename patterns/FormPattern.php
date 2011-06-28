@@ -115,9 +115,10 @@ class FormPattern Extends TemplatePattern
       }
     }
     if( isset($config['__commands']['add']) ) {
-      foreach($config['__commands']['add'] AS $add) {
-        $this->insertField($add);
-      }
+      /*foreach($config['__commands']['add'] AS $add) {
+        //$this->insertField($add);
+        
+      }*/
     }
     if( isset($config['__commands']['hide']) ) {
       foreach($config['__commands']['hide'] AS $hide) {
