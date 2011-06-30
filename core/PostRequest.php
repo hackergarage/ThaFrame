@@ -66,4 +66,5 @@ class PostRequest {
   public function getRequestUri(){
     return $this->_request_uri;
   }
+  
 }

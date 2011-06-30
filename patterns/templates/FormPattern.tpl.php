@@ -10,7 +10,11 @@
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
   
-  echo "<form action=\"$Data->target\" id=\"$Data->form_id\">\n";
+  if( $Data->type== 'single') {
+    echo "<form action=\"$Data->action\" method=\"$Data->method\" id=\"$Data->form_id\" name=\"$Data->form_id\" >\n";
+  } else {
+    echo "<form action=\"$Data->action\" method=\"$Data->method\" enctype=\"multipart/form-data\" id=\"$Data->form_id\" name=\"$Data->form_id\">\n";
+  }
   echo "<p>\n";
   
   foreach($Data->fields as $field=>$properties){
@@ -88,6 +92,9 @@
             echo "<br/>\n<label for=\"{$field}_repeat\">" . t('Repeat the %1%', t($Properties->label) ) . ":</label> ";
             echo "<input type=\"password\" name=\"{$field}_repeat\" id=\"{$field}_repeat\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
           }
+          break;
+        case "file":
+          echo "<input type=\"file\" name=\"$field\" id=\"$field\" $input_parameters $readonly/>";
           break;
         default:
           echo "<input type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";

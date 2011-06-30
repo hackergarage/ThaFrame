@@ -49,7 +49,11 @@ class DbConnection {
     if ( !isset(self::$_instances[$connection]) ) {
       $DbConfig = Config::getDbConfig($connection);
       $DbConnection = new DbConnection($DbConfig->db_host, $DbConfig->db_user, $DbConfig->db_password, $DbConfig->db_name);
-      $DbConnection->connect();
+      try {
+         $DbConnection->connect(); 
+      } catch(Exception $e) {
+        loadErrorPage('nodb');
+      } 
       $DbConnection->executeQuery("SET CHARACTER SET 'utf8'");
       self::$_instances[$connection] = $DbConnection;
     }
@@ -59,9 +63,11 @@ class DbConnection {
   public function connect()
   {
     if ( !$this->db_connection = @mysql_connect($this->db_host, $this->db_user, $this->db_password) ) {
+      Logger::log("Couldn't connect to the database server", '', 'fatal');
       throw new RunTimeException("Couldn't connect to the database server");
     }
     if ( !@mysql_select_db($this->db_name, $this->db_connection) ) {
+      Logger::log("Couldn't connect to the given database", '', 'fatal');
       throw new RunTimeException("Couldn't connect to the given database");
     }
   }
