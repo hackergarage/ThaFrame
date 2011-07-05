@@ -25,9 +25,10 @@ class Mailer {
     }else{
       $Transport = Swift_SmtpTransport::newInstance($Config->email_server, $Config->email_port);
     }
-    $Transport->setUsername($Config->email_login);
-    $Transport->setPassword($Config->email_password);
-    
+    if ($Config->email_smtp_auth ) {
+      $Transport->setUsername($Config->email_login);
+      $Transport->setPassword($Config->email_password);
+    }
     $this->__Mailer = Swift_Mailer::newInstance($Transport);
   }
   /**
