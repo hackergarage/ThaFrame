@@ -144,9 +144,11 @@ class HelperPattern {
    * @param $extra_parameters string any other extra string to be attached at the end
    * @return string the combobox in a single string
    */
-  public static function createComboBox($items, $name, $selected, $extra_parameters='')
+  public static function createComboBox($items, $name, $selected=0, $extra_parameters='', $innerHTML=false)
   {
-    $output= "<select name=\"$name\" id=\"$name\" $extra_parameters>\n";
+    if ( !$innerHTML ) {
+      $output= "<select name=\"$name\" id=\"$name\" $extra_parameters>\n";
+    }
     foreach ( $items as $key => $value )
     {
       $output.= "<option value=\"" . htmlentities($key) . "\"";
@@ -155,7 +157,9 @@ class HelperPattern {
       }
       $output.=">".t(ucwords($value))."</option>\n";
     }
-    $output.="</select>\n";
+    if ( !$innerHTML ) {
+      $output.="</select>\n";
+    }
     return $output;
   }
   
