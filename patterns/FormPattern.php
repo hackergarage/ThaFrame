@@ -594,8 +594,11 @@ class FormPattern Extends TemplatePattern
     return false;
   }
   
-  public function setAsLinked($field, $table_name, $DbConnection, $table_id='', $name_field='', $condition='')
+  public function setAsLinked($field, $table_name, DbConnection $DbConnection=null, $table_id='', $name_field='', $condition='')
   {
+    if ( !isset($DbConnection) ) {
+      $DbConnection = DbConnection::getInstance();
+    }
     if ($table_id=='') {
       $table_id = "{$table_name}_id";
     }
@@ -613,7 +616,11 @@ class FormPattern Extends TemplatePattern
             FROM $table_name
             WHERE $condition
             ORDER BY $name_field";
-    $options = $DbConnection->getArrayPair($sql);
+    
+    if ( !$options = $DbConnection->getArrayPair($sql) ) {
+      $options=array();
+    }
+    
     $this->setFieldProperty($field, 'type', 'select');
     
     $this->unsetFieldInputParameter($field, 'maxlength');
