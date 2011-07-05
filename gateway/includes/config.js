@@ -35,13 +35,6 @@ function BasicConfig() {
 		showButtonPanel: true
 	});
 	
-	// Element Config
-	$('#message').dialog({
-		title: $('#level_image').attr('alt'),
-		buttons: {"Ok": function() { $(this).dialog("close"); } }
-	} );
-	
-	
 	$("#overlay").dialog({
 		autoOpen: false,
 		width: 700,
