@@ -26,6 +26,7 @@ class Session
   {
     if ( !isset($_SESSION['user_id']) ) {
       self::$_error = 'User isn\'t Logged In' ;
+      return false;
     }
     if ( !empty($user_id) ){
       if ( $_SESSION['user_id'] != $user_id) {
