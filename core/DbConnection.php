@@ -23,6 +23,7 @@ class DbConnection {
   protected $db_password = '';
   protected $db_name     = '';
   protected $errors      = array();
+  protected $last_query  = '';
   
   
   
@@ -166,6 +167,7 @@ class DbConnection {
   {
     if ( !@mysql_query($sql, $this->db_connection) ) {
       $this->errors[] = mysql_error($this->db_connection);
+      $this->last_query = $sql;
       return false;
     }
     return true;
@@ -187,6 +189,11 @@ class DbConnection {
   public function getLastId()
   {
     return mysql_insert_id($this->db_connection);
+  }
+  
+  public function getLastQuery()
+  {
+    return $this->last_query;
   }
   
   public function getMysqlConnection() {
