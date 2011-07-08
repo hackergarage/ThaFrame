@@ -113,7 +113,7 @@ class FormPattern Extends TemplatePattern
       $file_name = TO_ROOT."/configs/models/{$config_name}.ini";
     }
     if(!file_exists($file_name)){
-      Logger::log("Couldn't load config file", $file_name, LOGGER_ERROR);
+      Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
     $config = parse_ini_file($file_name, true);
