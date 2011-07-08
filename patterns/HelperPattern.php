@@ -64,13 +64,13 @@ class HelperPattern {
     $string = '';
     if ($absolute_path){
       
-      if( file_exists(TO_ROOT ." /$filename") ) {
-        $string = $Config->system_web_root . "/$filename";
+      if( file_exists(TO_ROOT . PUBLIC_DIR . "/$filename") ) {
+        $string = $Config->system_web_root. "/$filename";
       } else {
         $string = $Config->system_web_root . "/f/$filename";
       }  
     } else {
-      if( file_exists(TO_ROOT . "/$filename") ){
+      if( file_exists(TO_ROOT . PUBLIC_DIR . "/$filename") ){
         $string = TO_WEB_ROOT. "/$filename";
       } else {
         $string = TO_WEB_ROOT . "/f/$filename";
