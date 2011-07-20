@@ -92,7 +92,7 @@
           break;
         default:
           if ( $Properties->size > 45 ) {
-            echo "<input size=\"99\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            echo "<input size=\"80\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
           } else {
             echo "<input size=\"45\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
           }
