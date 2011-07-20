@@ -252,6 +252,7 @@ class FormPattern Extends TemplatePattern
         case 'varchar':
           if ( $match[2] <= 100 ) {
             $aux['type'] = 'text';
+            $aux['size'] = $match[2]; 
             $aux['input_parameters']['maxlength'] = $match[2];
           } else {
             $aux['type'] = 'textarea';
@@ -262,6 +263,7 @@ class FormPattern Extends TemplatePattern
         case 'char':
           if ( $match[2] <= 100 ) {
             $aux['type'] = 'text';
+            $aux['size'] = $match[2]; 
             $aux['input_parameters']['maxlength'] = $match[2];
           } else {
             $aux['type'] = 'textarea';

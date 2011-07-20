@@ -146,33 +146,36 @@ class HelperPattern {
    */
   public static function createComboBox($items, $name, $selected=0, $extra_parameters='', $innerHTML=false)
   {
+    $output = "";
     if ( !$innerHTML ) {
-      $output= "<select name=\"$name\" id=\"$name\" $extra_parameters>\n";
+      $output .= "<span id=\"{$name}_container\"><select name=\"$name\" id=\"$name\" $extra_parameters>\n";
     }
     foreach ( $items as $key => $value )
     {
-      $output.= "<option value=\"" . htmlentities($key) . "\"";
+      $output .= "<option value=\"" . htmlentities($key) . "\"";
       if ( $key==$selected ) {
         $output .=" selected=\"selected\" ";
       }
-      $output.=">".t(ucwords($value))."</option>\n";
+      $output.=">".htmlspecialchars(t(ucwords($value)))."</option>\n";
     }
     if ( !$innerHTML ) {
-      $output.="</select>\n";
+      $output.="</select></span>\n";
     }
     return $output;
   }
   
   public static function createRadioButton($items, $name, $selected, $extra_parameters='')
   {
+    $output = "<div class=\"__radio\">";
     foreach ( $items as $key => $value )
     {
-      $output.= "<input type=\"radio\" name=\"$name\" value=\"" . htmlentities($key) . "\"";
+      $output.= "<input type=\"radio\" id=\"{$name}_{$key}\" name=\"$name\" value=\"" . htmlentities($key) . "\"";
       if ( $key==$selected ) {
         $output .=" checked=\"checked\" ";
       }
-      $output.=" $extra_parameters/>".t(ucwords($value))." ";
+      $output.=" $extra_parameters/><label for=\"{$name}_{$key}\">".t(ucwords($value))."</label> ";
     }
+    $output .= "</div>";
     return $output;
   }
   

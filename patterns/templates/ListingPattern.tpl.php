@@ -57,8 +57,8 @@
           '__page_number' => "replace_with_page_number",
           '__page_size' => $Vars->page_size,
         );
-      $url = Helper::createSelfUrl($parameters, TRUE);
-      $string .= createComboBox(range(1, $Vars->pages), 'page_number', $Vars->page_number,"onchange=\"javascript:change_page(this, '".htmlspecialchars($url)."');\"");
+      $url = HelperPattern::createSelfUrl($parameters, TRUE);
+      $string .= HelperPattern::createComboBox(range(1, $Vars->pages), 'page_number', $Vars->page_number,"onchange=\"javascript:change_page(this, '".htmlspecialchars($url)."');\"");
       
       if($Vars->page_number != $Vars->pages - 1) {
         $parameters = array(
@@ -75,7 +75,7 @@
           '__page_number' => $Vars->page_number,
           '__page_size' => 'replace_with_page_size',
         );
-      $url = Helper::createSelfUrl($parameters, TRUE);
+      $url = HelperPattern::createSelfUrl($parameters, TRUE);
       //$string .= t('Items per Page').": ";
       $page_sizes = array(
           '20' => '20',
@@ -83,7 +83,7 @@
           '100' => '100',
           '200' => '200'
         );
-      $string .= createComboBox($page_sizes, 'page_size', $Vars->page_size,"onchange=\"javascript:change_page_size(this, '".htmlspecialchars($url)."');\"");
+      $string .= HelperPattern::createComboBox($page_sizes, 'page_size', $Vars->page_size,"onchange=\"javascript:change_page_size(this, '".htmlspecialchars($url)."');\"");
       
       echo $string;
       echo "</div>\n";

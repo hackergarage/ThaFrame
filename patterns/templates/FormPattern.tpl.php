@@ -41,9 +41,6 @@
       }
     } elseif ($Properties->type != 'hidden') {
       switch($Properties->type){//For PreLabels
-        case "date":
-          echo "<label for=\"{$field}_year\">".t($Properties->label).":</label> ";
-          break;
         case "radio":
           echo "<label>".t($Properties->label).":</label> ";
           break;
@@ -51,12 +48,9 @@
           echo "<label for=\"$field\">".t($Properties->label).":</label> ";
       }
       if ($Properties->help_text){
-        switch($Properties->type){//For help text following the label
-          case "textarea":
-            echo "<span class=\"input_help\">".t($Properties->help_text).".</span>";
-            break;
-        }
+        echo "<span class=\"input_help\">".t($Properties->help_text).".</span>";
       }
+      echo "<br/>";
       $readonly = ($Properties->disabled == 'true')?'readonly="readonly"':'';
       switch ($Properties->type) {
         case "select":
@@ -89,7 +83,7 @@
         case "password":
           echo "<input type=\"password\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
           if ( $Properties->repeat && empty($readonly)) {
-            echo "<br/>\n<label for=\"{$field}_repeat\">" . t('Repeat the %1%', t($Properties->label) ) . ":</label> ";
+            echo "<br/>\n<label for=\"{$field}_repeat\">" . t('Repeat the %1%', t($Properties->label) ) . ":</label><br/>";
             echo "<input type=\"password\" name=\"{$field}_repeat\" id=\"{$field}_repeat\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
           }
           break;
@@ -97,16 +91,12 @@
           echo "<input type=\"file\" name=\"$field\" id=\"$field\" $input_parameters $readonly/>";
           break;
         default:
-          echo "<input type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+          if ( $Properties->size > 45 ) {
+            echo "<input size=\"99\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+          } else {
+            echo "<input size=\"45\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+          }
           break;
-      }
-      if ($Properties->help_text){
-        switch($Properties->type){//For help text following the field
-          case "textarea":
-            break;
-          default:
-            echo " <span class=\"input_help\">".t($Properties->help_text).".</span>";
-        }
       }
       if ( count($Properties->actions) ){
         foreach ( $Properties->actions  AS $action) {

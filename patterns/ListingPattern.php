@@ -496,5 +496,76 @@ EOT;
   public function getQuery(){
     return $this->_sql;
   }
+  
+/**
+   * Loads information from a config file
+   * 
+   * $config_name maps to TO_ROOT/configs/models/{class_name}_{config_name}.ini by default
+   * 
+   * @param string $config_name 
+   * @param boolean $use_class_name selects if the class_name prefix should be added.
+   */
+  public function loadConfig($config_name='default') {
+    $DbConnection = DbConnection::getInstance();
+    
+    $file_name = TO_ROOT."/configs/models/{$config_name}_list.ini";
+    
+    if(!file_exists($file_name)){
+      Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
+      return false;
+    }
+    $config = parse_ini_file($file_name, true);
+    
+    if( isset($config['__general']['page_name']) ) {
+      $this->setPageName($config['__general']['page_name']); 
+    }
+    unset($config['__general']);
+    
+    if( isset($config['__query']['sql']) ) {
+      $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
+      $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
+    }
+    unset($config['__set_query']);
+    
+    if( isset($config['__pattern']) ) {
+      foreach($config['__pattern'] AS $field=>$value) {
+        $this->setPatternVariable($field, $value);
+      }
+    }
+    unset($config['__pattern']);
+    
+    if( isset($config['__commands']['hide']) ) {
+      foreach($config['__commands']['hide'] AS $hide) {
+        $this->hideField($hide);
+      }
+    }
+    unset($config['__commands']);
+    
+    foreach($config AS $field => $properties){
+      if ( strpos($field, ':')!==false ) {
+        list($field, $action) = explode(':', $field);
+        if ( $field=='__generalAction' ) {
+          $this->AddGeneralAction($properties['action'], $properties['title'], $properties['field'], $properties['value'], $properties['icon'], $properties['ajax']);
+        } else {
+          if($action == 'action') {
+            $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+          } else if($action == 'link') {
+            $this->addLink($field, $properties['value'], $properties['action']);
+          }
+        }
+      } else {
+        foreach($properties AS $property => $value) {
+          if ($property=='format') {
+            $this->setFormat($field, $value);
+          } else if($property=='name') {
+            $this->setName($field, $value);
+          } else if($property=='class') {
+            $this->setClass($field, $value);
+          }
+        }
+      }
+    }
+    return true;
+  }
 }
 ?>

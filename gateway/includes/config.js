@@ -35,6 +35,8 @@ function BasicConfig() {
 		showButtonPanel: true
 	});
 	
+	
+	
 	$("#overlay").dialog({
 		autoOpen: false,
 		width: 700,
@@ -42,8 +44,12 @@ function BasicConfig() {
 		resizable: true,
 		title: $('#overlay h3').attr('innerHTML')
 	});
+	
 	$( "input:submit, input:button,  ul.action a").button();
-		
+
+	$(".__radio").buttonset();
+
+	
 	//Behaviors
 	$("form:not(.filter) :input:visible:enabled:first").focus();
 	
@@ -55,7 +61,6 @@ function BasicConfig() {
     	
 	})
 
-	
 };
 
 $(document).ready(function(){
