@@ -1,84 +1,42 @@
 <?php
-
-
 class TablePattern Extends TemplatePattern
 {
   /**
    * Holds all the raw data that will be listed
    * @var array
    */
-  private $rows    = array();
+  private $_rows    = array();
    
   /**
    * Holds the field names that will form the table header
    * @var array
    */
-  private $fields  = array();
+  private $_fields  = array();
   
   /**
    * Holds the links that will be embedded into some fields
    * @var array
    */
-  private $links   = array();
+  private $_links   = array();
   
   /**
    * Holds the links that will be added in the last column
    * @var array
    */
-  private $actions = array();
+  private $_actions = array();
   
   /**
    * Holds the prefix that'll be used to create an unique id for every row
    * @var string
    */
-  private $prefix  = '';
+  private $_prefix  = '';
   
   /**
    * Points to the field that will be used to create the unique id
    * @var string
    */
-  private $row_id  = '';
-  
-  /**
-   * Holds actions that will be rendered at begining or/and end of the list
-   * actions that belong to the paga, and not to a specific row
-   * @var array
-   */
-  private $general_actions   = array();
-  
-  /**
-   * Holds filter options and configuration
-   * @var array
-   */
-  private $filters   = array();
-  
-  /**
-   * Stores if the page should be paginated
-   *
-   * @var boolean
-   */
-  private $paginate = false;
-  
-  /**
-   * Holds the number of elements for each page
-   *
-   * @var integer
-   */
-  private $page_size = 20;
-  
-  /**
-   * Which page to show
-   *
-   * @var integer
-   */
-  private $page_number = 0;
-  /**
-   * Number of pages
-   *
-   * @var integer
-   */
-  private $pages = 0;
-  
+  private $_row_id  = '';
+    
   public function __construct($template = '')
   {
     if ( empty($template) ) {
@@ -94,7 +52,7 @@ class TablePattern Extends TemplatePattern
       $DbConnection = DbConnection::getInstance();
     }
     if ($paginate) {
-      $this->paginate = true;
+      $this->_paginate = true;
       
       //Get a Grip of the whole thing
       $sql_without_conditions = str_replace('{conditions}','',$sql);
@@ -102,36 +60,36 @@ class TablePattern Extends TemplatePattern
       $total_rows = $DbConnection->getOneValue($count_sql);
       
       //Create some basic pattern variables
-      $this->page_number = (empty($_GET['__page_number']))?'0':$_GET['__page_number'];
-      $this->page_size = (empty($_GET['__page_size']))?25:$_GET['__page_size'];
-      $this->pages = ceil($total_rows/$this->page_size);
+      $this->_page_number = (empty($_GET['__page_number']))?'0':$_GET['__page_number'];
+      $this->_page_size = (empty($_GET['__page_size']))?25:$_GET['__page_size'];
+      $this->_pages = ceil($total_rows/$this->page_size);
       
-      if($this->page_number > $this->pages){
-        $this->page_number = $this->pages-1;
+      if($this->_page_number > $this->pages){
+        $this->_page_number = $this->pages-1;
       }
       
       //Reformat the query to use MySQL Limit clause
-      $page_start = $this->page_number * $this->page_size;
+      $page_start = $this->_page_number * $this->page_size;
       $sql = "$sql
-            LIMIT $page_start, $this->page_size";
+            LIMIT $page_start, $this->_page_size";
       
-      $this->setPatternVariable('paginate', $this->paginate);
-      $this->setPatternVariable('page_number', $this->page_number);
-      $this->setPatternVariable('page_size',$this->page_size);
-      $this->setPatternVariable('pages', $this->pages);
+      $this->setPatternVariable('paginate', $this->_paginate);
+      $this->setPatternVariable('page_number', $this->_page_number);
+      $this->setPatternVariable('page_size',$this->_page_size);
+      $this->setPatternVariable('pages', $this->_pages);
     }
     
     $conditions = '';
-    if ( count($this->filters) ) {
+    if ( count($this->_filters) ) {
       
-      foreach($this->filters AS $field => $filter) {
+      foreach($this->_filters AS $field => $filter) {
         $Filter = (object)$filter;
         if($Filter->type=='custom') {
           //echo "Checking for filter on '$field'\n";
           if( isset($_GET[$field]) ) {
             $selected = stripslashes($_GET[$field]);
           } else {
-            $selected = $this->filters[$field]['default'];
+            $selected = $this->_filters[$field]['default'];
           }
           //echo "Selected:$selected\n";
           foreach($Filter->options AS $option){
@@ -140,7 +98,7 @@ class TablePattern Extends TemplatePattern
                 //echo "Match!, condition added '{$option['condition']}'\n\n";
                 $conditions .= "\nAND ";
                 $conditions .= $option['condition'];
-                $this->filters[$field]['selected']= $selected;
+                $this->_filters[$field]['selected']= $selected;
             }
           }
         } else if($Filter->type=='hidden') {
@@ -171,8 +129,8 @@ class TablePattern Extends TemplatePattern
    */
   public function setRowId($prefix, $field )
   {
-    $this->prefix = $prefix;
-    $this->row_id = $field;
+    $this->_prefix = $prefix;
+    $this->_row_id = $field;
   }
   
   /**
@@ -186,17 +144,17 @@ class TablePattern Extends TemplatePattern
    */
   public function setName($field, $name)
   {
-    if ( isset($this->fields[$field]) ) {
-      $this->fields[$field] = $name;
+    if ( isset($this->_fields[$field]) ) {
+      $this->_fields[$field] = $name;
     }
   }
   
   public function setFormat($field, $function)
   {
-    if( function_exists($function) && is_array($this->rows) ) {
-      for($i=0; $i<count($this->rows); $i++)
+    if( function_exists($function) && is_array($this->_rows) ) {
+      for($i=0; $i<count($this->_rows); $i++)
       {
-        $this->rows[$i][$field]=$function($this->rows[$i][$field]);
+        $this->_rows[$i][$field]=$function($this->_rows[$i][$field]);
       }
     }
   }
@@ -211,7 +169,7 @@ class TablePattern Extends TemplatePattern
    */
   public function hideField($field)
   {
-    unset( $this->fields[$field] );
+    unset( $this->_fields[$field] );
   }
   
   /**
@@ -229,7 +187,7 @@ class TablePattern Extends TemplatePattern
         'action'  => $action ,
         'title'   => $title
       );
-    $this->links[$field] = $aux;
+    $this->_links[$field] = $aux;
   }
   
   /**
@@ -259,7 +217,7 @@ class TablePattern Extends TemplatePattern
       }
       $aux['value'] = $values;
     }
-    $this->actions[] = $aux;
+    $this->_actions[] = $aux;
   }
   
   /**
@@ -281,7 +239,7 @@ class TablePattern Extends TemplatePattern
         'icon'    => $icon,
         'ajax'    => $ajax,
       );
-    $this->general_actions[] = $aux;
+    $this->_general_actions[] = $aux;
   }
   
 
@@ -301,7 +259,7 @@ class TablePattern Extends TemplatePattern
         'empty' => $empty,
         'options' => array()
     );
-    $this->filters[$field] = $aux;
+    $this->_filters[$field] = $aux;
   }
   
   public function addHiddenFilter($field, $value, $condition)
@@ -311,7 +269,7 @@ class TablePattern Extends TemplatePattern
         'value' => $value,
         'condition' => $condition
     );
-    $this->filters[$field] = $aux;
+    $this->_filters[$field] = $aux;
   }
   
   /**
@@ -331,9 +289,9 @@ class TablePattern Extends TemplatePattern
         'condition' => $condition,
     );
     if($default) {
-      $this->filters[$field]['default']= $value;
+      $this->_filters[$field]['default']= $value;
     }
-    $this->filters[$field]['options'][] = $aux;
+    $this->_filters[$field]['options'][] = $aux;
   }
   
   public function addFilterOptions($field, $values, $condition)
@@ -357,31 +315,102 @@ class TablePattern Extends TemplatePattern
    * @return void
    */
   private function setRows($rows) {
-    $this->rows = $rows;
+    $this->_rows = $rows;
     if ( $rows ) {
       $fields_names = array_keys($rows[0]);
       foreach($fields_names AS $field_name)
       {
-        $this->fields[$field_name] = ucwords(str_replace('_', ' ',$field_name));
+        $this->_fields[$field_name] = ucwords(str_replace('_', ' ',$field_name));
       }
     }
   }
-  
+    
   /**
    * Display the selected template with the given data and customization
    * @return void
    */
   public function getAsString()
   {
-    $this->assign('rows'    , $this->rows);
-    $this->assign('fields'  , $this->fields);
-    $this->assign('links'   , $this->links);
-    $this->assign('actions' , $this->actions);
-    $this->assign('prefix'  , $this->prefix);
-    $this->assign('row_id'  , $this->row_id);
-    $this->assign('filters' , $this->filters);
-    $this->assign('general_actions' , $this->general_actions);
+    $this->assign('__rows'    , $this->_rows);
+    $this->assign('__fields'  , $this->_fields);
+    $this->assign('__links'   , $this->_links);
+    $this->assign('__actions' , $this->_actions);
+    $this->assign('__prefix'  , $this->_prefix);
+    $this->assign('__row_id'  , $this->_row_id);
+    $this->assign('__filters' , $this->_filters);
+    $this->assign('__general_actions' , $this->_general_actions);
 
     return parent::getAsString();
+  }
+  
+  /**
+   * Loads information from a config file
+   * 
+   * $config_name maps to TO_ROOT/configs/models/{class_name}_{config_name}.ini by default
+   * 
+   * @param string $config_name 
+   * @param boolean $use_class_name selects if the class_name prefix should be added.
+   */
+  public function loadConfig($config_name='default') {
+    $DbConnection = DbConnection::getInstance();
+    
+    $file_name = TO_ROOT."/configs/models/{$config_name}_list.ini";
+    
+    if(!file_exists($file_name)){
+      Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
+      return false;
+    }
+    $config = parse_ini_file($file_name, true);
+    
+    if( isset($config['__general']['page_name']) ) {
+      $this->setPageName($config['__general']['page_name']); 
+    }
+    unset($config['__general']);
+    
+    if( isset($config['__query']['sql']) ) {
+      $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
+      $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
+    }
+    unset($config['__set_query']);
+    
+    if( isset($config['__pattern']) ) {
+      foreach($config['__pattern'] AS $field=>$value) {
+        $this->setPatternVariable($field, $value);
+      }
+    }
+    unset($config['__pattern']);
+    
+    if( isset($config['__commands']['hide']) ) {
+      foreach($config['__commands']['hide'] AS $hide) {
+        $this->hideField($hide);
+      }
+    }
+    unset($config['__commands']);
+    
+    foreach($config AS $field => $properties){
+      if ( strpos($field, ':')!==false ) {
+        list($field, $action) = explode(':', $field);
+        if ( $field=='__generalAction' ) {
+          $this->AddGeneralAction($properties['action'], $properties['title'], $properties['field'], $properties['value'], $properties['icon'], $properties['ajax']);
+        } else {
+          if($action == 'action') {
+            $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+          } else if($action == 'link') {
+            $this->addLink($field, $properties['value'], $properties['action']);
+          }
+        }
+      } else {
+        foreach($properties AS $property => $value) {
+          if ($property=='format') {
+            $this->setFormat($field, $value);
+          } else if($property=='name') {
+            $this->setName($field, $value);
+          } else if($property=='class') {
+            $this->setClass($field, $value);
+          }
+        }
+      }
+    }
+    return true;
   }
 }

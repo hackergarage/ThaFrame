@@ -1,6 +1,6 @@
 <?php
-  $Vars = $Data->PatternVariables;
-  foreach($Data->_javascripts as $javascript) {
+  $Vars = $__PatternVariables;
+  foreach($__javascripts as $javascript) {
     echo "<script type=\"text/javascript\">$javascript</script>";
   }
   if($Vars->form_title){
@@ -10,14 +10,14 @@
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
   
-  if( $Data->type== 'single') {
-    echo "<form action=\"$Data->action\" method=\"$Data->method\" id=\"$Data->form_id\" name=\"$Data->form_id\" >\n";
+  if( $__type== 'single') {
+    echo "<form action=\"$__action\" method=\"$__method\" id=\"$__form_id\" name=\"$__form_id\" >\n";
   } else {
-    echo "<form action=\"$Data->action\" method=\"$Data->method\" enctype=\"multipart/form-data\" id=\"$Data->form_id\" name=\"$Data->form_id\">\n";
+    echo "<form action=\"$__action\" method=\"$__method\" enctype=\"multipart/form-data\" id=\"$__form_id\" name=\"$__form_id\">\n";
   }
   echo "<p>\n";
   
-  foreach($Data->fields as $field=>$properties){
+  foreach($__fields as $field => $properties){
     $Properties = (object) $properties;
     $input_parameters = "";
     if ( count($Properties->input_parameters) ) {
@@ -30,7 +30,7 @@
       echo "</p>\n\n<div class=\"dependent\" id=\"{$field}_dependent\" style=\"display:none\">\n";
     }
     if ($Properties->parent) {
-      $input_parameters .= " onchange=\"update".str_replace(' ', '',ucwords(str_replace('_', ' ', $Data->form_id)))."Dependents();\"";
+      $input_parameters .= " onchange=\"update".str_replace(' ', '',ucwords(str_replace('_', ' ', $__form_id)))."Dependents();\"";
     }
     
     if ($Properties->type == 'splitter') {
@@ -103,7 +103,7 @@
           $action=(object)$action;
           $action->icon = $Helper->createFrameLink($action->icon, TRUE, TRUE);
           if($action->ajax) {
-            echo " <a href=\"javascript:void(xajax_$action->action(xajax.getFormValues('$Data->form_id')));\" class=\"input_action\" title=\"".t($action->title)."\"><img src=\"$action->icon\" alt=\"".t($action->title)."\"/></a>";
+            echo " <a href=\"javascript:void(xajax_$action->action(xajax.getFormValues('$__form_id')));\" class=\"input_action\" title=\"".t($action->title)."\"><img src=\"$action->icon\" alt=\"".t($action->title)."\"/></a>";
           } else {
             echo " <a href=\"$action->action\" class=\"input_action\" title=\"".t($action->title)."\"><img src=\"$action->icon\" alt=\"".t($action->title)."\"/></a>";
           }
@@ -123,9 +123,9 @@
     echo "<p>".t($Vars->after_text)."</p>\n";
   }
   
-  if ( !empty($Data->general_actions) ) {
+  if ( !empty($__general_actions) ) {
     echo "<ul class=\"action\">";
-    foreach ( $Data->general_actions as $action)
+    foreach ( $__general_actions as $action)
     {
       echo "<li>";
       $action = (object)$action;
@@ -140,7 +140,7 @@
         }
         echo "</a> ";
       } else {
-        echo "<a href=\"javascript:void(xajax_{$action->action}(xajax.getFormValues('$Data->form_id')));\" title=\"$action->title\">";
+        echo "<a href=\"javascript:void(xajax_{$action->action}(xajax.getFormValues('$__form_id')));\" title=\"$action->title\">";
         if ( !$action->icon ) {
           echo "{$action->title}";
         } else {
@@ -154,8 +154,8 @@
   }
   ?>
 
-<?php if( count($Data->dependents) ) { ?>
+<?php if( count($__dependents) ) { ?>
   <script type="text/javascript">
-  <?="update".str_replace(' ', '',ucwords(str_replace('_', ' ', $Data->form_id)))."Dependents();"?>
+  <?="update".str_replace(' ', '',ucwords(str_replace('_', ' ', $__form_id)))."Dependents();"?>
   </script>
 <?php } ?>

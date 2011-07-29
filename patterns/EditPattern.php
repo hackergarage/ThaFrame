@@ -7,9 +7,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-require_once THAFRAME . "/patterns/Page.inc.php";
-require_once THAFRAME . "/models/Row.inc.php";
-
 /**
 * Provides a {@link Page} that shows a form to edit a {@link Row}
  *

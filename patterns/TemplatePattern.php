@@ -1,6 +1,6 @@
 <?php
 /**
- * Holds {@link Page} class
+ * Holds {@link TemplatePattern} class
  * @package ThaFrame
  * @author Argel Arias <levhita@gmail.com>
  * @copyright Copyright (c) 2007, Argel Arias <levhita@gmail.com>
@@ -16,33 +16,32 @@ class TemplatePattern
    * Holds the variables to be passed to the template as $Data object
    * @var array
    */
-  protected $variables = array();
+  protected $_variables = array();
   
   /**
    * Holds the javascripts that should be added at the head section
    * @var array
    */
-  protected $javascripts = array();
+  protected $_javascripts = array();
   
   /**
    * Holds the relative path to the template
    * @var string
    */
-  protected $template = '';
+  protected $_template = '';
   
   /**
    * Variables that belongs only to this pattern, used to customize the text and
    * appareance of the page
    * @var array
    */
-  protected $pattern_variables = array();
+  protected $_pattern_variables = array();
   
   public function __construct($template='')
   {
     if ( empty($template) ) {
       $template = $this->getScriptName();
     }
-
     $this->setTemplate($template);
   }
 
@@ -53,7 +52,7 @@ class TemplatePattern
    */
   public function addJavascript($javascript)
   {
-    $this->javascripts[] = $javascript;
+    $this->_javascripts[] = $javascript;
   }
   
   /**
@@ -68,15 +67,15 @@ class TemplatePattern
   public function setTemplate($template, $fullpath = false)
   {
     if ( !$fullpath) {
-      $this->template = "templates/$template.tpl.php";
+      $this->_template = "templates/$template.tpl.php";
     } else {
-      $this->template = $template;
+      $this->_template = $template;
     }
   }
   
   public function assign($variable, $value)
   {
-    $this->variables[$variable] = $value;
+    $this->_variables[$variable] = $value;
   }
   
   public function getScriptName(){
@@ -92,7 +91,7 @@ class TemplatePattern
    * @return void
    */
   public function setPatternVariable($variable, $value)  {
-    $this->pattern_variables[$variable] = $value;
+    $this->_pattern_variables[$variable] = $value;
   }
   
   /**
@@ -104,27 +103,35 @@ class TemplatePattern
    */
   public function getAsString()
   {
-    if ( !file_exists($this->template) ) {
-      throw new InvalidArgumentException("'$this->template' doesn't exists");
+    if ( !file_exists($this->_template) ) {
+      throw new InvalidArgumentException("template '$this->_template' doesn't exists");
     }
     
-    $this->assign('PatternVariables', (object)$this->pattern_variables);
-    $this->assign('_javascripts', $this->javascripts);
+    $this->assign('__PatternVariables', (object)$this->_pattern_variables);
+    $this->assign('__javascripts', $this->_javascripts);
     
-    /**
-     * Convert all variables into an object 
-     * @todo Backwards Compatibility Remove Before Release
-     * **/
-    $Data = (object)$this->variables;
+    return self::runTemplate($this->_template, $this->_variables);
+  }
+  
+  /**
+   * Run the Template in the cleanest enviroment posible
+   * @param string $template
+   * @param array $data
+   * @return string
+   */
+  protected static function runTemplate($_template_, $_data_) {
+    $Helper = new HelperPattern((object)$_data_);
+    extract($_data_);
     
-    /** This object actually helps to do a variety of things inside templates
-     * @var Helper
-     * @todo remove in favor of Helper::getInstance();
-     */
-    $Helper = new HelperPattern(get_defined_vars());
+    if ( !file_exists($_template_) ) {
+      throw new InvalidArgumentException("template '$_template_' doesn't exists");
+    }
     
     ob_start();
-      include $this->template;
-    return ob_get_clean();
+      include $_template_;
+      $_content_ = ob_get_contents();
+    ob_end_clean();
+
+    return $_content_;
   }
 }

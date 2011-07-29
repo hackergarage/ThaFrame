@@ -16,26 +16,8 @@ define('GOTO_MESSAGE_SUCCESS', 'success');
  * Provide basic template system and http some http functionality
  * @package ThaFrame
  */
-class PagePattern
+class PagePattern extends TemplatePattern
 {
-  /**
-   * Holds the variables to be passed to the template as $Data object
-   * @var array
-   */
-  protected $_variables = array();
-
-  /**
-   * Holds the javascripts that should be added at the head section
-   * @var array
-   */
-  protected $_javascripts = array();
-
-  /**
-   * Holds the relative path to the template
-   * @var string
-   */
-  protected $_template = '';
-
   /**
    * Holds the relative path to the layout
    * @var string
@@ -83,16 +65,11 @@ class PagePattern
 
   public function __construct($page_name='', $template='', $layout='')
   {
-    if( empty($template) ){
-      $template = $this->getScriptName();
-    }
-
+    parent::__construct($template);
+    
     $this->setPageName($page_name);
-    $this->setTemplate($template);
     $this->setLayout($layout);
   }
-
-
 
   /**
    * Jumps to the given url, sending a message.
@@ -108,34 +85,6 @@ class PagePattern
     }
     header("location: $url");
     die();
-  }
-
-  public function getScriptName(){
-    return basename($_SERVER['SCRIPT_FILENAME'], '.php');
-  }
-
-
-  public function assign($variable, $value)
-  {
-    $this->_variables[$variable] = $value;
-  }
-
-  /**
-   * Sets the template file to be used.
-   *
-   * Take for granted that the file is under the relative path "templates/" and
-   * has a "tpl.php" extension, unless you set $fullpath to true
-   * @param string  $template The name of the template to be used
-   * @param bool    $fullpath overrides the naming convention and allows you to set any file
-   * @return void
-   */
-  public function setTemplate($template, $fullpath = false)
-  {
-    if (!$fullpath) {
-      $this->_template = "templates/$template.tpl.php";
-    } else {
-      $this->_template = $template;
-    }
   }
 
   /**
@@ -215,16 +164,6 @@ class PagePattern
   }
 
   /**
-   * Adds a javascript that will be added in the head section
-   * @param string $javascript the javascript code
-   * @return void
-   */
-  public function addJavascript($javascript)
-  {
-    $this->_javascripts[] = $javascript;
-  }
-  
-  /**
    * Adds a html header that will be added in the <head> section
    * @param string $html_header the header code
    * @return void
@@ -234,15 +173,14 @@ class PagePattern
     $this->_html_headers[] = $html_header;
   }
 
-
   /**
    * Shows the given template
    *
    * Converts the $variables array into $Data object and sets any message that may
    * be in the $_SESSION and finally calls the given template
-   * @return void
+   * @return string
    */
-  public function display()
+  public function display($as_string = false)
   {
 
     if( isset($_SESSION['__message_text']) ) {
@@ -296,51 +234,25 @@ class PagePattern
         $this->setLayout(THAFRAME. '/subtemplates/default_layout.tpl.php', TRUE);
       }
     }
+    
 
-    $this->assign('PatternVariables', (object)$this->_pattern_variables);
-    $this->assign('__javascripts', $this->_javascripts);
     $this->assign('__html_headers', $this->_html_headers);
     $this->assign('__main_menu_template', $this->_main_menu_template);
     $this->assign('__secondary_menu_template', $this->_secondary_menu_template);
     $this->assign('__on_load', $this->_on_load);
     
-    $Data = (object)$this->_variables; // @todo: Backwards compatibility remove before release
-    extract($this->_variables);
+    $this->_variables['_content_'] = $this->getAsString();
     
-    /**
-     * This object helps to do a variety of things inside templates
-     * @var Helper
-     */
-    $Helper = new HelperPattern($Data);
-
-    $_content_ = self::runTemplate($this->_template, $this->_variables);
-
     /** Send the headers **/
     foreach($this->_headers AS $header => $value)
     {
       header("$header: $value");
     }
 
-    /** Include it in the Layout **/
-    include $this->_layout;
-  }
-
-  /**
-   * Run the Template in the cleanest enviroment posible
-   * @param unknown_type $template
-   * @param unknown_type $data
-   * @return unknown_type
-   */
-  private static function runTemplate($_template_, $_data_) {
-    $Data = (object)$_data_; /// @todo Backwards Compatibility Remove Before Release
-    extract($_data_);
-    $Helper = new HelperPattern(get_defined_vars());
-
-    ob_start();
-      include $_template_;
-      $_content_ = ob_get_contents();
-    ob_end_clean();
-
-    return $_content_;
+    $output = self::runTemplate($this->_layout, $this->_variables); 
+    if($as_string) {
+      return $output;
+    }
+    echo $output; 
   }
 }

@@ -1,15 +1,9 @@
 <?php
-class FormPattern Extends TemplatePattern
+class FormPattern Extends FieldListPattern
 {
-  
-  /**
-   * This is the Row to be edited
-   * @var RowModel
-   */
-  private $Row    = null;
    
   /**
-   * Holds the field's configuration structure
+   * field's configuration structure
    *
    * fields['name'] {
    *   + label: The label.
@@ -24,76 +18,38 @@ class FormPattern Extends TemplatePattern
    * }
    * @var array
    */
-  private $fields  = array();
-  
-  /**
-  * Holds the number of fields that this {@link Edit} has
-   * @var int
-   */
-  private $no_fields = 0;
-  
-  /**
-   * Holds actions that will be rendered at begining or/and end of the form
-   * @var array
-   */
-  private $general_actions = array();
+  protected $_fields  = array();
   
   /**
    * Holds dependents information
    * @var array
    */
-  private $dependents = array();
+  private $_dependents = array();
   
   /**
    * Defaults to Single but can be changes to multipart with setType
    * @var $type string
    */
-  private $type='single';
+  private $_type='single';
   
-  private $action='';
+  private $_action='';
   
-  private $method='post';
+  private $_method='post';
   
   /**
   * Holds conditions information
    * @var array
    */
-  private $conditions = array();
+  private $_conditions = array();
   
   /**
-   * The id of the form, {@link Edit} forms id are 'main_form' by hardcoded
-   * this one is 'secondary_form'.
+   * The id of the form, {@link Edit} forms id are hardcoded as 'main_form'
+   * this one is 'secondary_form' by default.
    * @var string
    */
-  private $form_id = "secondary_form";
+  private $_form_id = "secondary_form";
   
-  
-  /**
-   * Construct a {@link Edit} page
-   * @param string $page_name the page name to be shown
-   * @param string $template by default it uses Edit.tpl.php
-   * @return Edit
-   */
-  public function __construct($template='')
-  {
-    if ( empty($template) ) {
-      $this->setTemplate(THAFRAME . '/patterns/templates/FormPattern.tpl.php', true);
-    } else {
-      $this->setTemplate($template);
-    }
-  }
-  
-  public function setType($type) {
-    $this->type=$type;
-  }
-  
-  public function setAction($action) {
-    $this->action=$action;
-  }
-  
-  public function setMethod($method) {
-    $this->method=$method;
-  }
+  protected $_default_template = '/patterns/templates/FormPattern.tpl.php';
   
   /**
    * Loads information from a config file
@@ -124,7 +80,6 @@ class FormPattern Extends TemplatePattern
     }
     if( isset($config['__general']['action']) ) {
       $this->setAction($config['__general']['action']); 
-      
     }
     if( isset($config['__general']['type']) ) {
       $this->setType($config['__general']['type']); 
@@ -199,45 +154,22 @@ class FormPattern Extends TemplatePattern
     }
     return true;
   }
+    
   /**
-   * Adds an action link at the end of the field
-   * @param string $value The field that will serve as the value (ie item_id)
-   * @param string $action The action to be performed, can be xajax or an URL
-   * @param string $title The title of the link
-   * @param string $icon An optional icon, if not provided a regular link is created
-   * @param bool   $ajax Tells if the action is xajax or a regular URL
-   * @return void
-   * @todo create a multiple parameter action creator
-   */
-  public function addAction($field, $action, $title, $icon='', $ajax=true)
-  {
-    $aux = array (
-        'action'  => $action ,
-        'title'   => $title,
-        'icon'    => $icon,
-        'ajax'    => $ajax,
-      );
-    $this->fields[$field]['actions'][] = $aux;
-  }
-  
-  /**
-   * Set the Row Object to be edited
+   * Parse table structure into template friendly data *
    *
-   * @param  Row $Row the Row to be edited
    * @return void
    */
-  public function setRow(RowModel $Row) {
-    $this->Row = $Row;
-    $this->no_fields = 0;
+  public function parseStructure() {
     
     /** Parse table structure into template friendly data **/
-    $structure = $Row->getStructure();
+    $structure = $this->_Row->getStructure();
     foreach($structure AS $field)
     {
       $aux = array();
       $name = $field['Field'];
       $aux['label'] = ucwords(str_replace('_', ' ', $name));
-      $aux['value'] = (isset($Row->data[$name]))?$Row->data[$name]:$field['Default'];
+      $aux['value'] = (isset($this->_Row->data[$name]))?$this->_Row->data[$name]:$field['Default'];
          
       $this->no_fields++;
       /**
@@ -304,197 +236,12 @@ class FormPattern Extends TemplatePattern
           $aux['parameters']['options']= $options;
           break;
       }
-      $this->fields[$name] = $aux;
+      $this->_fields[$name] = $aux;
     }
   }
-  
-  /**
-   * Moves the given field to the start of the form
-   * @param string $field the field to be moved
-   * @return bool true in success and false otherwise
-   */
-  public function moveToStart($field)
-  {
-    if ( isset($this->fields[$field]) ) {
-      $aux = array ( $field => $this->fields[$field] );
-      unset($this->fields[$field]);
-      $this->fields = $aux + $this->fields;
-      return true;
-    }
-    return false;
-  }
-  
-  /**
-   * Moves the given field to the end of the form
-   * @param string $field the field to be moved
-   * @return bool true in success and false otherwise
-   */
-  public function moveToEnd($field)
-  {
-    if ( isset($this->fields[$field]) ) {
-      $aux = array ( $field => $this->fields[$field] );
-      unset($this->fields[$field]);
-      $this->fields = $this->fields + $aux;
-      return true;
-    }
-    return false;
-  }
-  
-  /**
-   * Moves the given field before another field
-   * @param string $field The field to move
-   * @param string $before_field The field before the $field will be located
-   * @return bool true on success and false otherwise
-   */
-  public function moveBefore($field, $before_field)
-  {
-    if ( isset($this->fields[$field]) ) {
-      $field_data = $this->fields[$field];
-      unset($this->fields[$field]);
-      return $this->insertField($field, $field_data, $before_field, 'before');
-    }
-    return false;
-  }
-  
-  /**
-   * Moves the given field before another field
-   * @param string $field The field to move
-   * @param string $after_field The field after the $field will be located
-   * @return bool true on success and false otherwise
-   */
-  public function moveAfter($field, $after_field)
-  {
-    if ( isset($this->fields[$field]) ) {
-      $field_data = $this->fields[$field];
-      unset($this->fields[$field]);
-      return $this->insertField($field, $field_data, $after_field, 'after');
-    }
-    return false;
-  }
-  
-  /**
-   * Set as dependent of certain field condition a set of fields.
-   * @param string $field The field wich they depend.
-   * @param string $condition JavaScript valid condition.
-   * @param string $value The value that must match(javascript).
-   * @param string $dependents Comma separated list of fields that depend on
-   *                           this field value.
-   * @return bool true on success and false otherwise.
-   */
-  public function setFieldDependents($field, $condition, $value, $dependents)
-  {
-    $aux = array();
-    $aux['condition'] = $condition;
-    $aux['value']     = $value;
     
-    /** Transverse comma separated values into an Array **/
-    $aux['dependents'] = array_reverse( array_map('trim', explode(',', $dependents) ) );
-    
-    /** Locate the dependents after their parent field **/
-    foreach ( $aux['dependents'] AS $dependent )
-    {
-      if( !$this->moveAfter($dependent, $field) ){
-        return false;
-      }
-      $this->setFieldProperty($dependent, 'dependent', true);
-    }
-    
-    $this->setFieldProperty($field, 'parent', true);
-    
-    $this->dependents[$field]['all_fields'] = array_unique(array_merge((array)$this->dependents[$field]['all_fields'] , $aux['dependents']));
-    $this->dependents[$field]['conditions'][] = $aux;
-    
-    return true;
-  }
-  
   /**
-   * Insert a Field after or before the given target
-   * @param string $field_name How will be named the field
-   * @param array $field_data a complete field array
-   * @param string $target The name of the field after or before we'll
-   *                       insert the new field.
-   * @param string $position 'after' or 'before', Default: 'after'
-   * @return bool true on success false otherwise
-   */
-  public function insertField($field_name, $field_data, $target, $position='after')
-  {
-    $success = false;
-    /** there is no easy way to insert an element into an array, so we need to
-    recreate it, inserting the field when we detect the $target **/
-    $new_fields = array();
-    reset($this->fields);
-    while (list($key, $value) = each($this->fields) ) {
-      if($position=='after') {
-        $new_fields[$key] = $value;
-      }
-      if ( $key === $target) {
-        if ( $field_name!='' ) {
-          $new_fields[$field_name] = $field_data;
-        } else {
-          $new_fields[] = $field_data;
-        }
-        $success = true;
-      }
-      if($position=='before') {
-        $new_fields[$key] = $value;
-      }
-    }
-    $this->fields = $new_fields;
-    
-    return $success;
-  }
-  
-  public function setFieldOrder($fields)
-  {
-    $fields = explode(',', $fields);
-    $fields = array_map('trim', $fields);
-    if ( count($fields)!=$this->no_fields) {
-      throw new LogicException("The number of fields doesn't match the ones in the Row, you are missing some fields");
-    }
-    $new_fields= array();
-    foreach($fields as $field)
-    {
-      if ( !isset($this->fields[$field]) ) {
-        throw new LogicException("The given field '$field' doesn't exist");
-      }
-      $new_fields[$field] =$this->fields[$field];
-    }
-    $this->fields = $new_fields;
-  }
-  
-  /**
-   * Inserts an splitter (with optional content) at the given position.
-   * @param string $target The field after the separator will be created
-   * @param string $content The content that will be inside the splitter
-   * @param string $position 'after' or 'before', Default: 'after'
-   * @return bool true on success false otherwise
-   */
-  public function insertSplitter($target, $content='', $position='after', $name='')
-  {
-    $aux= array('type' => 'splitter', 'content' => $content);
-    return $this->insertField("{$name}_splitter", $aux, $target, $position);
-  }
-  
-  /**
-   * Sets the given field's property
-   * 
-   * General values which apply for all field types
-   * @param string $field help_text, label, type, etc..
-   * @param string $property
-   * @param mixed $value
-   * @return bool true on success false otherwise
-   */
-  public function setFieldProperty($field, $property, $value)
-  {
-    if ( isset($this->fields[$field]) ) {
-      $this->fields[$field][$property] = $value;
-      return true;
-    }
-    return false;
-  }
-  
-  /**
-   * Sets the given field's parameter
+   * Sets the given field's parameter specific for the given type of the field
    * 
    * Parameters are values specific for the given type of the field
    * @param string $field
@@ -528,8 +275,7 @@ class FormPattern Extends TemplatePattern
     }
     return false;
   }
-  
-    
+     
   /**
    * Unsets the given field's input parameter
    * @param string $field
@@ -542,20 +288,6 @@ class FormPattern Extends TemplatePattern
   }
   
   /**
-   * Sets the name of a field as will be show in the Label
-   *
-   * If not customized this name is created by replacing underscores with espaces
-   * and capitalizing each word in the field name.
-   * @param string $field the field where the name will be changed
-   * @param string $name the new name
-   * @return bool true on success false otherwise
-   */
-  public function setName($field, $name)
-  {
-    return $this->setFieldProperty($field, 'label', $name);
-  }
-  
-  /**
    * Sets a help text that will be put besides the field
    *
    * @param string $field the field where the help text will be added
@@ -565,35 +297,6 @@ class FormPattern Extends TemplatePattern
   public function setHelpText($field, $help_text)
   {
     return $this->setFieldProperty($field, 'help_text', $help_text);
-  }
-  
-  /**
-   * Sets the field as hidden
-   *
-   * Commonly used with the row id.
-   * To really delete the field from the Form use {@link deleteField}.
-   * @param string $field the name of the field to hide
-   * @return bool true on success false otherwise
-   */
-  public function hideField($field)
-  {
-    return $this->setFieldProperty($field, 'type', 'hidden');
-  }
-  
-  /**
-   * Deletes a field from the Form
-   *
-   * If you only wish to hide a field use {@link hideField}
-   * @param string $field the name of the field to be deleted
-   * @return void
-   */
-  public function deleteField($field) {
-    if ( isset($this->fields[$field]) ) {
-      unset( $this->fields[$field] );
-      $this->no_fields--;
-      return true;
-    }
-    return false;
   }
   
   public function setAsLinked($field, $table_name, DbConnection $DbConnection=null, $table_id='', $name_field='', $condition='')
@@ -634,29 +337,42 @@ class FormPattern Extends TemplatePattern
   }
   
   /**
-   * Add an action to the end & start of the Form, commonly used to add a
-   * "Delete" link
-   *
-   * @param string $action The action that will be called after clicking (url)
-   * @param string $title The text to show and will be added to the url title as well
-   * @param string $field The field to add into de URL
-   * @param string $value The value that such field should take usally 0 for new elements
-   * @param string $icon  The optional icon that could go with the text
-   * @return void
+   * Set as dependent of certain field condition a set of fields.
+   * @param string $field The field wich they depend.
+   * @param string $condition JavaScript valid condition.
+   * @param string $value The value that must match(javascript).
+   * @param string $dependents Comma separated list of fields that depend on
+   *                           this field value.
+   * @return bool true on success and false otherwise.
    */
-  public function AddGeneralAction($action, $title, $icon='', $ajax=false)
+  public function setFieldDependents($field, $condition, $value, $dependents)
   {
-    $aux = array (
-        'action'  => $action,
-        'title'   => $title,
-        'icon'    => $icon,
-        'ajax'    => $ajax,
-      );
-    $this->general_actions[] = $aux;
+    $aux = array();
+    $aux['condition'] = $condition;
+    $aux['value']     = $value;
+    
+    /** Transverse comma separated values into an Array **/
+    $aux['dependents'] = array_reverse( array_map('trim', explode(',', $dependents) ) );
+    
+    /** Locate the dependents after their parent field **/
+    foreach ( $aux['dependents'] AS $dependent )
+    {
+      if( !$this->moveAfter($dependent, $field) ){
+        return false;
+      }
+      $this->setFieldProperty($dependent, 'dependent', true);
+    }
+    
+    $this->setFieldProperty($field, 'parent', true);
+    
+    $this->dependents[$field]['all_fields'] = array_unique(array_merge((array)$this->dependents[$field]['all_fields'] , $aux['dependents']));
+    $this->dependents[$field]['conditions'][] = $aux;
+    
+    return true;
   }
   
   /**
-   * Creates the javascript that powers the depedent engine
+   * Creates the javascript that powers the dependent engine
    * @return string the code that should be added to the template using {@link addJavascript()}
    */
   public function createDependentJavascript($run_update=False)
@@ -722,10 +438,6 @@ class FormPattern Extends TemplatePattern
     return $code ;
   }
   
-  public function disableField($field)
-  {
-    return $this->setFieldProperty($field, 'disabled', 'true');
-  }
   /**
    * Gives an unique id to the html's form markup
    * @param string $form_id
@@ -735,24 +447,28 @@ class FormPattern Extends TemplatePattern
     $this->form_id = $form_id;
   }
 
+  public function setType($type) {
+    $this->type=$type;
+  }
+  
+  public function setAction($action) {
+    $this->action=$action;
+  }
+  
+  public function setMethod($method) {
+    $this->method=$method;
+  }
   /**
    * Display the selected template with the given data and customization
    * @return void
    */
   public function getAsString() {
-    $this->assign('data'      , $this->Row->data);
-    $this->assign('dependents', $this->dependents);
+    $this->assign('__dependents', $this->_dependents);
+    $this->assign('__form_id',         $this->_form_id);
+    $this->assign('__action',          $this->_action);
+    $this->assign('__type',            $this->_type);
+    $this->assign('__method',          $this->_method);
     
-    $this->assign('fields'    , $this->fields);
-    $this->assign('actions'     , $this->actions);
-
-    $this->assign('general_actions', $this->general_actions);
-    $this->assign('form_id',         $this->form_id);
-    $this->assign('action',          $this->action);
-    $this->assign('type',            $this->type);
-    $this->assign('method',          $this->method);
-    //$this->assign('links'     , $this->links);    
-    //$this->addJavascript($this->createDependentJavascript());
     return parent::getAsString();
   }
 }

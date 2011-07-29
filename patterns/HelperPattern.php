@@ -13,11 +13,11 @@ class HelperPattern {
    * Data from the Page;
    * @var object
    */
-  protected $Data;
+  protected $_Data;
   
-  public function __construct(&$Data)
+  public function __construct($Data)
   {
-    $this->Data = $Data;
+    $this->_Data = $Data;
   }
   
   /*
@@ -34,7 +34,7 @@ class HelperPattern {
         $vars["__sub_$field"] = $value;
       } 
     }
-    $Data   = $this->Data;
+    $Data   = $this->_Data;
     $Helper = $this;
     if (!$fullpath) {
       if ( file_exists(TO_ROOT . "/subtemplates/$template.tpl.php") ) {

@@ -7,10 +7,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-require_once THAFRAME . "/patterns/Page.inc.php";
-require_once THAFRAME . "/patterns/Form.inc.php";
-require_once THAFRAME . "/patterns/Detail.inc.php";
-require_once THAFRAME . "/patterns/Table.inc.php";
 
 /**
  * Provides a {@link Page} that shows a {@link Form} to edit a {@link Row} with an
@@ -18,32 +14,38 @@ require_once THAFRAME . "/patterns/Table.inc.php";
  *
  * @package ThaFrame
  */
-class ManyToMany extends Page
+class ManyToManyPattern extends PagePattern
 {
   /**
    * Tha Form
-   * @var Form
+   * @var FormPattern
    */
-  private $Form    = null;
+  private $_Form    = null;
+  
+    /**
+   * Tha MainRow
+   * @var RowModel
+   */
+  private $_Row    = null;
   
   /**
    * Tha Detail
-   * @var Detail
+   * @var DetailPattern
    */
-  private $Detail    = null;
+  private $_Detail    = null;
   
   /**
    * Tha Table
-   * @var Table
+   * @var TablePattern
    */
-  private $Table    = null;
+  private $_Table    = null;
   
   /**
    * Holds actions that will be rendered at begining or/and end of the list
    * actions that belong to the paga, and not to a specific row
    * @var array
    */
-  private $general_actions   = array();
+  private $_general_actions   = array();
   
   /**
    * Construct a {@link ManyToMany} page
@@ -61,15 +63,28 @@ class ManyToMany extends Page
     $this->assign('page_name', $page_name);
   }
   
-  public function setTable(Table $Table) {
-    $this->Table = $Table;
+  public function setTable(TablePattern $Table) {
+    $this->_Table = $Table;
   }
   
-  public function setForm(Form $Form){
-    $this->Form = $Form;
+  public function setForm(FormPattern $Form){
+    $this->_Form = $Form;
   }
   
-  public function setDetail(Detail $Detail){
+  public function setRow(RowModel $Row) {
+    $this->_Row = $Row;
+    $this->_Form = new FormPattern();
+    $this->_Form->setRow($Row);
+    
+    $this->_Detail = new DetailPattern();
+    $this->_Detail->setRow();
+  }
+  
+  public function loadFormConfig($config_name='default', $use_class_name = true) {
+    $this->Form->loadConfig($config, $use_class_name);
+  }
+  
+  public function setDetail(DetailPattern $Detail){
     $this->Detail = $Detail;
   }
   
@@ -84,7 +99,7 @@ class ManyToMany extends Page
    * @param string $icon  Tn optional icon that could go with the text
    * @return void
    */
-  public function addGeneralAction($action, $title, $field='', $value='', $icon='')
+  /*public function addGeneralAction($action, $title, $field='', $value='', $icon='')
   {
     $aux = array (
         'action'  => $action ,
@@ -94,7 +109,7 @@ class ManyToMany extends Page
         'icon'    => $icon,
       );
     $this->general_actions[] = $aux;
-  }
+  }*/
   
   /**
    * Display the selected template with the given data and customization

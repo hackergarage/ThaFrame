@@ -497,7 +497,7 @@ EOT;
     return $this->_sql;
   }
   
-/**
+  /**
    * Loads information from a config file
    * 
    * $config_name maps to TO_ROOT/configs/models/{class_name}_{config_name}.ini by default
