@@ -15,7 +15,7 @@ class DetailPattern Extends FieldListPattern
    */
   protected $_fields  = array();
   
-  protected $_default_template = '/patterns/templates/Detail.tpl.php';
+  protected $_default_template = '/patterns/templates/DetailPattern.tpl.php';
   
   /**
    * Parse table structure into template friendly data

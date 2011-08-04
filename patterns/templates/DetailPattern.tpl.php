@@ -1,15 +1,15 @@
 <?php
-  $Vars = $Data->PatternVariables;
+  $Vars = $__PatternVariables;
   
   if($Vars->form_title){
-    echo "<h3>".t($Vars->form_title)."</h3>";
+    echo "<h3>".t($Vars->title)."</h3>";
   }
   if ($Vars->before_text) {
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
   echo "<ul>";  
   
-  foreach($Data->fields as $field=>$properties){
+  foreach($__fields as $field=>$properties){
     $Properties = (object) $properties;
     if ($properties->type != 'separator') {
       echo "<li><strong>".t($Properties->label).":</strong> ";

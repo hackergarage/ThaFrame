@@ -1,5 +1,5 @@
 <?php
-  $Vars = $Data->PatternVariables;
+  $Vars = $__PatternVariables;
   
   if($Vars->form_title){
     echo "<h3>".t($Vars->form_title)."</h3>";
@@ -7,10 +7,10 @@
   if ($Vars->before_text) {
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
-  if ($Vars->paginate && $Data->rows) {
+  if ($Vars->paginate && $__rows) {
       echo "\n\n<div id=\"pagination\">\n";
       $string = '';
-      //$string .= t('Page Number').": ";
+      //$string .= t('Page Number  ').": ";
       if($Vars->page_number != 0) {
         $parameters = array(
             '__page_number' => $Vars->page_number-1,
@@ -57,12 +57,12 @@
       echo $string;
       echo "</div>\n";
     }
-    if ( !empty($Data->filters)) {
-      //echo "<pre>".htmlentities(print_r($Data->filters,1))."</pre>";
+    if ( !empty($__filters)) {
+      //echo "<pre>".htmlentities(print_r($__filters,1))."</pre>";
       
       echo "<form name='filters' method='get' action='' class='list_filters'><div>\n<strong>".t('Filter'). " &gt;&gt;</strong>\n";
       
-      foreach($Data->filters AS $field => $filter){
+      foreach($__filters AS $field => $filter){
         $Filter = (object)$filter;
         if($Filter->type=='custom'){
           echo $Filter->label.": ";
@@ -81,35 +81,30 @@
       echo "</div></form>";
       
    }
-    if ( $Data->rows ) {
+    if ( $__rows ) {
       echo "\n<table>\n";
       echo "<tr>";
-      foreach($Data->fields as $field_title)
+      foreach($__fields as $field_title)
       {
         echo "<th>" . t($field_title) . "</th>";
       }
-      if ( count($Data->actions) ) {
+      if ( count($__actions) ) {
         echo "<th class=\"action\">".t('Actions')."</th>";
       }
       echo "</tr>\n";
       $count=0;
-      foreach($Data->rows AS $row)
+      foreach($__rows AS $row)
       {
-        if ( ($count % 2) == 1 ){
-          $class="odd";
-        } else {
-          $class="even";
-        }
-        echo "<tr class=\"$class\"";
-        if($Data->prefix)
-          echo " id=\"{$Data->prefix}_{$row[$Data->row_id]}\" ";
+        echo "<tr";
+        if($__prefix)
+          echo " id=\"{$__prefix}_{$row[$__row_id]}\" ";
         echo ">";
         $count++;
-        foreach($Data->fields as $field => $field_title)
+        foreach($__fields as $field => $field_title)
         {
           
-          if( isset($Data->links[$field]) ) {
-            $link = (object)$Data->links[$field];
+          if( isset($__links[$field]) ) {
+            $link = (object)$__links[$field];
             if(strpos($link->action,'?') === FALSE) {
               echo "<td><a href=\"$link->action?$link->value={$row[$link->value]}\" title=\"$link->title\">".htmlspecialchars($row[$field])."</a></td>";
             } else {
@@ -120,9 +115,9 @@
           }
           
         }
-        if ( !empty($Data->actions) ) {
+        if ( !empty($__actions) ) {
           echo "<td class=\"action\">";
-          foreach ( $Data->actions as $action)
+          foreach ( $__actions as $action)
           {
             $action = (object)$action;
             $action->title = t($action->title);
@@ -196,9 +191,9 @@
       echo "\n<p>$Vars->after_text</p>\n";
     }
     
-    if ( !empty($Data->general_actions) ) {
+    if ( !empty($__general_actions) ) {
     echo "<ul class=\"action\">";
-    foreach ( $Data->general_actions as $action)
+    foreach ( $__general_actions as $action)
     {
       echo "<li>";
       $action = (object)$action;

@@ -1,17 +1,17 @@
-<?php
-  $Vars = $Data->PatternVariables;
-    
-    echo "<div id=\"many_to_many_detail\">\n";
-    echo $Data->Detail->getAsString();
-    echo "</div>";
+<? $Vars = $__PatternVariables; ?>
+   
+    <div id="many_to_many_detail">
+      <?=($__mode==MTM_MODE_EDIT_ROW)?$__Form->getAsString():$__Detail->getAsString();?>
+    </div>
        
-    if ($Vars->before_text) {
-      echo "<p>".t($Vars->before_text)."</p>\n";
-    }
+    <?if($Vars->before_text):?>
+      <p><?=t($Vars->before_text)?></p>
+    <?endif;?>
     
-    if ( !empty($Data->general_actions) ) {
+    <?php
+    if ( !empty($__general_actions) ) {
       echo "<ul class=\"action\">";
-      foreach ( $Data->general_actions as $action)
+      foreach ( $__general_actions as $action)
       {
         $action = (object)$action;
         $action->title = t($action->title);
@@ -35,11 +35,14 @@
        }
       echo "</ul>\n";
     }
+    ?>
     
-    echo "<div id=\"many_to_many_table\">";
-    echo $Data->Table->getAsString();
-    echo "</div>";
+    <div id="many_to_many_table">
+      <?if( $__mode== MTM_MODE_EDIT_TABLE ):?>
+        <? $__Table->getAsString();?>
+      <?endif;?>
+    </div>
     
-    if ($Vars->after_text) {
-      echo "\n<p>$Vars->after_text</p>\n";
-    }
+    <?if($Vars->after_text):?>
+      <p><?=t($Vars->after_text)?></p>
+    <?endif;?>

@@ -39,7 +39,6 @@ class FieldListPattern extends TemplatePattern
   public function setRow(RowModel $Row){
     $this->_Row = $Row;
     $this->_no_fields = 0;
-    
     $this->parseStructure();
   } 
   
@@ -173,6 +172,19 @@ class FieldListPattern extends TemplatePattern
   {
     $aux= array('type' => 'separator', 'content' => $content);
     return $this->insertField("{$name}_splitter", $aux, $target, $position);
+  }
+  
+  /**
+   * Sets the field as hidden
+   *
+   * Commonly used with the row id.
+   * To really delete the field from the Form use {@link deleteField}.
+   * @param string $field the name of the field to hide
+   * @return bool true on success false otherwise
+   */
+  public function hideField($field)
+  {
+    return $this->setFieldProperty($field, 'type', 'hidden');
   }
   
   /**

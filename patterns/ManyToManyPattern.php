@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Holds {@link ManyToMany} class
  * @author Argel Arias <levhita@gmail.com>
@@ -7,6 +7,8 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
+define('MTM_MODE_EDIT_TABLE', 1);
+define('MTM_MODE_EDIT_ROW'  , 2);
 
 /**
  * Provides a {@link Page} that shows a {@link Form} to edit a {@link Row} with an
@@ -20,7 +22,7 @@ class ManyToManyPattern extends PagePattern
    * Tha Form
    * @var FormPattern
    */
-  private $_Form    = null;
+  //private $_Form    = null;
   
     /**
    * Tha MainRow
@@ -29,16 +31,21 @@ class ManyToManyPattern extends PagePattern
   private $_Row    = null;
   
   /**
+   * @var integer
+   */
+  private $_mode = MTM_MODE_EDIT_TABLE;
+  
+  /**
    * Tha Detail
    * @var DetailPattern
    */
-  private $_Detail    = null;
+  public $_Detail    = null;
   
   /**
    * Tha Table
    * @var TablePattern
    */
-  private $_Table    = null;
+  public $_Table    = null;
   
   /**
    * Holds actions that will be rendered at begining or/and end of the list
@@ -56,7 +63,7 @@ class ManyToManyPattern extends PagePattern
   public function __construct($page_name, $template='')
   {
     if ( empty($template) ) {
-      $this->setTemplate(THAFRAME . '/patterns/templates/ManyToMany.tpl.php', true);
+      $this->setTemplate(THAFRAME . '/patterns/templates/ManyToManyPattern.tpl.php', true);
     } else {
       $this->setTemplate($template);
     }
@@ -66,26 +73,25 @@ class ManyToManyPattern extends PagePattern
   public function setTable(TablePattern $Table) {
     $this->_Table = $Table;
   }
-  
-  public function setForm(FormPattern $Form){
-    $this->_Form = $Form;
+  public function setMode($mode) {
+    $this->_mode = $mode;
   }
+  /*public function setForm(FormPattern $Form){
+    $this->_Form = $Form;
+  }*/
   
   public function setRow(RowModel $Row) {
     $this->_Row = $Row;
+    
     $this->_Form = new FormPattern();
     $this->_Form->setRow($Row);
     
     $this->_Detail = new DetailPattern();
-    $this->_Detail->setRow();
-  }
-  
-  public function loadFormConfig($config_name='default', $use_class_name = true) {
-    $this->Form->loadConfig($config, $use_class_name);
+    $this->_Detail->setRow($Row);
   }
   
   public function setDetail(DetailPattern $Detail){
-    $this->Detail = $Detail;
+    $this->_Detail = $Detail;
   }
   
   /**
@@ -116,10 +122,12 @@ class ManyToManyPattern extends PagePattern
    * @return void
    */
   public function display() {
-    $this->assign('Form' , $this->Form);
-    $this->assign('Detail' , $this->Detail);
-    $this->assign('Table' , $this->Table);
-    $this->assign('general_actions' , $this->general_actions);
+    $this->assign('__mode', $this->_mode);
+    $this->assign('__Form' , $this->_Form);
+    $this->assign('__Detail' , $this->_Detail);
+    $this->assign('__Table' , $this->_Table);
+    $this->assign('__general_actions' , $this->_general_actions);
+    
     parent::display();
   }
   

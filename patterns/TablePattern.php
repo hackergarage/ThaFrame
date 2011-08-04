@@ -116,6 +116,7 @@ class TablePattern Extends TemplatePattern
     
     $rows = $DbConnection->getAllRows($sql);
     $this->setRows($rows);
+    echo $sql;
   }
   
   /**

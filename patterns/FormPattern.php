@@ -251,8 +251,8 @@ class FormPattern Extends FieldListPattern
    */
   public function setFieldParameter($field, $parameter, $value)
   {
-    if ( isset($this->fields[$field]) ) {
-      $this->fields[$field]['parameters'][$parameter] = $value;
+    if ( isset($this->_fields[$field]) ) {
+      $this->_fields[$field]['parameters'][$parameter] = $value;
       return true;
     }
     return false;
@@ -269,8 +269,8 @@ class FormPattern Extends FieldListPattern
    */
   public function setFieldInputParameter($field, $input_parameter, $value)
   {
-    if ( isset($this->fields[$field]) ) {
-      $this->fields[$field]['input_parameters'][$input_parameter] = $value;
+    if ( isset($this->_fields[$field]) ) {
+      $this->_fields[$field]['input_parameters'][$input_parameter] = $value;
       return true;
     }
     return false;
@@ -284,7 +284,7 @@ class FormPattern Extends FieldListPattern
    */
   public function unsetFieldInputParameter($field, $input_parameter)
   {
-    unset($this->fields[$field]['input_parameters'][$input_parameter]);
+    unset($this->_fields[$field]['input_parameters'][$input_parameter]);
   }
   
   /**
@@ -321,9 +321,8 @@ class FormPattern Extends FieldListPattern
             FROM $table_name
             WHERE $condition
             ORDER BY $name_field";
-    
     if ( !$options = $DbConnection->getArrayPair($sql) ) {
-      $options=array();
+      $options = array();
     }
     
     $this->setFieldProperty($field, 'type', 'select');
@@ -365,8 +364,8 @@ class FormPattern Extends FieldListPattern
     
     $this->setFieldProperty($field, 'parent', true);
     
-    $this->dependents[$field]['all_fields'] = array_unique(array_merge((array)$this->dependents[$field]['all_fields'] , $aux['dependents']));
-    $this->dependents[$field]['conditions'][] = $aux;
+    $this->_dependents[$field]['all_fields'] = array_unique(array_merge((array)$this->_dependents[$field]['all_fields'] , $aux['dependents']));
+    $this->_dependents[$field]['conditions'][] = $aux;
     
     return true;
   }
@@ -378,22 +377,22 @@ class FormPattern Extends FieldListPattern
   public function createDependentJavascript($run_update=False)
   {
     $code = false;
-    if( count($this->dependents) ) {
+    if( count($this->_dependents) ) {
       
-      $code .= "\n  function update".str_replace(' ', '',ucwords(str_replace('_', ' ', $this->form_id)))."Dependents()\n  {";
+      $code .= "\n  function update".str_replace(' ', '',ucwords(str_replace('_', ' ', $this->_form_id)))."Dependents()\n  {";
       
       foreach($this->dependents as $field => $parameters)
       {
-        switch( $this->fields[$field]['type'])
+        switch( $this->_fields[$field]['type'])
         {
           case 'select':
-            $get_value_string = "valSelect(document.forms['{$this->form_id}'].$field)";
+            $get_value_string = "valSelect(document.forms['{$this->_form_id}'].$field)";
             break;
           case 'radio':
-            $get_value_string = "valRadioButton(document.forms['{$this->form_id}'].$field)";
+            $get_value_string = "valRadioButton(document.forms['{$this->_form_id}'].$field)";
             break;
           default:
-            $get_value_string = "document.forms['{$this->form_id}'].$field.value";
+            $get_value_string = "document.forms['{$this->_form_id}'].$field.value";
         }
         
         $code .= "\n    field_value = $get_value_string;\n";
@@ -444,19 +443,19 @@ class FormPattern Extends FieldListPattern
    * @return void
    */
   public function setFormId($form_id){
-    $this->form_id = $form_id;
+    $this->_form_id = $form_id;
   }
 
   public function setType($type) {
-    $this->type=$type;
+    $this->_type=$type;
   }
   
   public function setAction($action) {
-    $this->action=$action;
+    $this->_action=$action;
   }
   
   public function setMethod($method) {
-    $this->method=$method;
+    $this->_method=$method;
   }
   /**
    * Display the selected template with the given data and customization
@@ -464,10 +463,10 @@ class FormPattern Extends FieldListPattern
    */
   public function getAsString() {
     $this->assign('__dependents', $this->_dependents);
-    $this->assign('__form_id',         $this->_form_id);
-    $this->assign('__action',          $this->_action);
-    $this->assign('__type',            $this->_type);
-    $this->assign('__method',          $this->_method);
+    $this->assign('__form_id',    $this->_form_id);
+    $this->assign('__action',     $this->_action);
+    $this->assign('__type',       $this->_type);
+    $this->assign('__method',     $this->_method);
     
     return parent::getAsString();
   }
