@@ -63,7 +63,7 @@ class FormPattern Extends FieldListPattern
     $DbConnection = DbConnection::getInstance();
     
     if($use_class_name) {
-      $prefix = strtolower(get_class($this->Row));
+      $prefix = strtolower(get_class($this->_Row));
       $file_name = TO_ROOT."/configs/models/{$prefix}_{$config_name}.ini";
     } else {
       $file_name = TO_ROOT."/configs/models/{$config_name}.ini";

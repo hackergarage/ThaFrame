@@ -74,6 +74,11 @@ class FieldListPattern extends TemplatePattern
     return false;
   }
   
+  public function disableField($field)
+  {
+    return $this->setFieldProperty($field, 'disabled', 'true');
+  }
+  
   /**
    * Moves the given field before another field
    * @param string $field The field to move
