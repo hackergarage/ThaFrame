@@ -3,7 +3,7 @@ class FieldListPattern extends TemplatePattern
 {
   /**
    * Holds the Row to be used
-   * @var Row
+   * @var RowModel
    */
   protected $_Row = '';
   
@@ -144,7 +144,6 @@ class FieldListPattern extends TemplatePattern
       }
     }
     $this->_fields = $new_fields;
-    
     return $success;
   }
   
@@ -249,7 +248,7 @@ class FieldListPattern extends TemplatePattern
    * @param string $icon  The optional icon that could go with the text
    * @return void
    */
-  public function AddGeneralAction($action, $title, $icon='', $ajax=false)
+  public function AddGeneralAction($name, $action, $title, $icon='', $ajax=false)
   {
     $aux = array (
         'action'  => $action,
@@ -257,7 +256,7 @@ class FieldListPattern extends TemplatePattern
         'icon'    => $icon,
         'ajax'    => $ajax,
       );
-    $this->_general_actions[] = $aux;
+    $this->_general_actions[$name] = $aux;
   }
   
   /**
@@ -278,7 +277,7 @@ class FieldListPattern extends TemplatePattern
         'icon'    => $icon,
         'ajax'    => $ajax,
       );
-    $this->fields[$field]['actions'][] = $aux;
+    $this->_fields[$field]['actions'][] = $aux;
   }
   
   public function getAsString(){

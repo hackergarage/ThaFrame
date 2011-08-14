@@ -33,6 +33,7 @@ class Utils {
     }
     return false;
   }
+
   
   public static function cleanToDbBinary($value, DbConnection $DbConnection = null)
   {

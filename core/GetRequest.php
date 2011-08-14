@@ -41,7 +41,7 @@ class GetRequest {
   
   /**
    * Get a single instance of the class (Singleton)
-   * @return Request
+   * @return GetRequest
    */
   public static function getInstance() {
     if (!self::$__instance instanceof self) {
@@ -66,4 +66,12 @@ class GetRequest {
   public function getRequestUri(){
     return $this->_request_uri;
   }
+  
+  public function zeroParameter($field){
+    if( isset($_GET[$field]) && !empty($_GET[$field]) ) {
+      return $_GET[$field];
+    }
+    return 0;
+  }
+  
 }

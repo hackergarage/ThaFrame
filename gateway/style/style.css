@@ -157,10 +157,6 @@ body {
 	background: white;
 }
 
-#content form:hover {
-	background: #eeeeff;
-}
-
 #content form p {
 	margin: 0px;
 }

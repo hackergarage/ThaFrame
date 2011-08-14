@@ -64,19 +64,21 @@ class FormPattern Extends FieldListPattern
     
     if($use_class_name) {
       $prefix = strtolower(get_class($this->_Row));
-      $file_name = TO_ROOT."/configs/models/{$prefix}_{$config_name}.ini";
+      $file_name = TO_ROOT."/configs/models/{$prefix}_{$config_name}.yaml";
     } else {
-      $file_name = TO_ROOT."/configs/models/{$config_name}.ini";
+      $file_name = TO_ROOT."/configs/models/{$config_name}.yaml";
     }
     if(!file_exists($file_name)){
       Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
-    $config = parse_ini_file($file_name, true);
-    
+    //$config = ConfigParser::parse_ini_adv($file_name, true);
+    include  THAFRAME . "/vendors/spyc/spyc.php";
+    $config = Spyc::YAMLLoad($file_name);
+    var_dump($config);
+    die();
     if( isset($config['__general']['form_id']) ) {
       $this->setFormId($config['__general']['form_id']); 
-      
     }
     if( isset($config['__general']['action']) ) {
       $this->setAction($config['__general']['action']); 
@@ -89,37 +91,34 @@ class FormPattern Extends FieldListPattern
     }
     unset($config['__general']);
   
-    if( isset($config['__pattern']) ) {
-      foreach($config['__pattern'] AS $field=>$value) {
-        $this->setPatternVariable($field, $value);
+    if( isset($config['__pattern:add']) ) {
+      if ($this->_Row->getId()==0) {
+        foreach($config['__pattern:add'] AS $field=>$value) {
+          $this->setPatternVariable($field, $value);
+        }
       }
     }
-    unset($config['__pattern']);
+    unset($config['__pattern:add']);
     
-    if( isset($config['__commands']['delete']) ) {
-      foreach($config['__commands']['delete'] AS $delete) {
-        $this->deleteField($delete);
+    if( isset($config['__pattern:edit']) ) {
+      if ($this->_Row->getId()!=0) {
+        foreach($config['__pattern:edit'] AS $field=>$value) {
+          $this->setPatternVariable($field, $value);
+        }
       }
     }
-    if( isset($config['__commands']['hide']) ) {
-      foreach($config['__commands']['hide'] AS $hide) {
-        $this->hideField($hide);
-      }
-    }
-    if( isset($config['__commands']['disable']) ) {
-      foreach($config['__commands']['disable'] AS $disable) {
-        $this->disableField($disable);
-      }
-    }
+    unset($config['__pattern:edit']);
+    
+    $commands = $config['__commands'];
     unset($config['__commands']);
     
     foreach($config AS $field => $properties){
       
-      if ( strpos($field, ':')!==false ) {
+      if ( strpos($field, ':') !== false ) {
         list($field, $action) = explode(':', $field);
         
         if ( $field=='__generalAction' ) {
-          $this->AddGeneralAction($properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+          $this->AddGeneralAction($action, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
         } else {
          if  ($action == 'parameters') {
             foreach($properties AS $parameter => $value) {
@@ -147,9 +146,27 @@ class FormPattern Extends FieldListPattern
           }
         }
       } else {
-        foreach($properties AS $property => $value) {
-        $this->setFieldProperty($field, $property, $value);
-        }
+       if(is_array($properties)) {
+         foreach($properties AS $property => $value) {
+           $this->setFieldProperty($field, $property, $value);
+         }
+       }
+      }
+    }
+    
+    if( isset($commands['delete']) ) {
+      foreach($commands['delete'] AS $delete) {
+        $this->deleteField($delete);
+      }
+    }
+    if( isset($commands['hide']) ) {
+      foreach($commands['hide'] AS $hide) {
+        $this->hideField($hide);
+      }
+    }
+    if( isset($commands['disable']) ) {
+      foreach($commands['disable'] AS $disable) {
+        $this->disableField($disable);
       }
     }
     return true;

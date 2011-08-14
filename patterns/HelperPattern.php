@@ -63,7 +63,6 @@ class HelperPattern {
     $Config = Config::getInstance();
     $string = '';
     if ($absolute_path){
-      
       if( file_exists(TO_ROOT . PUBLIC_DIR . "/$filename") ) {
         $string = $Config->system_web_root. "/$filename";
       } else {
