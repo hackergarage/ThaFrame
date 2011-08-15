@@ -1,6 +1,6 @@
 <?php
-
-define("SHOW_DEBUG",0);
+require_once(THAFRAME."/vendors/spyc/spyc.php");
+define("SHOW_DEBUG",1);
 if(!defined('TO_ROOT'))
 	define('TO_ROOT', '..');	
 
@@ -10,6 +10,9 @@ class ConfigParser {
   
   public static $__imports  = array();
   public static $__vars     = array();
+  public static $__keys     = array();
+  public static $__stringvars     = array();
+  
   
   /**
    *
@@ -25,6 +28,87 @@ class ConfigParser {
   	else 
   		var_dump($str);
   	}
+  }
+  
+  
+    /**
+   * Advandced Parse Yaml
+   *
+   * @param FILE $file
+   * @param boolean $sections
+   * @return array
+   */
+  public static function parse_yaml_adv($file)
+  {
+  	$args=func_get_args();
+  	
+  	if(isset(self::$__imports[$file]))
+  		return self::$__imports[$file];
+  	$dir=pathinfo($file,PATHINFO_DIRNAME);
+  	if(isset($args[2]))
+  		$dir=$args[2]."/".$dir;  	
+  		
+  	$res=null;
+  	$x= preg_match("/^(.*)[\\.](yaml)(.*)/",pathinfo($file,PATHINFO_BASENAME),$res);
+	$file_x=$file;
+  	if($x && is_array($res) && count($res)>2)
+  		{
+  		$file_x=$dir."/".$res[1].".".$res[2];
+  		}
+  	self::debug("[".__LINE__."] \t loading: ".$file_x);
+  	if(file_exists($file_x))
+  		{  		
+  		self::debug("[".__LINE__."] \t parsing: ".$file);
+  		self::$__imports[$file_x] = Spyc::YAMLLoad($file_x);
+  		}
+  	else 
+  		{
+  		self::debug("[".__LINE__."] \t not found: ".$file);  		
+  		}
+  	
+  	if(self::$__imports[$file_x] && is_array(self::$__imports[$file_x]))
+  		{
+  		if(isset($res[3]) && isset(self::$__imports[$file_x][str_replace(array("<",">"),"",$res[3])]))  		
+  			$array =&self::$__imports[$file_x][str_replace(array("<",">"),"",$res[3])];
+  		
+  		else 
+  			$array =&self::$__imports[$file_x];
+  		
+  		foreach($array as $k=>&$value)
+  			{
+  			$typo=gettype($value);
+  			if($typo=='array' && strpos($k,'_import')===0)
+  				{
+  				array_walk($value,"ConfigParser::parse_yaml_adv",$dir);
+  				}
+  			else 
+	  			{
+	  			switch ($typo)
+	  				{
+	  					//case 'array':
+	  							
+	  						//	break;
+	  					case 'string':
+	  					default:
+	  							self::$__vars[$k]=$value;
+	  							break;
+	  				}
+	  			}
+  			}
+  		}  	
+  	return self::$__imports;
+  }
+  public static function ismport($type,&$value)
+  {
+  	switch ($type)
+  	{
+  		case 'ini':
+  			return  (isset($value) && is_array($value));
+  	/*	case 'yaml':
+  			return  (isset(self::$__imports[$file][__commands]) && is_array(self::$__imports[$file][__commands]));
+  		*/	
+  	}
+  	return false;
   }
   /**
    * Advandced Parse Ini 
@@ -50,7 +134,7 @@ class ConfigParser {
   	
   	if(self::$__imports[$file] && is_array(self::$__imports[$file]))
   		{
-  		if(isset(self::$__imports[$file][__commands]) && is_array(self::$__imports[$file][__commands]))
+  		if(self::ismport('ini',self::$__imports[$file][__commands]))
   			{
   			$m=count(self::$__imports[$file][__commands]);
   			for($i=0;$i<$m&&isset(self::$__imports[$file][__commands][$i]);$i++)
@@ -59,9 +143,9 @@ class ConfigParser {
   				$str_import=strstr(self::$__imports[$file][__commands][$i],"import:");
   				if($str_import && strpos(self::$__imports[$file][__commands][$i],"import:")===0)	
   					{
-  					
-  					$x= preg_match("/^(.*)[\.](ini)(.*)/",substr($str_import,7),$res);
-  					if(count($res)==4 && $res[2]==='ini' && !isset(self::$__imports[$res[0]]))
+  					$res=null;
+  					$x= preg_match("/^(.*)\\.(ini)(.*)/",substr($str_import,7),$res);
+  					if($x && count($res)==4 && $res[2]==='ini' && !isset(self::$__imports[$res[0]]))
   						{			
   						$new_include=$res[1].".".$res[2];
   				
@@ -105,34 +189,63 @@ class ConfigParser {
   }
   
   public static function remplaza_mesta(&$item,$key)
-  {
-  	global $__vars,$keys;
+  {  	
+  	
   	if(is_string($item))
-  		$item=str_replace($keys,$__vars,$item);
+  		{
+  		$old_item=$item;
+  		self::debug(__FUNCTION__."[$item]");
+  		$item=str_replace(self::$__keys,self::$__stringvars,$item);
+  		if($old_item!==$item)
+  			{
+  			self::debug($key." replaced : ".$item);
+  			}
+  		}
   	return $item;
   }
   
-  public static function limpia_mesta($a)
+  public static function limpia_mesta(&$a)
   {
   	return $a;
   }
   public static function parsea_mesta($file)
   {
-    global $__vars,$keys;
     
-    $a=self::parse_ini_adv($file);
+    $extension=pathinfo($file,PATHINFO_EXTENSION);
+    switch ($extension)
+    	{
+    		case 'yaml':
+    			self::parse_yaml_adv($file);
+    			$a=&self::$__vars;
+    			break;
+    		case 'ini':
+    			
+    		default:
+    			$a=self::parse_ini_adv($file);
+    		break;
+    	
+    	}
     $m=count($a);
     if(!$a || !is_array($a) || $m==0) return false;
     		foreach ($a as $key=>&$value)
     			{			
-    			if(!is_array($value))
+    			if(!is_array($value) && is_string($value))
     				{
-    				self::$__vars[$key]=$value;			
-    				self::$keys[]="{".$key."}";
+    				self::$__stringvars[$key]=$value;			
+    				self::$__keys[]="{".$key."}";
     				}
     			}
     		
-    array_walk_recursive($a,'remplaza_mesta');
-    return self::limpia_mesta($a);
+    switch ($extension)
+    	{
+    		case 'yaml':
+    			array_walk_recursive(self::$__vars,'ConfigParser::remplaza_mesta');    	
+    			return self::limpia_mesta(self::$__vars);	
+			case 'ini':    		
+    			array_walk_recursive($a,'ConfigParser::remplaza_mesta');    	
+    			return self::limpia_mesta($a);	
+    		
+    	}
+    	
   }
 }
