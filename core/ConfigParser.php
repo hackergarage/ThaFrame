@@ -183,22 +183,32 @@ class ConfigParser {
    */
   public static function reduce_mesta(&$b,$a)
   {
- 
+ 	
   	if(is_array($b) && count($b))
   		{
-  		$j=0;
-  		for($i=0;$i<count($b);$i++)
-  			if(isset($b[$i]) && !is_array($b[$i])) $j++;
-  		
-  		if($j==count($b))
-  			{
-  			
-  			$b=$b[count($b)-1];
-  			}
+  		if(strpos($a,'__commands')===0)
+	  		{
+	  		
+	  		foreach ($b as $k=>&$bs) { if(is_array($bs))
+	  					$bs=array_unique($bs);
+							  		}
+	  		}
   		else 
-  			foreach ($b as $k=>&$bs) { if(is_array($bs))
-  					$bs=self::reduce_mesta($bs,$k);
-  				}
+	  		{
+	  		$j=0;
+	  		for($i=0;$i<count($b);$i++)
+	  			if(isset($b[$i]) && !is_array($b[$i])) $j++;
+	  		
+	  		if($j==count($b))
+	  			{
+	  			
+	  			$b=$b[count($b)-1];
+	  			}
+	  		else 
+	  			foreach ($b as $k=>&$bs) { if(is_array($bs))
+	  					$bs=self::reduce_mesta($bs,$k);
+	  				}
+	  		}
   		}
   	return $b;  
   }
@@ -209,7 +219,7 @@ class ConfigParser {
   		$a=$b;
   		
   	if(!isset($b))
-  		return $b=$a;
+  		return $b=$a;  	
   	$a=@array_merge_recursive($a,$b);
   	return $a;
   	
