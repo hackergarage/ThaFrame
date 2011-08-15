@@ -5,7 +5,7 @@
  * @todo 
  */
 require_once(THAFRAME."/vendors/spyc/spyc.php");
-define("SHOW_DEBUG",1);
+define("SHOW_DEBUG",0);
 if(!defined('TO_ROOT'))
 	define('TO_ROOT', '..');	
 
@@ -51,7 +51,7 @@ class ConfigParser {
   		return self::$__imports[$file];
   	$dir=pathinfo($file,PATHINFO_DIRNAME);
   	if(isset($args[2]))
-  		$dir=$args[2]."/".$dir;  	
+  		$dir=$args[2].($dir!='.'?("/".$dir):"");  	
   		
   	$res=null;
   	$x= preg_match("/^(.*)[\\.](yaml)(.*)/",pathinfo($file,PATHINFO_BASENAME),$res);
@@ -90,9 +90,10 @@ class ConfigParser {
 	  			{
 	  			switch ($typo)
 	  				{
-	  					//case 'array':
-	  							
-	  						//	break;
+	  					case 'array':
+	  							(self::array_merger(self::$__vars[$k],$value));
+									
+	  							break;
 	  					case 'string':
 	  					default:
 	  							self::$__vars[$k]=$value;
@@ -168,7 +169,7 @@ class ConfigParser {
   				}
   			}
   	
-  		$final=array_reduce(self::$__imports,'self::array_merger');
+  		$final=array_reduce(self::$__imports,'ConfigParser::array_merger');
   
   		}
   	return $final;
@@ -180,14 +181,36 @@ class ConfigParser {
    * @param array $b
    * @return array
    */
-  public static function array_merger($a,$b)
+  public static function reduce_mesta(&$b,$a)
+  {
+ 
+  	if(is_array($b) && count($b))
+  		{
+  		$j=0;
+  		for($i=0;$i<count($b);$i++)
+  			if(isset($b[$i]) && !is_array($b[$i])) $j++;
+  		
+  		if($j==count($b))
+  			{
+  			
+  			$b=$b[count($b)-1];
+  			}
+  		else 
+  			foreach ($b as $k=>&$bs) { if(is_array($bs))
+  					$bs=self::reduce_mesta($bs,$k);
+  				}
+  		}
+  	return $b;  
+  }
+  
+  public static function array_merger(&$a,&$b)
   {
   	if(!isset($a))
   		$a=$b;
   		
   	if(!isset($b))
   		return $b=$a;
-  	$a=array_merge($a,$b);
+  	$a=@array_merge_recursive($a,$b);
   	return $a;
   	
   	
@@ -211,6 +234,8 @@ class ConfigParser {
   
   public static function limpia_mesta(&$a)
   {
+  
+  	
   	return $a;
   }
   public static function parsea_mesta($file)
@@ -245,6 +270,7 @@ class ConfigParser {
     	{
     		case 'yaml':
     			array_walk_recursive(self::$__vars,'ConfigParser::remplaza_mesta');    	
+    			array_walk(self::$__vars,"ConfigParser::reduce_mesta");
     			return self::limpia_mesta(self::$__vars);	
 			case 'ini':    		
     			array_walk_recursive($a,'ConfigParser::remplaza_mesta');    	
