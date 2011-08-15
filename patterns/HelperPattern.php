@@ -236,4 +236,35 @@ class HelperPattern {
     }
     return $menus;
   }
+  
+  public static function CreateActionList($actions) {
+    $string = "<ul class=\"action\">";
+    foreach ( $actions as $action)
+    {
+      $string .= "<li>";
+      $action = (object)$action;
+      $action->title = t($action->title);
+      $action->icon = self::createFrameLink($action->icon, TRUE, TRUE);
+      if ( !$action->ajax) {
+        $string .= "<a href=\"$action->action\" title=\"$action->title\">";
+        if ( !$action->icon ) {
+          $string .= "{$action->title}";
+        } else {
+          $string .= "<img src=\"$action->icon\" alt=\"{$action->title}\"/>  {$action->title}";
+        }
+        $string .= "</a> ";
+      } else {
+        $string .= "<a href=\"javascript:void(xajax_{$action->action}(xajax.getFormValues('$__form_id')));\" title=\"$action->title\">";
+        if ( !$action->icon ) {
+          $string .= "{$action->title}";
+        } else {
+          $string .= "<img src=\"$action->icon\" alt=\"{$action->title}\"/> {$action->title}";
+        }
+        $string .= "</a> ";
+      }
+      $string .= "</li>\n";
+    }
+    $string .= "</ul>\n\n";
+    return $string;
+  }
 }

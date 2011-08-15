@@ -124,34 +124,8 @@
   }
   
   if ( !empty($__general_actions) ) {
-    echo "<ul class=\"action\">";
-    foreach ( $__general_actions as $action)
-    {
-      echo "<li>";
-      $action = (object)$action;
-      $action->title = t($action->title);
-      $action->icon = $Helper->createFrameLink($action->icon, TRUE, TRUE);
-      if ( !$action->ajax) {
-        echo "<a href=\"$action->action\" title=\"$action->title\">";
-        if ( !$action->icon ) {
-          echo "{$action->title}";
-        } else {
-          echo "<img src=\"$action->icon\" alt=\"{$action->title}\"/>  {$action->title}";
-        }
-        echo "</a> ";
-      } else {
-        echo "<a href=\"javascript:void(xajax_{$action->action}(xajax.getFormValues('$__form_id')));\" title=\"$action->title\">";
-        if ( !$action->icon ) {
-          echo "{$action->title}";
-        } else {
-          echo "<img src=\"$action->icon\" alt=\"{$action->title}\"/> {$action->title}";
-        }
-        echo "</a> ";
-      }
-      echo "</li>\n";
-    }
-    echo "</ul>\n\n";
-  }
+    echo HelperPattern::CreateActionList($__general_actions);
+  } 
   ?>
 
 <?php if( count($__dependents) ) { ?>

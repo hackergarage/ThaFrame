@@ -152,7 +152,7 @@ class RowModel {
   public function innerHTML($template, $show_as_full_string = true , $full_path = false)
   {
     if ( !$full_path ) {
-      $template = "models/templates/$template.tpl.php";
+      $template = TO_ROOT."/models/templates/$template.tpl.php";
     }
     if ( !file_exists($template) ) {
       throw new InvalidArgumentException("Template file '$template' doesn't exists");

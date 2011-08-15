@@ -281,7 +281,16 @@ class ConfigParser {
     		case 'yaml':
     			array_walk_recursive(self::$__vars,'ConfigParser::remplaza_mesta');    	
     			array_walk(self::$__vars,"ConfigParser::reduce_mesta");
-    			return self::limpia_mesta(self::$__vars);	
+    			
+    			
+    			
+    			$vars = self::$__vars;
+    			self::$__imports    = array();
+                self::$__vars       = array();
+                self::$__keys       = array();
+                self::$__stringvars = array();
+    			
+                return self::limpia_mesta($vars);	
 			case 'ini':    		
     			array_walk_recursive($a,'ConfigParser::remplaza_mesta');    	
     			return self::limpia_mesta($a);	

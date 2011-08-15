@@ -61,7 +61,6 @@ class FormPattern Extends FieldListPattern
    */
   public function loadConfig($config_name='default', $use_class_name = true) {
     $DbConnection = DbConnection::getInstance();
-    
     if($use_class_name) {
       $prefix = strtolower(get_class($this->_Row));
       $file_name = TO_ROOT."/configs/models/{$prefix}_{$config_name}.yaml";
@@ -72,11 +71,9 @@ class FormPattern Extends FieldListPattern
       Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
-    //$config = ConfigParser::parse_ini_adv($file_name, true);
-    include  THAFRAME . "/vendors/spyc/spyc.php";
-    $config = Spyc::YAMLLoad($file_name);
-    var_dump($config);
-    die();
+    $config = @ConfigParser::parsea_mesta($file_name);
+    //echo "<pre>Processed:\n".print_r($config,1)."</pre>";
+    
     if( isset($config['__general']['form_id']) ) {
       $this->setFormId($config['__general']['form_id']); 
     }
@@ -91,59 +88,60 @@ class FormPattern Extends FieldListPattern
     }
     unset($config['__general']);
   
-    if( isset($config['__pattern:add']) ) {
+    if( isset($config['__pattern']['add']) ) {
       if ($this->_Row->getId()==0) {
-        foreach($config['__pattern:add'] AS $field=>$value) {
+        foreach($config['__pattern']['add'] AS $field=>$value) {
           $this->setPatternVariable($field, $value);
         }
       }
     }
-    unset($config['__pattern:add']);
     
-    if( isset($config['__pattern:edit']) ) {
+    if( isset($config['__pattern']['edit']) ) {
       if ($this->_Row->getId()!=0) {
-        foreach($config['__pattern:edit'] AS $field=>$value) {
+        foreach($config['__pattern']['edit'] AS $field=>$value) {
           $this->setPatternVariable($field, $value);
         }
       }
     }
-    unset($config['__pattern:edit']);
+    unset($config['__pattern']);
     
     $commands = $config['__commands'];
     unset($config['__commands']);
     
-    foreach($config AS $field => $properties){
-      
+    if( isset($config['__generalAction']) ) {
+      foreach($config['__generalAction'] AS $action=> $properties) {
+         $this->AddGeneralAction($action, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+      }
+    }
+    unset($config['__generalAction']);
+    
+    
+    foreach($config AS $field => $properties) {
       if ( strpos($field, ':') !== false ) {
         list($field, $action) = explode(':', $field);
-        
-        if ( $field=='__generalAction' ) {
-          $this->AddGeneralAction($action, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
-        } else {
-         if  ($action == 'parameters') {
-            foreach($properties AS $parameter => $value) {
-              $this->setFieldParameter($field, $parameter, $value);
-            }
-          } else if($action == 'input_parameters') {
-              foreach($properties AS $parameter => $value) {
-                $this->setFieldInputParameter($field, $parameter, $value);
-              }
-          } else if($action == 'action') {
-            $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
-          } else if($action == 'splitter') {
-            $this->insertSplitter($field, $properties['content'], $properties['position'], $field);
-          } else if($action == 'linked') {
-            $this->setAsLinked($field, $properties['table_name'], $DbConnection, $properties['table_id'], $properties['name_field'], $properties['condition']);
-          } else if($action == 'dependent') {
-            $this->setFieldDependents($field, $properties['condition'], $properties['value'], $properties['dependants']);
-          } else if($action == 'add') {
-            $data = array(
-                'label' => ucwords(str_replace('_', ' ', $field)),
-                'type' => 'text',
-                'input_parameters'=> array('maxlength' => 45),
-              );
-            $this->insertField($field, $data, $properties['target'], $properties['position']);
+        if  ($action == 'parameters') {
+          foreach($properties AS $parameter => $value) {
+            $this->setFieldParameter($field, $parameter, $value);
           }
+        } else if($action == 'input_parameters') {
+            foreach($properties AS $parameter => $value) {
+              $this->setFieldInputParameter($field, $parameter, $value);
+            }
+        } else if($action == 'action') {
+          $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+        } else if($action == 'splitter') {
+          $this->insertSplitter($field, $properties['content'], $properties['position'], $field);
+        } else if($action == 'linked') {
+          $this->setAsLinked($field, $properties['table_name'], $DbConnection, $properties['table_id'], $properties['name_field'], $properties['condition']);
+        } else if($action == 'dependent') {
+          $this->setFieldDependents($field, $properties['condition'], $properties['value'], $properties['dependants']);
+        } else if($action == 'add') {
+          $data = array(
+              'label' => ucwords(str_replace('_', ' ', $field)),
+              'type' => 'text',
+              'input_parameters'=> array('maxlength' => 45),
+            );
+          $this->insertField($field, $data, $properties['target'], $properties['position']);
         }
       } else {
        if(is_array($properties)) {
@@ -153,10 +151,9 @@ class FormPattern Extends FieldListPattern
        }
       }
     }
-    
     if( isset($commands['delete']) ) {
       foreach($commands['delete'] AS $delete) {
-        $this->deleteField($delete);
+         $this->deleteField($delete);
       }
     }
     if( isset($commands['hide']) ) {

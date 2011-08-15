@@ -248,7 +248,7 @@ class FieldListPattern extends TemplatePattern
    * @param string $icon  The optional icon that could go with the text
    * @return void
    */
-  public function AddGeneralAction($name, $action, $title, $icon='', $ajax=false)
+  public function AddGeneralAction($name,$action, $title, $icon='', $ajax=false)
   {
     $aux = array (
         'action'  => $action,

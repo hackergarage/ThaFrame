@@ -354,13 +354,14 @@ class TablePattern Extends TemplatePattern
   public function loadConfig($config_name='default') {
     $DbConnection = DbConnection::getInstance();
     
-    $file_name = TO_ROOT."/configs/models/{$config_name}_list.ini";
+    $file_name = TO_ROOT."/configs/models/{$config_name}_list.yaml";
     
     if(!file_exists($file_name)){
       Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
-    $config = parse_ini_file($file_name, true);
+    $config = ConfigParser::parsea_mesta($file_name);
+    echo "<pre>Processed:\n".print_r($config,1)."</pre>";
     
     if( isset($config['__general']['page_name']) ) {
       $this->setPageName($config['__general']['page_name']); 
@@ -387,19 +388,37 @@ class TablePattern Extends TemplatePattern
     }
     unset($config['__commands']);
     
-    foreach($config AS $field => $properties){
-      if ( strpos($field, ':')!==false ) {
-        list($field, $action) = explode(':', $field);
-        if ( $field=='__generalAction' ) {
-          $this->AddGeneralAction($properties['action'], $properties['title'], $properties['field'], $properties['value'], $properties['icon'], $properties['ajax']);
-        } else {
-          if($action == 'action') {
+    if( isset($config['__generalAction']) ) {
+      foreach($config['__generalAction'] AS $properties) {
+        $this->AddGeneralAction($properties['action'], $properties['title'], $properties['field'], $properties['value'], $properties['icon'], $properties['ajax']);
+      }
+    }
+    unset($config['__generalAction']);
+
+    if( isset($config['__action']) ) {
+      foreach($config['__action'] AS $properties) {
+        $this->addAction($properties['value'], $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+      }
+    }
+    unset($config['__action']);
+    
+    if( isset($config['__link']) ) {
+      foreach($config['__link'] AS $properties) {
+        $this->addLink($properties['field'], $properties['value'], $properties['action'], $properties['title']);
+      }
+    }
+    unset($config['__link']);
+    
+    /*if($action == '__action') {
             $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
-          } else if($action == 'link') {
+          } else if($action == '__link') {
             $this->addLink($field, $properties['value'], $properties['action']);
           }
-        }
-      } else {
+        
+      } else {*/
+    
+    foreach($config AS $field => $properties){
+      if ( substr($field, 0,1)!='_' ) {
         foreach($properties AS $property => $value) {
           if ($property=='format') {
             $this->setFormat($field, $value);
@@ -409,6 +428,7 @@ class TablePattern Extends TemplatePattern
             $this->setClass($field, $value);
           }
         }
+        
       }
     }
     return true;
