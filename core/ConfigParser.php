@@ -1,4 +1,9 @@
 <?php
+/**
+ * @autor cyberocioso
+ * @version b.0001
+ * @todo 
+ */
 require_once(THAFRAME."/vendors/spyc/spyc.php");
 define("SHOW_DEBUG",1);
 if(!defined('TO_ROOT'))
