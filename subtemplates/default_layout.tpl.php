@@ -81,16 +81,18 @@
       <div id="footer">
       <?= $Config->system_copyright ?><br/>
       <?= $Config->system_author ?><br/>
-      
       <?php /** Do NOT remove this Notice!! **/ ?>
+      <?php /** Of course you are welcome to give it a more apropiated format **/ ?>
       Made with <a href="http://thasystems.net/thaframe">ThaFrame</a>,
       a <a href="http://en.wikipedia.org/wiki/Free_software">Free Software</a>
       development from <a href="http://thasystems.net">ThaSystems</a>.
-      <?php /** Of course you are welcome to give it a more apropiated format **/ ?>
-      <?php foreach(Logger::getWebLog() as $log ): ?>
-       <pre><?=print_r($log,1)?></pre>
-      <?php endforeach; ?>
       </div><!-- footer -->
+      <div id="log">
+       <?php foreach(Logger::getWebLog() as $log ): ?>
+         <p><strong>'<?=$log['name']?>'</strong> (<?=$log['time']?> - <?=$log['level']?>)</p>
+         <pre style="text-align: left"><?=print_r($log['details'],1)?></pre>
+       <?php endforeach; ?>
+      </div>
     </div><!-- page --> 
   </body>
 </html>

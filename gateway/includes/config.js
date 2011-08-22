@@ -35,7 +35,7 @@ function BasicConfig() {
 		showButtonPanel: true
 	});
 	
-	
+	$("#pagination .next,#pagination .previous").button();
 	
 	$("#overlay").dialog({
 		autoOpen: false,
@@ -52,15 +52,6 @@ function BasicConfig() {
 	
 	//Behaviors
 	$("form:not(.filter) :input:visible:enabled:first").focus();
-	
-    $('#calendar').fullCalendar({
-    	theme:true,
-    	dayClick: function(date, allDay, jsEvent, view) {
-           xajax_calendarTest(date, allDay, jsEvent, view);
-        },
-    	
-	})
-
 };
 
 $(document).ready(function(){

@@ -32,6 +32,12 @@ class TablePattern Extends TemplatePattern
   private $_prefix  = '';
   
   /**
+   * Holds filter options and configuration
+   * @var array
+   */
+  private $_filters   = array();
+  
+  /**
    * Points to the field that will be used to create the unique id
    * @var string
    */
@@ -62,14 +68,14 @@ class TablePattern Extends TemplatePattern
       //Create some basic pattern variables
       $this->_page_number = (empty($_GET['__page_number']))?'0':$_GET['__page_number'];
       $this->_page_size = (empty($_GET['__page_size']))?25:$_GET['__page_size'];
-      $this->_pages = ceil($total_rows/$this->page_size);
+      $this->_pages = ceil($total_rows/$this->_page_size);
       
-      if($this->_page_number > $this->pages){
-        $this->_page_number = $this->pages-1;
+      if($this->_page_number > $this->_pages){
+        $this->_page_number = $this->_pages-1;
       }
       
       //Reformat the query to use MySQL Limit clause
-      $page_start = $this->_page_number * $this->page_size;
+      $page_start = $this->_page_number * $this->_page_size;
       $sql = "$sql
             LIMIT $page_start, $this->_page_size";
       
@@ -80,8 +86,7 @@ class TablePattern Extends TemplatePattern
     }
     
     $conditions = '';
-    if ( count($this->_filters) ) {
-      
+    if( count($this->_filters) ) {
       foreach($this->_filters AS $field => $filter) {
         $Filter = (object)$filter;
         if($Filter->type=='custom') {
@@ -155,6 +160,10 @@ class TablePattern Extends TemplatePattern
       for($i=0; $i<count($this->_rows); $i++)
       {
         $this->_rows[$i][$field]=$function($this->_rows[$i][$field]);
+      }
+    } else {
+      if(!function_exists($function)) {
+       Logger::log("Missing function on field:'$field'", $function, LOGGER_NOTICE); 
       }
     }
   }
@@ -259,6 +268,11 @@ class TablePattern Extends TemplatePattern
         'empty' => $empty,
         'options' => array()
     );
+    if($type='active') {
+      $aux['type'] = 'custom';
+      $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>'active=\'1\'');
+      $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>'active=\'0\'');
+    }
     $this->_filters[$field] = $aux;
   }
   
@@ -361,12 +375,29 @@ class TablePattern Extends TemplatePattern
       return false;
     }
     $config = ConfigParser::parsea_mesta($file_name);
-    echo "<pre>Processed:\n".print_r($config,1)."</pre>";
     
     if( isset($config['__general']['page_name']) ) {
       $this->setPageName($config['__general']['page_name']); 
     }
     unset($config['__general']);
+    
+    if( isset($config['__filters']) ) {
+      foreach($config['__filters'] AS $field => $properties) {
+        if($properties['type']=='hidden') {
+          $this->addHiddenFilter($field, $properties['value'], $properties['condition']);
+        } else {
+          $this->addFilter($field, $properties['label'], $properties['type']);
+          if($properties['add_all']) {
+            if($properties['default']=='all') {
+              $this->addFilterOption($field, 'all', 'All', true, '1');
+            } else {
+              $this->addFilterOption($field, 'all', 'All', false, '1');
+            }
+          }
+        }
+      }
+    }
+    unset($config['__filters']);
     
     if( isset($config['__query']['sql']) ) {
       $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
@@ -390,7 +421,7 @@ class TablePattern Extends TemplatePattern
     
     if( isset($config['__generalAction']) ) {
       foreach($config['__generalAction'] AS $properties) {
-        $this->AddGeneralAction($properties['action'], $properties['title'], $properties['field'], $properties['value'], $properties['icon'], $properties['ajax']);
+        $this->AddGeneralAction($properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
       }
     }
     unset($config['__generalAction']);
@@ -409,22 +440,18 @@ class TablePattern Extends TemplatePattern
     }
     unset($config['__link']);
     
-    /*if($action == '__action') {
-            $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
-          } else if($action == '__link') {
-            $this->addLink($field, $properties['value'], $properties['action']);
-          }
-        
-      } else {*/
+
+    
     
     foreach($config AS $field => $properties){
       if ( substr($field, 0,1)!='_' ) {
         foreach($properties AS $property => $value) {
+          //echo "$field => $property => $value";
           if ($property=='format') {
             $this->setFormat($field, $value);
-          } else if($property=='name') {
+          } else if($property=='_name') {
             $this->setName($field, $value);
-          } else if($property=='class') {
+          } else if($property=='_class') {
             $this->setClass($field, $value);
           }
         }

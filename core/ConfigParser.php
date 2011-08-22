@@ -46,68 +46,64 @@ class ConfigParser {
   public static function parse_yaml_adv($file)
   {
   	$args=func_get_args();
-  	
-  	if(isset(self::$__imports[$file]))
+   
+  	if(isset(self::$__imports[$file])) {
   		return self::$__imports[$file];
-  	$dir=pathinfo($file,PATHINFO_DIRNAME);
-  	if(isset($args[2]))
+  	}
+  	
+  	$dir = pathinfo($file,PATHINFO_DIRNAME);
+  	
+  	if(isset($args[2])) {
   		$dir=$args[2].($dir!='.'?("/".$dir):"");  	
-  		
+  	}
   	$res=null;
   	$x= preg_match("/^(.*)[\\.](yaml)(.*)/",pathinfo($file,PATHINFO_BASENAME),$res);
 	$file_x=$file;
-  	if($x && is_array($res) && count($res)>2)
-  		{
+  	
+	if($x && is_array($res) && count($res)>2) {
   		$file_x=$dir."/".$res[1].".".$res[2];
-  		}
+  	}
+  	
   	self::debug("[".__LINE__."] \t loading: ".$file_x);
-  	if(file_exists($file_x))
-  		{  		
+  	
+  	if(file_exists($file_x)) {  		
   		self::debug("[".__LINE__."] \t parsing: ".$file);
   		self::$__imports[$file_x] = Spyc::YAMLLoad($file_x);
-  		}
-  	else 
-  		{
-  		self::debug("[".__LINE__."] \t not found: ".$file);  		
-  		}
+    } else {
+  		self::debug("[".__LINE__."] \t not found: ".$file);
+  	    /*Logger::log("Couldn't load configuration file", $file, LOGGER_ERROR);
+  	    throw new RuntimeException("Couldn't load configuration file: " . $file);*/
+    }
   	
-  	if(self::$__imports[$file_x] && is_array(self::$__imports[$file_x]))
-  		{
-  		if(isset($res[3]) && isset(self::$__imports[$file_x][str_replace(array("<",">"),"",$res[3])]))  		
+  	if(self::$__imports[$file_x] && is_array(self::$__imports[$file_x])) {
+  		if(isset($res[3]) && isset(self::$__imports[$file_x][str_replace(array("<",">"),"",$res[3])])) {  		
   			$array =&self::$__imports[$file_x][str_replace(array("<",">"),"",$res[3])];
-  		
-  		else 
+  		} else{ 
   			$array =&self::$__imports[$file_x];
-  		
-  		foreach($array as $k=>&$value)
-  			{
-  			$typo=gettype($value);
-  			if($typo=='array' && strpos($k,'_import')===0)
-  				{
-  				array_walk($value,"ConfigParser::parse_yaml_adv",$dir);
-  				}
-  			else 
-	  			{
-	  			switch ($typo)
-	  				{
+  		}
+  		foreach($array as $k=>&$value) {
+  			$typo = gettype($value);
+  			if($typo=='array' && strpos($k,'_import')===0) {
+  			   array_walk($value,"ConfigParser::parse_yaml_adv",$dir);
+  			} else {
+	  			switch ($typo)	{
 	  					case 'array':
 	  							(self::array_merger(self::$__vars[$k],$value));
-									
-	  							break;
+								break;
 	  					case 'string':
 	  					default:
 	  							self::$__vars[$k]=$value;
 	  							break;
-	  				}
-	  			}
-  			}
-  		}  	
+				}
+			}
+  		}
+  	}  	
   	return self::$__imports;
   }
+  
   public static function ismport($type,&$value)
   {
-  	switch ($type)
-  	{
+  	switch ($type) {
   		case 'ini':
   			return  (isset($value) && is_array($value));
   	/*	case 'yaml':
@@ -250,12 +246,11 @@ class ConfigParser {
   }
   public static function parsea_mesta($file)
   {
-    
     $extension=pathinfo($file,PATHINFO_EXTENSION);
     switch ($extension)
     	{
     		case 'yaml':
-    			self::parse_yaml_adv($file);
+    		    self::parse_yaml_adv($file);
     			$a=&self::$__vars;
     			break;
     		case 'ini':
@@ -292,8 +287,14 @@ class ConfigParser {
     			
                 return self::limpia_mesta($vars);	
 			case 'ini':    		
-    			array_walk_recursive($a,'ConfigParser::remplaza_mesta');    	
-    			return self::limpia_mesta($a);	
+    			array_walk_recursive($a,'ConfigParser::remplaza_mesta');    
+    			
+    			/*self::$__imports    = array();
+                self::$__vars       = array();
+                self::$__keys       = array();
+                self::$__stringvars = array();*/
+    			
+                return self::limpia_mesta($a);	
     		
     	}
     	

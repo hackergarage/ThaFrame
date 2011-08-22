@@ -9,7 +9,6 @@
 
   require_once(THAFRAME."/core/format_functions.inc.php");
     
-
   
   /**
    * loads an Error Page.

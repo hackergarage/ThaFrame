@@ -27,7 +27,7 @@
           '__page_size' => $Vars->page_size,
         );
       $url = $Helper->createSelfUrl($parameters, TRUE);
-      $string .= createComboBox(range(1,$Vars->pages), 'page_number', $Vars->page_number,"onchange=\"javascript:change_page(this, '".htmlspecialchars($url)."');\"");
+      $string .= HelperPattern::createComboBox(range(1,$Vars->pages), 'page_number', $Vars->page_number,"onchange=\"javascript:change_page(this, '".htmlspecialchars($url)."');\"");
       
       if($Vars->page_number != $Vars->pages - 1) {
         $parameters = array(
@@ -52,7 +52,7 @@
           '100' => '100',
           '200' => '200'
         );
-      $string .= createComboBox($page_sizes, 'page_size', $Vars->page_size,"onchange=\"javascript:change_page_size(this, '".htmlspecialchars($url)."');\"");
+      $string .= HelperPattern::createComboBox($page_sizes, 'page_size', $Vars->page_size,"onchange=\"javascript:change_page_size(this, '".htmlspecialchars($url)."');\"");
       
       echo $string;
       echo "</div>\n";
@@ -71,7 +71,7 @@
             $options[$option['value']] = $option['label'];
           }
           $selected = (!isset($Filter->selected))? $Filter->default:$Filter->selected;
-          echo createComboBox($options, $field, $selected);
+          echo HelperPattern::createComboBox($options, $field, $selected);
         }else if($Filter->type=='hidden'){
           ?> <input type='hidden' name='<?php echo $field ?>' value='<?php echo $Filter->value?>'/><?php
         }
@@ -155,7 +155,7 @@
               }
               echo "</a> ";
             } else {
-              echo "<a href=\"javascript:void(xajax_{$action->action}(";
+              echo "<a href=\"javascript:void(xajax_{$action->action}('";
               if ( !is_array($action->value) ) {
                 echo "{$row[$action->value]}";
               } else {
@@ -163,9 +163,9 @@
                 foreach ($action->value AS $single_value) {
                   $values_array[]=$row[$single_value];
                 }
-                echo $values_string = implode(',',$values_array);
+                echo $values_string = implode('\',\'',$values_array);
               }
-              echo "));\" title=\"$action->title\">";
+              echo "'));\" title=\"$action->title\">";
               if ( !$action->icon ) {
                 echo "{$action->title}";
               } else {

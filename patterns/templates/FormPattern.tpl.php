@@ -124,7 +124,7 @@
   }
   
   if ( !empty($__general_actions) ) {
-    echo HelperPattern::CreateActionList($__general_actions);
+    echo HelperPattern::CreateFormActionList($__general_actions, $__form_id);
   } 
   ?>
 

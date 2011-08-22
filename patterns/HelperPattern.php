@@ -237,7 +237,7 @@ class HelperPattern {
     return $menus;
   }
   
-  public static function CreateActionList($actions) {
+  public static function CreateFormActionList($actions, $__form_id) {
     $string = "<ul class=\"action\">";
     foreach ( $actions as $action)
     {
