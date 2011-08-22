@@ -260,7 +260,7 @@ class TablePattern Extends TemplatePattern
    * @param $type
    * @return bool
    */
-  public function addFilter($field, $label, $type='custom')
+  public function addFilter($field, $label, $type='custom', $extra_data=array())
   {
     $aux = array (
         'label' => $label,
@@ -270,8 +270,8 @@ class TablePattern Extends TemplatePattern
     );
     if($type='active') {
       $aux['type'] = 'custom';
-      $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>'active=\'1\'');
-      $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>'active=\'0\'');
+      $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>$extra_data['prefix'].'active=\'1\'');
+      $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>$extra_data['prefix'].'active=\'0\'');
     }
     $this->_filters[$field] = $aux;
   }
@@ -386,7 +386,11 @@ class TablePattern Extends TemplatePattern
         if($properties['type']=='hidden') {
           $this->addHiddenFilter($field, $properties['value'], $properties['condition']);
         } else {
-          $this->addFilter($field, $properties['label'], $properties['type']);
+          if ( isset($properties['prefix']) ) {
+            $this->addFilter($field, $properties['label'], $properties['type'], array('prefix'=>$properties['prefix']));
+          } else {
+            $this->addFilter($field, $properties['label'], $properties['type']);
+          }
           if($properties['add_all']) {
             if($properties['default']=='all') {
               $this->addFilterOption($field, 'all', 'All', true, '1');

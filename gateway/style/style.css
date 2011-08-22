@@ -161,6 +161,12 @@ body {
 	margin: 0px;
 }
 
+#content #pagination {
+	float:right;
+	}
+#content #filters_form {
+	float:left;
+	}
 #footer {
 	clear: both;
 	text-align: center;
@@ -265,6 +271,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0px;
 	clear: both;
+}
+tr:nth-child(odd) {
+  	background: #EEE;
+}
+
+tr:hover {
+	color: white;
+	background: #97aec6;
+
 }
 
 th,td {

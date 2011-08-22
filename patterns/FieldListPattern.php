@@ -165,6 +165,11 @@ class FieldListPattern extends TemplatePattern
     $this->_fields = $new_fields;
   }
   
+ /*public function setFieldProperty($field, $property, $value)
+  {
+    $this->_fields[$field][$property] = $value;
+  }*/
+  
   /**
    * Inserts an splitter (with optional content) at the given position.
    * @param string $target The field after the separator will be created

@@ -59,8 +59,7 @@
     }
     if ( !empty($__filters)) {
       //echo "<pre>".htmlentities(print_r($__filters,1))."</pre>";
-      
-      echo "<form name='filters' method='get' action='' class='list_filters'><div>\n<strong>".t('Filter'). " &gt;&gt;</strong>\n";
+      echo "<form id=\"filters_form\" name='filters' method='get' action='' class='list_filters'><div>\n<strong>".t('Filter'). " &gt;&gt;</strong>\n";
       
       foreach($__filters AS $field => $filter){
         $Filter = (object)$filter;

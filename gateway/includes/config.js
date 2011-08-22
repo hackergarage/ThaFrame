@@ -36,6 +36,7 @@ function BasicConfig() {
 	});
 	
 	$("#pagination .next,#pagination .previous").button();
+	$("#pagination .disabled,#pagination .disabled").button({disabled:true}	);
 	
 	$("#overlay").dialog({
 		autoOpen: false,
@@ -46,6 +47,7 @@ function BasicConfig() {
 	});
 	
 	$( "input:submit, input:button,  ul.action a").button();
+	
 
 	$(".__radio").buttonset();
 
