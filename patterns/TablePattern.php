@@ -383,6 +383,7 @@ class TablePattern Extends TemplatePattern
     
     if( isset($config['__filters']) ) {
       foreach($config['__filters'] AS $field => $properties) {
+        if ($properties['delete'] != true){
         if($properties['type']=='hidden') {
           $this->addHiddenFilter($field, $properties['value'], $properties['condition']);
         } else {
@@ -399,6 +400,7 @@ class TablePattern Extends TemplatePattern
             }
           }
         }
+      }
       }
     }
     unset($config['__filters']);
@@ -443,12 +445,11 @@ class TablePattern Extends TemplatePattern
       }
     }
     unset($config['__link']);
-    
-
-    
-    
+   
     foreach($config AS $field => $properties){
+      
       if ( substr($field, 0,1)!='_' ) {
+        
         foreach($properties AS $property => $value) {
           //echo "$field => $property => $value";
           if ($property=='format') {
