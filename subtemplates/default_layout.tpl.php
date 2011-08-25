@@ -52,14 +52,7 @@
     
     
     <div id="page">
-      <?php if ( isset($__message) ) {
-        $Message=(object)$__message;
-        ?>
-        <div id="message">
-          <img id="level_image" src="<?php $Helper->createFrameLink("images/dialogs/$Message->level.png");?>" alt="<?=t(ucwords($Message->level))?>"/>
-          <?=$Message->text;?>
-        </div>
-      <?php } ?>
+      <?php $Helper->loadSubTemplate('message'); ?>
       
       <div id="header">
       	<h1><a href="<?= $Config->system_web_root ?>" title="<?=t('Home')?>"> <?=$Config->system_name ?></a></h1>
