@@ -1,8 +1,8 @@
 <?php
   $Vars = $__PatternVariables;
   
-  if($Vars->form_title){
-    echo "<h3>".t($Vars->form_title)."</h3>";
+  if($Vars->list_title){
+    echo "<h3>".t($Vars->list_title)."</h3>";
   }
   if ($Vars->before_text) {
     echo "<p>".t($Vars->before_text)."</p>\n";

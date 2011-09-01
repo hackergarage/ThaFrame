@@ -69,7 +69,7 @@ class Session
           
           return false;
         }
-        if ( !$User->loadPermissions() ){
+        if ( !$User ->loadPermissions() ){
           self::$_error="Couldn't Load Permissions";
           return false;
         }

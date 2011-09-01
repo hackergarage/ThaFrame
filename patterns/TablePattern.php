@@ -42,6 +42,8 @@ class TablePattern Extends TemplatePattern
    * @var string
    */
   private $_row_id  = '';
+  
+  private $_loaded = false;
     
   public function __construct($template = '')
   {
@@ -118,7 +120,6 @@ class TablePattern Extends TemplatePattern
     } else {
       $sql = str_replace('{conditions}', $conditions, $sql);
     }
-    
     $rows = $DbConnection->getAllRows($sql);
     $this->setRows($rows);
   }
@@ -337,6 +338,7 @@ class TablePattern Extends TemplatePattern
         $this->_fields[$field_name] = ucwords(str_replace('_', ' ',$field_name));
       }
     }
+    $this->_loaded = true;
   }
     
   /**
@@ -365,7 +367,7 @@ class TablePattern Extends TemplatePattern
    * @param string $config_name 
    * @param boolean $use_class_name selects if the class_name prefix should be added.
    */
-  public function loadConfig($config_name='default') {
+  public function loadConfig($config_name='default', $vars=array()) {
     $DbConnection = DbConnection::getInstance();
     
     $file_name = TO_ROOT."/configs/models/{$config_name}_list.yaml";
@@ -374,7 +376,7 @@ class TablePattern Extends TemplatePattern
       Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
-    $config = ConfigParser::parsea_mesta($file_name);
+    $config = ConfigParser::parsea_mesta($file_name, $vars);
     
     if( isset($config['__general']['page_name']) ) {
       $this->setPageName($config['__general']['page_name']); 
@@ -404,7 +406,6 @@ class TablePattern Extends TemplatePattern
       }
     }
     unset($config['__filters']);
-    
     if( isset($config['__query']['sql']) ) {
       $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
       $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
@@ -447,22 +448,20 @@ class TablePattern Extends TemplatePattern
     unset($config['__link']);
    
     foreach($config AS $field => $properties){
-      
-      if ( substr($field, 0,1)!='_' ) {
-        
-        foreach($properties AS $property => $value) {
-          //echo "$field => $property => $value";
-          if ($property=='format') {
-            $this->setFormat($field, $value);
-          } else if($property=='_name') {
-            $this->setName($field, $value);
-          } else if($property=='_class') {
-            $this->setClass($field, $value);
-          }
+      foreach($properties AS $property => $value) {
+        if ($property=='format') {
+          $this->setFormat($field, $value);
+        } else if($property=='name') {
+          $this->setName($field, $value);
+        } else if($property=='class') {
+          $this->setClass($field, $value);
         }
-        
       }
     }
     return true;
+  }
+  
+  public function isLoaded() {
+    return $this->_loaded;
   }
 }

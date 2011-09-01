@@ -24,6 +24,7 @@ class DbConnection {
   protected $db_name     = '';
   protected $errors      = array();
   protected $last_query  = '';
+  protected $last_error  = '';
   
   
   
@@ -166,7 +167,8 @@ class DbConnection {
   public function executeQuery($sql)
   {
     if ( !@mysql_query($sql, $this->db_connection) ) {
-      $this->errors[] = mysql_error($this->db_connection);
+      $this->last_error = mysql_error($this->db_connection);
+      $this->errors[] = $this->last_error;
       $this->last_query = $sql;
       return false;
     }
@@ -194,6 +196,11 @@ class DbConnection {
   public function getLastQuery()
   {
     return $this->last_query;
+  }
+  
+  public function getLastError()
+  {
+    return $this->last_error;
   }
   
   public function getMysqlConnection() {

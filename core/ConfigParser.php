@@ -18,7 +18,6 @@ class ConfigParser {
   public static $__keys     = array();
   public static $__stringvars     = array();
   
-  
   /**
    *
    *
@@ -244,9 +243,14 @@ class ConfigParser {
   	
   	return $a;
   }
-  public static function parsea_mesta($file)
+  public static function parsea_mesta($file, $vars=array())
   {
     $extension=pathinfo($file,PATHINFO_EXTENSION);
+    
+    if ( count($vars) ) {
+      self::$__vars=$vars;
+    }
+    
     switch ($extension)
     	{
     		case 'yaml':

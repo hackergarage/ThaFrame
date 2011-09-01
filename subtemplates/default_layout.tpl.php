@@ -8,7 +8,7 @@
     <title><?= "$Config->system_name -".t($__page_name) ?></title>
     
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'/>
-    
+    <link type="text/plain" rel="author" href="<?= $Config->system_web_root ?>humans.txt" />
     <link rel="stylesheet" href="<?php $Helper->createFrameLink('style/style.css');?>" type="text/css" media="screen"/>
     
     <link type="text/css" href="<?php $Helper->createFrameLink('vendors/jqueryui/css/redmond/jquery-ui-1.8.13.custom.css');?>" rel="Stylesheet" />	

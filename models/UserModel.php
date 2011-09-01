@@ -21,6 +21,8 @@ class UserModel extends RowModel
   
   protected $permissions_loaded = FALSE;
   
+  protected $permission_table = 'permission';
+  
   public function __construct($table_name, $id)
   {
     $this->assert_message ="User instance isn't loaded";
@@ -69,7 +71,7 @@ class UserModel extends RowModel
       return TRUE;
     }
     $sql = "SELECT name, actions
-            FROM permission
+            FROM $this->permission_table
             WHERE $this->id_field='$this->id'
             AND active='1'";
     
