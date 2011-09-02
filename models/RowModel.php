@@ -131,7 +131,7 @@ class RowModel {
   public function inactive()
   {
     $this->data['active'] = '0';
-    return TRUE;
+    return true;
   }
   
   public function isLoaded(){

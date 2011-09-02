@@ -32,7 +32,10 @@ function BasicConfig() {
 	
 	$('.date').datepicker({
 		dateFormat: 'yy-mm-dd',
-		showButtonPanel: true
+		showButtonPanel: true,
+		changeYear: true,
+		changeMonth: true,
+		yearRange: '1940:2010'
 	});
 	
 	$("#pagination .next,#pagination .previous").button();
