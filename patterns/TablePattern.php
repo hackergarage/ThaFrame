@@ -448,13 +448,15 @@ class TablePattern Extends TemplatePattern
     unset($config['__link']);
    
     foreach($config AS $field => $properties){
-      foreach($properties AS $property => $value) {
-        if ($property=='format') {
-          $this->setFormat($field, $value);
-        } else if($property=='name') {
-          $this->setName($field, $value);
-        } else if($property=='class') {
-          $this->setClass($field, $value);
+      if (is_array($properties)) {
+        foreach($properties AS $property => $value) {
+          if ($property=='format') {
+            $this->setFormat($field, $value);
+          } else if($property=='name') {
+            $this->setName($field, $value);
+          } else if($property=='class') {
+            $this->setClass($field, $value);
+          }
         }
       }
     }
