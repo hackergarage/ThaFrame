@@ -109,8 +109,14 @@ class FormPattern Extends FieldListPattern
     unset($config['__commands']);
     
     if( isset($config['__generalAction']) ) {
+      $new = ($this->_Row->getId()==0)?true:false;
+      
       foreach($config['__generalAction'] AS $action=> $properties) {
-         $this->AddGeneralAction($action, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+        $appears_in = (isset($properties['appears_in']))?$properties['appears_in']:'both';
+        
+        if( $appears_in =='both' || ($new && $appears_in=='add') || (!$new && $appears_in=='edit') ) {
+          $this->AddGeneralAction($action, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+        }
       }
     }
     unset($config['__generalAction']);
