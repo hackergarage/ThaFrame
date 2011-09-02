@@ -223,7 +223,7 @@ class ConfigParser {
   
   public static function remplaza_mesta(&$item,$key)
   {  	
-  	
+  
   	if(is_string($item))
   		{
   		$old_item=$item;
@@ -268,7 +268,7 @@ class ConfigParser {
     if(!$a || !is_array($a) || $m==0) return false;
     		foreach ($a as $key=>&$value)
     			{			
-    			if(!is_array($value) && is_string($value))
+    			if(!is_array($value) && (is_string($value) || is_integer($value)))
     				{
     				self::$__stringvars[$key]=$value;			
     				self::$__keys[]="{".$key."}";
