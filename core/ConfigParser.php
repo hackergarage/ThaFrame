@@ -243,14 +243,24 @@ class ConfigParser {
   	
   	return $a;
   }
+  
+  /**
+   * Parse a YAML or INI file
+   * 
+   * Performs variable replacing in the string taking them from the
+   * $vars parameter and replacing in the strings where {key_name} is found.
+   * @param string $file File to be parsed
+   * @param array $vars Prefilled variables
+   */
   public static function parsea_mesta($file, $vars=array())
   {
     $extension=pathinfo($file,PATHINFO_EXTENSION);
     
-    if ( count($vars) ) {
-      self::$__vars=$vars;
+    if (!is_array($vars)) {
+      throw new InvalidArgumentException("Function expected Array ". gettype($vars). " received instead");
     }
     
+    self::$__vars=$vars;
     switch ($extension)
     	{
     		case 'yaml':
