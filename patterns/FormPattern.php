@@ -59,7 +59,7 @@ class FormPattern Extends FieldListPattern
    * @param string $config_name 
    * @param boolean $use_class_name selects if the class_name prefix should be added.
    */
-  public function loadConfig($config_name='default', $use_class_name = true) {
+  public function loadConfig($config_name='default', $use_class_name = true, $vars=array() ) {
     $DbConnection = DbConnection::getInstance();
     if($use_class_name) {
       $prefix = strtolower(get_class($this->_Row));
@@ -71,7 +71,7 @@ class FormPattern Extends FieldListPattern
       Logger::log("Couldn't find config file", $file_name, LOGGER_ERROR);
       return false;
     }
-    $config = @ConfigParser::parsea_mesta($file_name);
+    $config = @ConfigParser::parsea_mesta($file_name, $vars);
     //echo "<pre>Processed:\n".print_r($config,1)."</pre>";
     
     if( isset($config['__general']['form_id']) ) {
@@ -176,13 +176,11 @@ class FormPattern Extends FieldListPattern
   }
     
   /**
-   * Parse table structure into template friendly data *
+   * Parse table structure into template friendly data
    *
    * @return void
    */
   public function parseStructure() {
-    
-    /** Parse table structure into template friendly data **/
     $structure = $this->_Row->getStructure();
     foreach($structure AS $field)
     {
