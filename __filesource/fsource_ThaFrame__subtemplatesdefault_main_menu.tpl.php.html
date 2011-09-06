@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>File Source for default_main_menu.tpl.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file default_main_menu.tpl.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_subtemplates---default_main_menu.tpl.php.html">default_main_menu.tpl.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-var">$_selected_menu_&nbsp;</span>=&nbsp;<span class="src-sym">(</span><span class="src-key">empty</span><span class="src-sym">(</span><span class="src-var">$_selected_menu_</span><span class="src-sym">))</span>?<span class="src-str">'default'</span>:<span class="src-var">$_selected_menu_</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-var">$_menus_&nbsp;</span>=&nbsp;<span class="src-id"><a href="../ThaFrame/HelperPattern.html">HelperPattern</a></span><span class="src-sym">::</span><a href="../ThaFrame/HelperPattern.html#methodgetMenus">getMenus</a><span class="src-sym">(</span><span class="src-var">$_selected_menu_</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span>isset<span class="src-sym">(</span><span class="src-var">$_menus_</span><span class="src-sym">[</span><span class="src-str">'_main_'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'selected_tab'</span><span class="src-sym">]</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a5"></a>&nbsp;&nbsp;<span class="src-var">$_selected_tab_&nbsp;</span>=&nbsp;<span class="src-var">$_menus_</span><span class="src-sym">[</span><span class="src-str">'_main_'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'selected_tab'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a6"></a>&nbsp;&nbsp;unset<span class="src-sym">(</span><span class="src-var">$_menus_</span><span class="src-sym">[</span><span class="src-str">'_main_'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a9"></a>&lt;ul&gt;</div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;&nbsp;<span class="src-php">&lt;?&nbsp;</span><span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$_menus_&nbsp;</span><span class="src-key">AS&nbsp;</span><span class="src-var">$_selected_&nbsp;</span>=&gt;&nbsp;<span class="src-var">$_menu_</span><span class="src-sym">)</span>:&nbsp;<span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a11"></a>&nbsp;&nbsp;&lt;li<span class="src-php">&lt;?=</span><span class="src-sym">(</span><span class="src-var">$_selected_</span>==<span class="src-var">$_selected_tab_</span><span class="src-sym">)</span>?<span class="src-str">'&nbsp;class=&quot;selected&quot;'</span>:<span class="src-str">''</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&gt;&lt;a&nbsp;href=&quot;<span class="src-php">&lt;?=</span><span class="src-id">TO_WEB_ROOT&nbsp;</span>.&nbsp;<span class="src-var">$_menu_</span><span class="src-sym">[</span><span class="src-str">'url'</span><span class="src-sym">]</span><span class="src-php">?&gt;</span>&quot;&nbsp;title=&quot;<span class="src-php">&lt;?=</span><a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-var">$_menu_</span><span class="src-sym">[</span><span class="src-str">'title'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-php">?&gt;</span>&quot;&gt;<span class="src-php">&lt;?=</span><a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-var">$_menu_</span><span class="src-sym">[</span><span class="src-str">'name'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-php">?&gt;</span>&lt;/a&gt;&lt;/li&gt;</div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;&nbsp;<span class="src-php">&lt;?&nbsp;</span><span class="src-key">endforeach</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a13"></a>&lt;/ul&gt;</div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:04 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

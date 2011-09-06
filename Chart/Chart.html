@@ -1,0 +1,449 @@
+<html>
+<head>
+<title>Docs For Class Chart</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">Chart</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                        
+                                                                                                                                                      		  [ <a href="../classtrees_Chart.html" class="menu">class tree: Chart</a> ]
+		  [ <a href="../elementindex_Chart.html" class="menu">index: Chart</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../Chart/_vendors---svgChart---Chart---bar_across.php.html">		bar_across.php
+		</a><br>
+			<a href="../Chart/_vendors---svgChart---Chart.php.html">		Chart.php
+		</a><br>
+			<a href="../Chart/_vendors---svgChart---Chart---pie.php.html">		pie.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../Chart/Chart.html">Chart</a><br />
+	    		<a href="../Chart/Chart_Bar_across.html">Chart_Bar_across</a><br />
+	    		<a href="../Chart/Chart_Data.html">Chart_Data</a><br />
+	    		<a href="../Chart/Chart_Pie.html">Chart_Pie</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Chart</h1>
+Source Location: /vendors/svgChart/Chart.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre>PEAR
+   |
+   --Chart</pre><br />
+<div class="description">The main Chart class. Base class for all subtypes of charts, like Pie, Bar, Line and so on.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+        </ul>
+
+
+
+
+    
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../Chart/Chart.html#var$colors">$colors</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../Chart/Chart.html#methodChart">Chart</a></li>
+    <li><a href="../Chart/Chart.html#methodencapsulate">encapsulate</a></li>
+    <li><a href="../Chart/Chart.html#methodget">get</a></li>
+    <li><a href="../Chart/Chart.html#methodgetColor">getColor</a></li>
+    <li><a href="../Chart/Chart.html#methodmakeLegend">makeLegend</a></li>
+    <li><a href="../Chart/Chart.html#methodmakeSVG">makeSVG</a></li>
+    <li><a href="../Chart/Chart.html#methodsetData">setData</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a14">14</a>]<br />
+The main Chart class. Base class for all subtypes of charts, like Pie, Bar, Line and so on.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../Chart/Chart_Data.html">Chart_Data</a></td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$colors"></a>
+	<p></p>
+	<h4>$colors = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a28">28</a>]</p>
+  Array for storing the colors to visualize the data defined in $data.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>Chart::$data</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="methodChart"></a>
+	<h3>constructor Chart <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a40">40</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void Chart(
+[array
+$data = false], [string
+$standard_name = &quot;&quot;], [array
+$colors = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		The constructor.<br /><br /><p>You can pass it an array of <a href="../Chart/Chart_Data.html">Chart_Data</a> objects as data,  the name of the visualization  and, optional, an array contents the colors in what the Chart data is visualized.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td>Chart_Data)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$standard_name</b>&nbsp;&nbsp;</td>
+        <td>The name of the standard visualization method.</td>
+      </tr>
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$colors</b>&nbsp;&nbsp;</td>
+        <td>Colors to display the data in.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodencapsulate"></a>
+	<h3>method encapsulate <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a168">168</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string encapsulate(
+string
+$svg)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This function simply enclosoures the received svg code with the beginning- and ending &lt;svg&gt; or &lt;/svg&gt; tags.<br /><br /><p>Also it includes an &lt;?xml ... ?&gt; header.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>The encapsulated SVG code</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$svg</b>&nbsp;&nbsp;</td>
+        <td>SVG code to encapsulate</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodget"></a>
+	<h3>method get <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a80">80</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string get(
+[string
+$name = false], [array
+$options = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This function returns the svg code for the visualized form of the internal data.<br /><br /><p>It receives the name of the visualization class to use.  As $options, you can pass an array of options forwarded to the visualization class.<br />  The following options are also implemented in this function:<br />  * legend - If set, a legend is also generated. The value is also an array passed to the  <a href="../Chart/Chart.html#methodmakeLegend">Chart::makeLegend()</a> function.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>SVG code</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>Class to use</td>
+      </tr>
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td>Options, passed to the chart class</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetColor"></a>
+	<h3>method getColor <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a157">157</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getColor(
+integer
+$id)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This function simply returns a color from the internal coller palette.<br /><br /><p>Supplied is a number.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>color name or hexadeciaml triplet</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$id</b>&nbsp;&nbsp;</td>
+        <td>The id of the color</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodmakeLegend"></a>
+	<h3>method makeLegend <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a124">124</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string makeLegend(
+[array
+$options = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This is an internal function used by the visualization classes to make a legend to the various chart types.<br /><br /><p>It uses the internal $data structure.<br />  You can pass the following options:<br />  * x &amp; y - X &amp; Y coordinates of the top-left point of the legend</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>SVG code for a legend.</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td>Options passed</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodmakeSVG"></a>
+	<h3>method makeSVG <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a112">112</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void makeSVG(
+[string
+$name = false], [array
+$options = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This function does the same as get(), with one difference:  The returned svg code is capsulated in a &lt;svg&gt;....&lt;/svg&gt; element structure, so it returns a completely SVG document.<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>Class to use</td>
+      </tr>
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td>Options, passed to the chart visulaization class</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetData"></a>
+	<h3>method setData <span class="smalllinenumber">[line <a href="../__filesource/fsource_Chart__vendorssvgChartChart.php.html#a55">55</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array setData(
+array
+$data)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		This function sets the Chart::$data array to a new value.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Old Value of Chart::$data</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td>New Value for Chart::$data</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:32:12 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

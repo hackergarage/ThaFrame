@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>File Source for edit.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file edit.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_sections---catalog---edit.php.html">edit.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><a href="http://www.php.net/define">define</a><span class="src-sym">(</span><span class="src-str">'TO_ROOT'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'../../..'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-inc">include&nbsp;</span><span class="src-id">TO_ROOT&nbsp;</span>.&nbsp;<span class="src-str">&quot;/includes/main.inc.php&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-inc">include&nbsp;</span><span class="src-id">TO_ROOT&nbsp;</span>.&nbsp;<span class="src-str">&quot;/includes/ajax_server.php&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a5"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-var">$Page&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../ThaFrame/PagePattern.html">PagePattern</a></span><span class="src-sym">(</span><span class="src-str">'Edit'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-var">$table_name&nbsp;</span>=&nbsp;<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'table_name'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-var">$id&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-sym">(</span><span class="src-key">empty</span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;</span>{<span class="src-var">$table_name<span class="src-str"></span><span class="src-sym">}</span>_id</span><span class="src-str">&quot;</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span>?&nbsp;<span class="src-num">0&nbsp;</span>:&nbsp;<span class="src-id"><a href="../ThaFrame/Utils.html">Utils</a></span><span class="src-sym">::</span><a href="../ThaFrame/Utils.html#methodcleanToDb">cleanToDb</a><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;</span>{<span class="src-var">$table_name<span class="src-str"></span><span class="src-sym">}</span>_id</span><span class="src-str">&quot;</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-var">$Row&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../ThaFrame/RowModel.html">RowModel</a></span><span class="src-sym">(</span><span class="src-var">$table_name</span><span class="src-sym">,&nbsp;</span>(int)<span class="src-var">$id</span><span class="src-sym">,&nbsp;</span><span class="src-var">$DbConnection</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-var">$Row</span><span class="src-sym">-&gt;</span><span class="src-id">load</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-var">$Form</span>=<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../ThaFrame/FormPattern.html">FormPattern</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a14"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-var">$Form</span><span class="src-sym">-&gt;</span><span class="src-id">setRow</span><span class="src-sym">(</span><span class="src-var">$Row</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-var">$Form</span><span class="src-sym">-&gt;</span><span class="src-id">loadConfig</span><span class="src-sym">(</span><span class="src-str">&quot;</span>{<span class="src-var">$table_name<span class="src-str"></span><span class="src-sym">}</span>_catalog</span><span class="src-str">&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-var">$aux&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'label'&nbsp;</span>=&gt;&nbsp;<a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-str">'Table&nbsp;name'</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'type'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'hidden'</span><span class="src-sym">,&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'value'&nbsp;</span>=&gt;&nbsp;<span class="src-var">$table_name</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-var">$Form</span><span class="src-sym">-&gt;</span><span class="src-id">insertField</span><span class="src-sym">(</span><span class="src-str">'table_name'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$aux&nbsp;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;</span>{<span class="src-var">$table_name<span class="src-str"></span><span class="src-sym">}</span>_id</span><span class="src-str">&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">'before'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-var">$Form</span><span class="src-sym">-&gt;</span><span class="src-id">hideField</span><span class="src-sym">(</span><span class="src-str">&quot;</span>{<span class="src-var">$table_name<span class="src-str"></span><span class="src-sym">}</span>_id</span><span class="src-str">&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-var">$Page</span><span class="src-sym">-&gt;</span><span class="src-id">assign</span><span class="src-sym">(</span><span class="src-str">'form'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$Form</span><span class="src-sym">-&gt;</span><span class="src-id">getAsString</span><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-var">$Page</span><span class="src-sym">-&gt;</span><span class="src-id">display</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:10 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

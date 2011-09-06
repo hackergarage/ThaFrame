@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>File Source for transport_deps.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file transport_deps.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_vendors---swift---dependency_maps---transport_deps.php.html">transport_deps.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-id"><a href="../Swift/Swift_DependencyContainer.html">Swift_DependencyContainer</a></span><span class="src-sym">::</span><a href="../Swift/Swift_DependencyContainer.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.smtp'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a6"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_EsmtpTransport'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a8"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.buffer'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a9"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'transport.authhandler'</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.eventdispatcher'</span></div></li>
+<li><div class="src-line"><a name="a11"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.sendmail'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a14"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_SendmailTransport'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.buffer'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.eventdispatcher'</span></div></li>
+<li><div class="src-line"><a name="a18"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.mail'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_MailTransport'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'transport.mailinvoker'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'transport.eventdispatcher'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.loadbalanced'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_LoadBalancedTransport'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.failover'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_FailoverTransport'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.mailinvoker'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asSharedInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_SimpleMailInvoker'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.buffer'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_StreamBuffer'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'transport.replacementfactory'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.authhandler'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_Esmtp_AuthHandler'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.crammd5auth'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.loginauth'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'transport.plainauth'</span></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.crammd5auth'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_Esmtp_Auth_CramMd5Authenticator'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.loginauth'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_Esmtp_Auth_LoginAuthenticator'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.plainauth'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Transport_Esmtp_Auth_PlainAuthenticator'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.eventdispatcher'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Events_SimpleEventDispatcher'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'transport.replacementfactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asSharedInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_StreamFilters_StringReplacementFilterFactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;<span class="src-sym">;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:34:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

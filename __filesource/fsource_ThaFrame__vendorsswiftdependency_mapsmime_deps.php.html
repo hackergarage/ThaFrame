@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>File Source for mime_deps.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file mime_deps.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_vendors---swift---dependency_maps---mime_deps.php.html">mime_deps.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-inc">require_once&nbsp;</span><span class="src-id">dirname</span><span class="src-sym">(</span>__FILE__<span class="src-sym">)&nbsp;</span>.&nbsp;<span class="src-str">'/../mime_types.php'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-id"><a href="../Swift/Swift_DependencyContainer.html">Swift_DependencyContainer</a></span><span class="src-sym">::</span><a href="../Swift/Swift_DependencyContainer.html#methodgetInstance">getInstance</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a6"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'properties.charset'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a8"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asValue</span><span class="src-sym">(</span><span class="src-str">'utf-8'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a9"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.message'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a11"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_SimpleMessage'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.headerset'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a14"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.qpcontentencoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'cache'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'properties.charset'</span></div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a18"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.part'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_MimePart'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.headerset'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.qpcontentencoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'cache'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'properties.charset'</span></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.attachment'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_Attachment'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.headerset'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.base64contentencoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'cache'</span></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-var">$swift_mime_types</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.embeddedfile'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_EmbeddedFile'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.headerset'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.base64contentencoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'cache'</span></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-var">$swift_mime_types</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.headerfactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_SimpleHeaderFactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.qpheaderencoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'mime.rfc2231encoder'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'properties.charset'</span></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.headerset'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_SimpleHeaderSet'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mime.headerfactory'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'properties.charset'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.qpheaderencoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_HeaderEncoder_QpHeaderEncoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mime.charstream'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.charstream'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_CharacterStream_NgCharacterStream'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mime.characterreaderfactory'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'properties.charset'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.bytecanonicalizer'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asSharedInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_StreamFilters_ByteArrayReplacementFilter'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0D</span><span class="src-sym">,&nbsp;</span><span class="src-num">0x0A</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0D</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0A</span><span class="src-sym">)))</span></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0A</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0A</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-num">0x0D</span><span class="src-sym">,&nbsp;</span><span class="src-num">0x0A</span><span class="src-sym">)))</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.characterreaderfactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asSharedInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_CharacterReaderFactory_SimpleCharacterReaderFactory'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.qpcontentencoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_ContentEncoder_QpContentEncoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mime.charstream'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'mime.bytecanonicalizer'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.7bitcontentencoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_ContentEncoder_PlainContentEncoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-str">'7bit'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.8bitcontentencoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a84"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_ContentEncoder_PlainContentEncoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-str">'8bit'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a86"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">addConstructorValue</span><span class="src-sym">(</span><span class="src-id">true</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.base64contentencoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asSharedInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Mime_ContentEncoder_Base64ContentEncoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">register</span><span class="src-sym">(</span><span class="src-str">'mime.rfc2231encoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">asNewInstanceOf</span><span class="src-sym">(</span><span class="src-str">'Swift_Encoder_Rfc2231Encoder'</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a93"></a>&nbsp;&nbsp;<span class="src-sym">-&gt;&nbsp;</span><span class="src-id">withDependencies</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'mime.charstream'</span><span class="src-sym">))</span></div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a95"></a>&nbsp;&nbsp;<span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a97"></a>unset<span class="src-sym">(</span><span class="src-var">$swift_mime_types</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

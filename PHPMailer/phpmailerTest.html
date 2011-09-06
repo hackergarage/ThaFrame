@@ -1,0 +1,830 @@
+<html>
+<head>
+<title>Docs For Class phpmailerTest</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">PHPMailer</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                    
+                                                                                          		  [ <a href="../classtrees_PHPMailer.html" class="menu">class tree: PHPMailer</a> ]
+		  [ <a href="../elementindex_PHPMailer.html" class="menu">index: PHPMailer</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../PHPMailer/_vendors---PHPMailer---class.phpmailer-lite.php.html">		class.phpmailer-lite.php
+		</a><br>
+			<a href="../PHPMailer/_vendors---PHPMailer---test---phpmailerTest.php.html">		phpmailerTest.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../PHPMailer/phpmailerException.html">phpmailerException</a><br />
+	    		<a href="../PHPMailer/PHPMailerLite.html">PHPMailerLite</a><br />
+	    		<a href="../PHPMailer/phpmailerTest.html">phpmailerTest</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: phpmailerTest</h1>
+Source Location: /vendors/PHPMailer/test/phpmailerTest.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre>PHPUnit_Framework_TestCase
+   |
+   --phpmailerTest</pre><br />
+<div class="description">PHPMailer - PHP email transport unit test class</div><br /><br />
+
+
+
+
+
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../PHPMailer/phpmailerTest.html#var$ChangeLog">$ChangeLog</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#var$Host">$Host</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#var$Mail">$Mail</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#var$NoteLog">$NoteLog</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodAddChange">AddChange</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodAddNote">AddNote</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodBuildBody">BuildBody</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodCheckChanges">CheckChanges</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodSetAddress">SetAddress</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodsetUp">setUp</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtearDown">tearDown</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Addressing">test_Addressing</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_AltBody">test_AltBody</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_AltBody_Attachment">test_AltBody_Attachment</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_DenialOfServiceAttack">test_DenialOfServiceAttack</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Embedded_Image">test_Embedded_Image</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Encodings">test_Encodings</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Error">test_Error</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Html">test_Html</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_HTML_Attachment">test_HTML_Attachment</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Low_Priority">test_Low_Priority</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_MailSend">test_MailSend</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Miscellaneous">test_Miscellaneous</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_MultipleSend">test_MultipleSend</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Multiple_Plain_FileAttachment">test_Multiple_Plain_FileAttachment</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Multi_Embedded_Image">test_Multi_Embedded_Image</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Plain_StringAttachment">test_Plain_StringAttachment</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Quoted_Printable">test_Quoted_Printable</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_SendmailSend">test_SendmailSend</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Signing">test_Signing</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_SmtpKeepAlive">test_SmtpKeepAlive</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_Translations">test_Translations</a></li>
+    <li><a href="../PHPMailer/phpmailerTest.html#methodtest_WordWrap">test_WordWrap</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a27">27</a>]<br />
+PHPMailer - PHP email transport unit test class<br /><br /><p>Performs authentication tests</p><br /></div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$ChangeLog"></a>
+	<p></p>
+	<h4>$ChangeLog = <span class="value">array()</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a47">47</a>]</p>
+  Holds the change log.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$Host"></a>
+	<p></p>
+	<h4>$Host = <span class="value">&nbsp;&quot;&quot;</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a40">40</a>]</p>
+  Holds the SMTP mail host.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>public:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$Mail"></a>
+	<p></p>
+	<h4>$Mail = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a33">33</a>]</p>
+  Holds the default phpmailer instance.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$NoteLog"></a>
+	<p></p>
+	<h4>$NoteLog = <span class="value">array()</span></h4>
+	<p>[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a54">54</a>]</p>
+  Holds the note log.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="methodAddChange"></a>
+	<h3>method AddChange <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a233">233</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void AddChange(
+
+$sName, 
+$sNewValue)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a change entry.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sNewValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodAddNote"></a>
+	<h3>method AddNote <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a244">244</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void AddNote(
+
+$sValue)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a simple note to the message.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>public:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sValue</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodBuildBody"></a>
+	<h3>method BuildBody <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a125">125</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void BuildBody(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Build the body of the message in the appropriate format.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodCheckChanges"></a>
+	<h3>method CheckChanges <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a207">207</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void CheckChanges(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Check which default settings have been changed for the report.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>private:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodSetAddress"></a>
+	<h3>method SetAddress <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a253">253</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void SetAddress(
+
+$sAddress, [
+$sName = &quot;&quot;], [
+$sType = &quot;to&quot;])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds all of the addresses<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>public:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAddress</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetUp"></a>
+	<h3>method setUp <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a59">59</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setUp(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Run before each test is started.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtearDown"></a>
+	<h3>method tearDown <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a112">112</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void tearDown(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Run after each test is completed.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Addressing"></a>
+	<h3>method test_Addressing <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a564">564</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Addressing(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_AltBody"></a>
+	<h3>method test_AltBody <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a455">455</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_AltBody(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Simple multipart/alternative test.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_AltBody_Attachment"></a>
+	<h3>method test_AltBody_Attachment <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a472">472</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_AltBody_Attachment(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Simple HTML and attachment test<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_DenialOfServiceAttack"></a>
+	<h3>method test_DenialOfServiceAttack <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a544">544</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_DenialOfServiceAttack(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Tests this denial of service attack:<br /><br /><p>http://www.cybsec.com/vuln/PHPMailer-DOS.pdf</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Embedded_Image"></a>
+	<h3>method test_Embedded_Image <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a403">403</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Embedded_Image(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		An embedded attachment test.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Encodings"></a>
+	<h3>method test_Encodings <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a608">608</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Encodings(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Encoding tests<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Error"></a>
+	<h3>method test_Error <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a552">552</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Error(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Html"></a>
+	<h3>method test_Html <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a367">367</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Html(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Try a plain message.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_HTML_Attachment"></a>
+	<h3>method test_HTML_Attachment <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a384">384</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_HTML_Attachment(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Simple HTML and attachment test<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Low_Priority"></a>
+	<h3>method test_Low_Priority <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a291">291</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Low_Priority(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Try a plain message.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_MailSend"></a>
+	<h3>method test_MailSend <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a516">516</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_MailSend(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Miscellaneous"></a>
+	<h3>method test_Miscellaneous <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a625">625</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Miscellaneous(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Miscellaneous calls to improve test coverage and some small tests<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_MultipleSend"></a>
+	<h3>method test_MultipleSend <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a494">494</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_MultipleSend(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Multiple_Plain_FileAttachment"></a>
+	<h3>method test_Multiple_Plain_FileAttachment <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a306">306</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Multiple_Plain_FileAttachment(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Simple plain file attachment test.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Multi_Embedded_Image"></a>
+	<h3>method test_Multi_Embedded_Image <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a428">428</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Multi_Embedded_Image(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		An embedded attachment test.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Plain_StringAttachment"></a>
+	<h3>method test_Plain_StringAttachment <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a330">330</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Plain_StringAttachment(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Simple plain string attachment test.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Quoted_Printable"></a>
+	<h3>method test_Quoted_Printable <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a348">348</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Quoted_Printable(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Plain quoted-printable message.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_SendmailSend"></a>
+	<h3>method test_SendmailSend <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a506">506</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_SendmailSend(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Signing"></a>
+	<h3>method test_Signing <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a618">618</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Signing(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Signing tests<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_SmtpKeepAlive"></a>
+	<h3>method test_SmtpKeepAlive <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a526">526</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_SmtpKeepAlive(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_Translations"></a>
+	<h3>method test_Translations <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a586">586</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_Translations(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Test language files for missing and excess translations<br /><br /><p>All languages are compared with English</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodtest_WordWrap"></a>
+	<h3>method test_WordWrap <span class="smalllinenumber">[line <a href="../__filesource/fsource_PHPMailer__vendorsPHPMailertestphpmailerTest.php.html#a272">272</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void test_WordWrap(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Try a plain message.<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:34:00 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

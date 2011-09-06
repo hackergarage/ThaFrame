@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>File Source for pie.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">Chart</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                        
+                                                                                                                                                      		  [ <a href="../classtrees_Chart.html" class="menu">class tree: Chart</a> ]
+		  [ <a href="../elementindex_Chart.html" class="menu">index: Chart</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file pie.php</h1>
+<p>Documentation is available at <a href="../Chart/_vendors---svgChart---Chart---pie.php.html">pie.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?PHP</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">*&nbsp;Class&nbsp;file&nbsp;for&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;Chart_Pie}</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Chart</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@author</span><span class="src-doc">&nbsp;Jonas&nbsp;Schneider&nbsp;&lt;JonasSchneider@gmx.de&gt;</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">*&nbsp;This&nbsp;is&nbsp;a&nbsp;pie&nbsp;visualization&nbsp;class.</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">*&nbsp;You&nbsp;shouldn´t&nbsp;use&nbsp;this&nbsp;class&nbsp;alone,&nbsp;but&nbsp;you&nbsp;can.</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">*&nbsp;You&nbsp;should&nbsp;only&nbsp;use&nbsp;it&nbsp;in&nbsp;corporation&nbsp;with&nbsp;the&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;Chart}</span><span class="src-doc">&nbsp;class.</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;Chart_Pie::get()</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Chart</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-key">class&nbsp;</span><a href="../Chart/Chart_Pie.html">Chart_Pie</a>&nbsp;<span class="src-key">extends&nbsp;</span><span class="src-id">PEAR&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;generates&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;the&nbsp;given&nbsp;data.</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;uses&nbsp;the&nbsp;technology&nbsp;provided&nbsp;by&nbsp;the&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;Chart}</span><span class="src-doc">&nbsp;class&nbsp;to&nbsp;generate&nbsp;a&nbsp;pie&nbsp;chart&nbsp;from&nbsp;the&nbsp;given&nbsp;data.&lt;br&gt;</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;can&nbsp;pass&nbsp;the&nbsp;following&nbsp;options&nbsp;to&nbsp;the&nbsp;this&nbsp;method&nbsp;&nbsp;by&nbsp;using&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;Chart::get()}</span><span class="src-doc">:&lt;br&gt;</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;*&nbsp;cx&nbsp;&amp;&nbsp;cy&nbsp;-&nbsp;The&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;center&nbsp;point&nbsp;of&nbsp;the&nbsp;pie&nbsp;chart.&lt;br&gt;</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;*&nbsp;r&nbsp;-&nbsp;The&nbsp;radius&nbsp;of&nbsp;the&nbsp;pie&nbsp;chart.</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">array&nbsp;</span><span class="src-doc">An&nbsp;array&nbsp;of&nbsp;options,&nbsp;see&nbsp;</span><span class="src-doc-inlinetag">{@link&nbsp;Chart::get()}</span><span class="src-doc">.</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@see</span><span class="src-doc">&nbsp;Chart::get()</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../Chart/Chart_Pie.html#methodget">get</a><span class="src-sym">(</span><span class="src-var">$options</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cx&nbsp;</span>=&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;cx&quot;</span><span class="src-sym">]&nbsp;</span>?&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;cx&quot;</span><span class="src-sym">]&nbsp;</span>:&nbsp;<span class="src-num">200</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cy&nbsp;</span>=&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;cy&quot;</span><span class="src-sym">]&nbsp;</span>?&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;cy&quot;</span><span class="src-sym">]&nbsp;</span>:&nbsp;<span class="src-num">200</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$r&nbsp;</span>=&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;r&quot;</span><span class="src-sym">]&nbsp;</span>?&nbsp;<span class="src-var">$options</span><span class="src-sym">[</span><span class="src-str">&quot;r&quot;</span><span class="src-sym">]&nbsp;</span>:&nbsp;<span class="src-num">150</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$x1&nbsp;</span>=&nbsp;<span class="src-var">$cx</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$y1&nbsp;</span>=&nbsp;<span class="src-var">$cy&nbsp;</span>-&nbsp;<span class="src-var">$r</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$alpha&nbsp;</span>=&nbsp;<span class="src-num">0</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$output&nbsp;</span>=&nbsp;<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$count&nbsp;</span>=&nbsp;<span class="src-num">0</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$data&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">chart</span><span class="src-sym">-&gt;</span><span class="src-id">data</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$sum&nbsp;</span>=&nbsp;<span class="src-num">0</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$data&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$obj</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$sum&nbsp;</span>+=&nbsp;<span class="src-var">$obj</span><span class="src-sym">-&gt;</span><span class="src-id">value</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$colors&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">chart</span><span class="src-sym">-&gt;</span><span class="src-id">colors</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$data&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$obj</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$alpha&nbsp;</span>=&nbsp;<span class="src-var">$alpha&nbsp;</span>+&nbsp;<span class="src-sym">(</span><span class="src-var">$obj</span><span class="src-sym">-&gt;</span><span class="src-id">percent&nbsp;</span>/&nbsp;<span class="src-num">100&nbsp;</span>*&nbsp;<span class="src-sym">(</span><span class="src-num">2</span>*<span class="src-id">M_PI</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$x2&nbsp;</span>=&nbsp;<span class="src-var">$cx&nbsp;</span>+&nbsp;<span class="src-sym">(</span><span class="src-var">$r</span>*<a href="http://www.php.net/sin">sin</a><span class="src-sym">(</span><span class="src-var">$alpha</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$y2&nbsp;</span>=&nbsp;<span class="src-var">$cy&nbsp;</span>-&nbsp;<span class="src-sym">(</span><span class="src-var">$r</span>*<a href="http://www.php.net/cos">cos</a><span class="src-sym">(</span><span class="src-var">$alpha</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$over180&nbsp;</span>=&nbsp;<span class="src-var">$obj</span><span class="src-sym">-&gt;</span><span class="src-id">percent&nbsp;</span>&gt;&nbsp;<span class="src-num">50&nbsp;</span>?&nbsp;<span class="src-str">&quot;1&quot;&nbsp;</span>:&nbsp;<span class="src-str">&quot;0&quot;</span><span class="src-sym">;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$color&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">chart</span><span class="src-sym">-&gt;</span><span class="src-id">getColor</span><span class="src-sym">(</span><span class="src-var">$count</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$output&nbsp;</span>.=&nbsp;<span class="src-str">&quot;</span><span class="src-str">&lt;path&nbsp;d='M{<span class="src-var">$cx</span><span class="src-sym">}</span>,{<span class="src-var">$cy</span><span class="src-sym">}</span>&nbsp;L<span class="src-var">$x1</span>,<span class="src-var">$y1</span>&nbsp;A{<span class="src-var">$r</span><span class="src-sym">}</span>,{<span class="src-var">$r</span><span class="src-sym">}</span>&nbsp;0&nbsp;<span class="src-var">$over180</span>,1&nbsp;<span class="src-var">$x2</span>,<span class="src-var">$y2</span>&nbsp;Z'&nbsp;fill='<span class="src-var">$color</span>'&nbsp;opacity='0.6'/&gt;\n\n</span><span class="src-str">&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$x1&nbsp;</span>=&nbsp;<span class="src-var">$x2</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$y1&nbsp;</span>=&nbsp;<span class="src-var">$y2</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$count</span>++<span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">options</span><span class="src-sym">[</span><span class="src-str">&quot;legend&quot;</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$x&nbsp;</span>=&nbsp;<span class="src-var">$cx&nbsp;</span>+&nbsp;<span class="src-var">$r&nbsp;</span>*&nbsp;<span class="src-num">1.2</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$y&nbsp;</span>=&nbsp;<span class="src-var">$cy&nbsp;</span>-&nbsp;<span class="src-var">$r</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">options</span><span class="src-sym">[</span><span class="src-str">&quot;legend&quot;</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">&quot;x&quot;</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$x</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">options</span><span class="src-sym">[</span><span class="src-str">&quot;legend&quot;</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">&quot;y&quot;</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$y</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$output</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a70"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a72"></a><span class="src-php">?&gt;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:34:00 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

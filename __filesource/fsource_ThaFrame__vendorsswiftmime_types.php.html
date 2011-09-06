@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>File Source for mime_types.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file mime_types.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_vendors---swift---mime_types.php.html">mime_types.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-comm">/*</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-comm">&nbsp;*&nbsp;This&nbsp;file&nbsp;is&nbsp;part&nbsp;of&nbsp;SwiftMailer.</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-comm">&nbsp;*&nbsp;(c)&nbsp;2004-2009&nbsp;Chris&nbsp;Corbyn</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-comm">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-comm">&nbsp;*&nbsp;For&nbsp;the&nbsp;full&nbsp;copyright&nbsp;and&nbsp;license&nbsp;information,&nbsp;please&nbsp;view&nbsp;the&nbsp;LICENSE</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-comm">&nbsp;*&nbsp;file&nbsp;that&nbsp;was&nbsp;distributed&nbsp;with&nbsp;this&nbsp;source&nbsp;code.</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-comm">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-comm">/*</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-comm">&nbsp;*&nbsp;List&nbsp;of&nbsp;MIME&nbsp;type&nbsp;automatically&nbsp;detected&nbsp;in&nbsp;Swift&nbsp;Mailer.</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-comm">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a14"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-comm">//You&nbsp;may&nbsp;add&nbsp;or&nbsp;take&nbsp;away&nbsp;what&nbsp;you&nbsp;like&nbsp;(lowercase&nbsp;required)</span></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-var">$swift_mime_types&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a18"></a>&nbsp;&nbsp;<span class="src-str">'aif'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/x-aiff'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;&nbsp;<span class="src-str">'aiff'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/x-aiff'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;<span class="src-str">'avi'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/avi'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;<span class="src-str">'bmp'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/bmp'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;<span class="src-str">'bz2'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-bz2'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;<span class="src-str">'csv'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'text/csv'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;<span class="src-str">'dmg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-apple-diskimage'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;<span class="src-str">'doc'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/msword'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;<span class="src-str">'docx'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/vnd.openxmlformats-officedocument.wordprocessingml.document'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;<span class="src-str">'eml'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'message/rfc822'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;<span class="src-str">'aps'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/postscript'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;<span class="src-str">'exe'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-ms-dos-executable'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;<span class="src-str">'flv'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/x-flv'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;<span class="src-str">'gif'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/gif'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;<span class="src-str">'gz'&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-gzip'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;<span class="src-str">'hqx'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/stuffit'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;<span class="src-str">'htm'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'text/html'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;<span class="src-str">'html'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'text/html'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;<span class="src-str">'jar'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-java-archive'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;<span class="src-str">'jpeg'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/jpeg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;<span class="src-str">'jpg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/jpeg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;<span class="src-str">'m3u'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/x-mpegurl'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;<span class="src-str">'m4a'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/mp4'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;<span class="src-str">'mdb'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-msaccess'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;<span class="src-str">'mid'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/midi'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;<span class="src-str">'midi'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/midi'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;<span class="src-str">'mov'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/quicktime'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;<span class="src-str">'mp3'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/mpeg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;<span class="src-str">'mp4'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/mp4'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;<span class="src-str">'mpeg'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/mpeg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;<span class="src-str">'mpg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'video/mpeg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;<span class="src-str">'odg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'vnd.oasis.opendocument.graphics'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;<span class="src-str">'odp'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'vnd.oasis.opendocument.presentation'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;<span class="src-str">'odt'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'vnd.oasis.opendocument.text'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;<span class="src-str">'ods'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'vnd.oasis.opendocument.spreadsheet'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;<span class="src-str">'ogg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/ogg'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;<span class="src-str">'pdf'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/pdf'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;<span class="src-str">'png'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/png'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;<span class="src-str">'ppt'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/vnd.ms-powerpoint'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;<span class="src-str">'pptx'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/vnd.openxmlformats-officedocument.presentationml.presentation'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;<span class="src-str">'ps'&nbsp;&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/postscript'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;<span class="src-str">'rar'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-rar-compressed'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;<span class="src-str">'rtf'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/rtf'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;<span class="src-str">'tar'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-tar'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;<span class="src-str">'sit'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-stuffit'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;<span class="src-str">'svg'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/svg+xml'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;<span class="src-str">'tif'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/tiff'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;<span class="src-str">'tiff'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'image/tiff'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;<span class="src-str">'ttf'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/x-font-truetype'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;<span class="src-str">'txt'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'text/plain'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;&nbsp;<span class="src-str">'vcf'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'text/x-vcard'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;<span class="src-str">'wav'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/wav'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;<span class="src-str">'wma'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/x-ms-wma'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;<span class="src-str">'wmv'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'audio/x-ms-wmv'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;<span class="src-str">'xls'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/excel'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;<span class="src-str">'xlsx'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;<span class="src-str">'xml'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/xml'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;&nbsp;<span class="src-str">'zip'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'application/zip'</span></div></li>
+<li><div class="src-line"><a name="a76"></a><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

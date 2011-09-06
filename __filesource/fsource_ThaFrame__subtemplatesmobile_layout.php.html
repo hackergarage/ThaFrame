@@ -1,0 +1,210 @@
+<html>
+<head>
+<title>File Source for mobile_layout.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file mobile_layout.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_subtemplates---mobile_layout.php.html">mobile_layout.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;&nbsp;<span class="src-key">global&nbsp;</span><span class="src-var">$DbConnection</span><span class="src-sym">,&nbsp;</span><span class="src-var">$xajax</span><span class="src-sym">,&nbsp;</span><span class="src-var">$User</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a3"></a>&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Content-Type:&nbsp;text/html;&nbsp;charset=utf-8'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;&nbsp;&nbsp;<span class="src-var">$useragent</span>=<span class="src-var">$_SERVER</span><span class="src-sym">[</span><span class="src-str">'HTTP_USER_AGENT'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a5"></a>&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><a href="http://www.php.net/preg_match">preg_match</a><span class="src-sym">(</span><span class="src-str">'/android|avantgo|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge&nbsp;|maemo|midp|mmp|opera&nbsp;m(ob|in)i|palm(&nbsp;os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows&nbsp;(ce|phone)|xda|xiino/i'</span><span class="src-sym">,</span><span class="src-var">$useragent</span><span class="src-sym">)</span>||<a href="http://www.php.net/preg_match">preg_match</a><span class="src-sym">(</span><span class="src-str">'/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a&nbsp;wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r&nbsp;|s&nbsp;)|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1&nbsp;u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp(&nbsp;i|ip)|hs\-c|ht(c(\-|&nbsp;|_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac(&nbsp;|\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt(&nbsp;|\/)|klon|kpt&nbsp;|kwc\-|kyo(c|k)|le(no|xi)|lg(&nbsp;g|\/(k|l|u)|50|54|e\-|e\/|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(di|rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-|&nbsp;|o|v)|zz)|mt(50|p1|v&nbsp;)|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v&nbsp;)|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-|&nbsp;)|webc|whit|wi(g&nbsp;|nc|nw)|wmlb|wonu|x700|xda(\-|2|g)|yas\-|your|zeto|zte\-/i'</span><span class="src-sym">,&nbsp;</span><a href="http://www.php.net/substr">substr</a><span class="src-sym">(</span><span class="src-var">$useragent</span><span class="src-sym">,</span><span class="src-num">0</span><span class="src-sym">,</span><span class="src-num">4</span><span class="src-sym">)))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a6"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$style</span>=<span class="src-str">'mobile'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$media</span>=<span class="src-str">&quot;only&nbsp;screen&nbsp;and&nbsp;(max-device-width:&nbsp;480px)&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a8"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$__menu_level</span>=<span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'level'</span><span class="src-sym">]</span><span class="src-sym">))</span>?<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'level'</span><span class="src-sym">]</span>:<span class="src-num">3</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a9"></a>&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-key">else&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;&nbsp;&nbsp;<span class="src-var">$style</span>=<span class="src-str">'style'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a11"></a>&nbsp;&nbsp;&nbsp;<span class="src-var">$media</span>=<span class="src-str">&quot;screen&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;&nbsp;&nbsp;<span class="src-var">$__menu_level</span>=<span class="src-num">0</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a14"></a>&nbsp;&nbsp;<span class="src-comm">//Cambiar&nbsp;aquí&nbsp;y&nbsp;la&nbsp;linea&nbsp;anterior&nbsp;variable&nbsp;$style='mobile'&nbsp;para&nbsp;probar&nbsp;mobile</span></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;<span class="src-comm">//&nbsp;$__menu_level=(isset($_GET['level']))?$_GET['level']:3;</span></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-php">?&gt;</span>&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a18"></a>&lt;html&nbsp;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&nbsp;lang=&quot;en&quot;&nbsp;xml:lang=&quot;en&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;&nbsp;&lt;head&gt;</div></li>
+<li><div class="src-line"><a name="a20"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name=&quot;viewport&quot;&nbsp;content=&quot;width=device-width,&nbsp;initial-scale=1,&nbsp;user-scalable=no&quot;&nbsp;/&gt;&nbsp;&lt;!--&nbsp;@todo&nbsp;Considerar&nbsp;esta&nbsp;opcion&nbsp;content=&quot;width=320&quot;&nbsp;&nbsp;&nbsp;--&gt;</div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id">SYSTEM_NAME</span>.<span class="src-str">&quot;&nbsp;-&nbsp;&quot;</span>.<a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">page_name</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&lt;/title&gt;</div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name=&quot;application-name&quot;&nbsp;content=&quot;Tlalpujahua&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name=&quot;description&quot;&nbsp;content=&quot;Actualizaciones,&nbsp;Descargas&nbsp;y&nbsp;Administraci√≥n&nbsp;General&nbsp;de&nbsp;Usuarios&nbsp;de&nbsp;OCRA&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name=&quot;application-url&quot;&nbsp;content=&quot;http://tlalpujahua.ocraocc.org&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;icon&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a></span>.<span class="src-str">&quot;/style/logo32.png&quot;</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&quot;&nbsp;sizes=&quot;32x32&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;icon&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a></span>.<span class="src-str">&quot;/style/logo48.png&quot;</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&quot;&nbsp;sizes=&quot;48x48&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;shortcut&nbsp;icon&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a></span>.<span class="src-str">&quot;/style/logo32.png&quot;</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;icon&quot;&nbsp;type=&quot;image/png&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a></span>.<span class="src-str">&quot;/style/logo32.png&quot;</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">createFrameLink</span><span class="src-sym">(</span><span class="src-str">'style/'</span>.<span class="src-var">$style</span>.<span class="src-str">'.css'</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;<span class="src-php">&lt;?=&nbsp;</span><span class="src-var">$media&nbsp;</span><span class="src-php">?&gt;</span>&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">createFrameLink</span><span class="src-sym">(</span><span class="src-str">'style/print.css'</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;print&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;href=&quot;http://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans|Philosopher&quot;&nbsp;/&gt;</div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/includes/functions.js&quot;&gt;&lt;/script&gt;</div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/f/includes/functions.js&quot;&gt;&lt;/script&gt;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/f/vendors/overlib/overlib.js&quot;&gt;&lt;/script&gt;&nbsp;--&gt;</div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/f/vendors/jquery/jquery.js&quot;&gt;&lt;/script&gt;</div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/f/vendors/jquery/simpletip.js&quot;&gt;&lt;/script&gt;</div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--[if&nbsp;IE]&gt;</div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">createFrameLink</span><span class="src-sym">(</span><span class="src-str">'style/ie_style_hacks.css'</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;screen&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;![endif]--&gt;</div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span>isset<span class="src-sym">(</span><span class="src-var">$xajax</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$xajax</span><span class="src-sym">-&gt;</span><span class="src-id">printJavascript</span><span class="src-sym">(</span><span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a></span>.<span class="src-str">'/f/vendors/xajax/'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach</span><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">javascripts&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$javascript</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-str">&quot;</span><span class="src-str">&lt;script&nbsp;type=\&quot;text/javascript\&quot;&gt;<span class="src-var">$javascript</span>&lt;/script&gt;</span><span class="src-str">&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&lt;/head&gt;</div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&lt;body&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span>isset<span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">__on_load</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-str">&quot;</span><span class="src-str">onload=\&quot;{<span class="src-var">$Data</span></span><span class="src-sym">-&gt;</span><span class="src-id">__on_load</span><span class="src-str"></span><span class="src-sym">}</span>\&quot;</span><span class="src-str">&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;<span class="src-php">?&gt;</span>&nbsp;&gt;</div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;overDiv&quot;&nbsp;style=&quot;position:absolute;&nbsp;visibility:hidden;&nbsp;z-index:1000;&quot;&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;floating_div&quot;&nbsp;class=&quot;hidden&quot;&gt;&lt;/div&gt;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;megashadow&quot;&nbsp;class=&quot;hidden&quot;&gt;&lt;/div&gt;&nbsp;</div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;page&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span>isset<span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">__message</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$Message</span>=(object)<span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">__message</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;message&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;class=&quot;level_image&quot;&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">createFrameLink</span><span class="src-sym">(</span><span class="src-str">&quot;</span><span class="src-str">images/dialogs/<span class="src-var">$Message</span><span class="src-sym">-&gt;</span><span class="src-id">level</span>.png</span><span class="src-str">&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;alt=&quot;<span class="src-php">&lt;?&nbsp;</span>echo&nbsp;<span class="src-var">$Message</span><span class="src-sym">-&gt;</span><span class="src-id">level&nbsp;</span><span class="src-php">?&gt;</span>&quot;/&gt;</div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;javascript:void(0);&quot;&nbsp;onclick=&quot;javascript:hideMessage();&quot;&nbsp;class=&quot;cancel_button&quot;&nbsp;title=&quot;Cerrar&nbsp;Mensaje&quot;&gt;&lt;img&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">createFrameLink</span><span class="src-sym">(</span><span class="src-str">&quot;images/toolbars/delete.png&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;alt=&quot;delete&quot;/&gt;&lt;/a&gt;</div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-var">$Message</span><span class="src-sym">-&gt;</span><span class="src-id">text</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-sym">}&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;header&quot;&nbsp;&gt;</div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;logo&nbsp;hide_on_mobile&quot;&gt;&lt;a&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id">SYSTEM_WEB_ROOT</span><span class="src-php">?&gt;</span>&quot;&nbsp;title=&quot;Inicio&quot;&gt;&lt;img&nbsp;src=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/style/images/logo.png&quot;&nbsp;alt=&quot;Inicio&quot;/&gt;&lt;/a&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;id=&quot;top_menu&quot;&nbsp;&nbsp;class=&quot;<span class="src-php">&lt;?Php&nbsp;</span>echo&nbsp;<span class="src-sym">(</span><span class="src-var">$__menu_level</span>!=<span class="src-num">1</span><span class="src-sym">)</span>?<span class="src-str">'hide_on_mobile'</span>:<span class="src-str">''</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&nbsp;&gt;</div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">loadSubTemplate</span><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">main_menu_template</span><span class="src-sym">,&nbsp;</span><span class="src-id">TRUE</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;&nbsp;</div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;header_mobile&quot;&nbsp;class=&quot;hide_on_screen&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;back&quot;&nbsp;class=&quot;hide_on_screen&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;back_start&quot;&gt;&lt;/div&gt;&lt;div&nbsp;id=&quot;back_content&quot;&nbsp;&gt;</div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;id=&quot;back_mobile&quot;&nbsp;href=&quot;javascript:void(history.back())&quot;&nbsp;title=&quot;volver&quot;&gt;Atrás&lt;/a&gt;</div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;div&nbsp;id=&quot;back_end&quot;&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a84"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a86"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;print_header&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Tlalpujahua&nbsp;-&nbsp;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">page_name</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&lt;/h1&gt;</div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;body&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;page_title&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a93"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-key">if&nbsp;</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$User</span><span class="src-sym">)&nbsp;)&nbsp;</span><span class="src-sym">{</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a95"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;user_link&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;&nbsp;href=&quot;<span class="src-php">&lt;?=&nbsp;</span><span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/sections/admin/user/view_user.php?user_id=<span class="src-php">&lt;?=&nbsp;</span><span class="src-var">$User</span><span class="src-sym">-&gt;</span><span class="src-id">getId</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&quot;&gt;Bienvenido&nbsp;<span class="src-php">&lt;?=&nbsp;</span><span class="src-var">$User</span><span class="src-sym">-&gt;</span><span class="src-id">data</span><span class="src-sym">[</span><span class="src-str">'name'</span><span class="src-sym">]</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&lt;/a&gt;</div></li>
+<li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&lt;a&nbsp;&nbsp;href=&quot;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id"><a href="../ThaFrame/_base---gateway.php.html#defineTO_ROOT">TO_ROOT</a>&nbsp;</span><span class="src-php">?&gt;</span>/account/logout.php&quot;&nbsp;title=&quot;Terminar&nbsp;Sesión&quot;&gt;Salir&lt;/a&gt;</div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-sym">}&nbsp;</span><span class="src-php">?&gt;</span>&lt;h1&gt;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<a href="../ThaFrame/_core---functions.inc.php.html#functiont">t</a><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">page_name</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span>&lt;/h1&gt;</div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-key">if&nbsp;</span><span class="src-sym">(&nbsp;</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">secondary_menu_template</span>!=<span class="src-str">'vacio'&nbsp;</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;sidebar&quot;&nbsp;class=&quot;<span class="src-php">&lt;?Php&nbsp;</span>echo&nbsp;<span class="src-sym">(</span><span class="src-var">$__menu_level</span>!=<span class="src-num">2</span><span class="src-sym">)</span>?<span class="src-str">'hide_on_mobile'</span>:<span class="src-str">''</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-var">$Helper</span><span class="src-sym">-&gt;</span><span class="src-id">loadSubTemplate</span><span class="src-sym">(</span><span class="src-var">$Data</span><span class="src-sym">-&gt;</span><span class="src-id">secondary_menu_template</span><span class="src-sym">,&nbsp;</span><span class="src-id">TRUE</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a105"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&lt;div&nbsp;class=&quot;clearBox&nbsp;hide_on_mobile&quot;&gt;&lt;/div&gt;--&gt;</div></li>
+<li><div class="src-line"><a name="a106"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-sym">}&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;clearBox&nbsp;hide_on_screen&quot;&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a110"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&nbsp;class=&quot;<span class="src-php">&lt;?Php&nbsp;</span>echo&nbsp;<span class="src-sym">(</span><span class="src-var">$__menu_level</span>!=<span class="src-num">3</span><span class="src-sym">)</span>?<span class="src-str">'hide_on_mobile'</span>:<span class="src-str">''</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a111"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content_header&quot;&gt;&lt;div&nbsp;class=&quot;left&quot;&gt;&lt;/div&gt;&lt;div&nbsp;class=&quot;right&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a113"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content_body&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a114"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?=</span><span class="src-var">$content</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a115"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a116"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;!--&nbsp;end&nbsp;content_body&nbsp;--&gt;</div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content_footer&quot;&gt;&lt;div&nbsp;class=&quot;left&quot;&gt;&lt;/div&gt;&lt;div&nbsp;class=&quot;right&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;!--&nbsp;End&nbsp;content&nbsp;--&gt;</div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;separator&nbsp;hide_on_screen&quot;&gt;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;!--&nbsp;End&nbsp;body&nbsp;--&gt;</div></li>
+<li><div class="src-line"><a name="a121"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;footer_mobile&quot;&nbsp;class=&quot;hide_on_screen&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a124"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a125"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a126"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;footer&quot;&nbsp;class=&quot;hide_on_mobile&quot;&gt;</div></li>
+<li><div class="src-line"><a name="a127"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id">SYSTEM_COPYRIGHT&nbsp;</span><span class="src-php">?&gt;</span>&lt;br/&gt;</div></li>
+<li><div class="src-line"><a name="a128"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id">SYSTEM_AUTHOR&nbsp;</span><span class="src-php">?&gt;</span>&lt;br/&gt;</div></li>
+<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span>echo&nbsp;<span class="src-id">SYSTEM_DESIGN&nbsp;</span><span class="src-php">?&gt;</span>&lt;br/&gt;</div></li>
+<li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a131"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-doc">/**&nbsp;Do&nbsp;NOT&nbsp;remove&nbsp;this&nbsp;Notice!!&nbsp;**/&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Made&nbsp;with&nbsp;&lt;a&nbsp;href=&quot;http://thasystems.net/thaframe&quot;&gt;ThaFrame&lt;/a&gt;,</div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;&lt;a&nbsp;href=&quot;http://en.wikipedia.org/wiki/Free_software&quot;&gt;Free&nbsp;Software&lt;/a&gt;</div></li>
+<li><div class="src-line"><a name="a134"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;development&nbsp;from&nbsp;&lt;a&nbsp;href=&quot;http://thasystems.net&quot;&gt;ThaSystems&lt;/a&gt;.&lt;br/&gt;</div></li>
+<li><div class="src-line"><a name="a135"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php&nbsp;</span><span class="src-doc">/**&nbsp;Of&nbsp;course&nbsp;you&nbsp;are&nbsp;welcome&nbsp;to&nbsp;give&nbsp;it&nbsp;a&nbsp;more&nbsp;apropiated&nbsp;format&nbsp;**/&nbsp;</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a136"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a137"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">global&nbsp;</span><span class="src-var">$start_time</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a138"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$end_time&nbsp;</span>=&nbsp;<span class="src-id">microtime_float</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a139"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$time&nbsp;</span>=&nbsp;<span class="src-var">$end_time&nbsp;</span>-&nbsp;<span class="src-var">$start_time</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a140"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-str">&quot;</span><span class="src-str">Page&nbsp;generated&nbsp;in&nbsp;<span class="src-var">$time</span>&nbsp;seconds</span><span class="src-str">&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a141"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line"><a name="a142"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a143"></a>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</div></li>
+<li><div class="src-line"><a name="a144"></a>&nbsp;&nbsp;&lt;/body&gt;</div></li>
+<li><div class="src-line"><a name="a145"></a>&lt;/html&gt;</div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:48 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

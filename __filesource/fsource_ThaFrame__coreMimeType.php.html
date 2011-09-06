@@ -1,0 +1,312 @@
+<html>
+<head>
+<title>File Source for MimeType.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ThaFrame</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                          		  [ <a href="../classtrees_ThaFrame.html" class="menu">class tree: ThaFrame</a> ]
+		  [ <a href="../elementindex_ThaFrame.html" class="menu">index: ThaFrame</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file MimeType.php</h1>
+<p>Documentation is available at <a href="../ThaFrame/_core---MimeType.php.html">MimeType.php</a></p>
+<div class="src-code">
+<ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">Copyright&nbsp;(C)&nbsp;2002&nbsp;Jason&nbsp;Sheets&nbsp;&lt;jsheets@shadonet.com&gt;.</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">All&nbsp;rights&nbsp;reserved.</span></div></li>
+<li><div class="src-line"><a name="a5"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;PROJECT&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;``AS&nbsp;IS''&nbsp;AND</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">Redistribution&nbsp;and&nbsp;use&nbsp;in&nbsp;source&nbsp;and&nbsp;binary&nbsp;forms,&nbsp;with&nbsp;or&nbsp;without</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">modification,&nbsp;are&nbsp;permitted&nbsp;provided&nbsp;that&nbsp;the&nbsp;following&nbsp;conditions</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">are&nbsp;met:</span></div></li>
+<li><div class="src-line"><a name="a10"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">1.&nbsp;Redistributions&nbsp;of&nbsp;source&nbsp;code&nbsp;must&nbsp;retain&nbsp;the&nbsp;above&nbsp;copyright</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer.</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">2.&nbsp;Redistributions&nbsp;in&nbsp;binary&nbsp;form&nbsp;must&nbsp;reproduce&nbsp;the&nbsp;above&nbsp;copyright</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;notice,&nbsp;this&nbsp;list&nbsp;of&nbsp;conditions&nbsp;and&nbsp;the&nbsp;following&nbsp;disclaimer&nbsp;in&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;documentation&nbsp;and/or&nbsp;other&nbsp;materials&nbsp;provided&nbsp;with&nbsp;the&nbsp;distribution.</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">3.&nbsp;Neither&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;project&nbsp;nor&nbsp;the&nbsp;names&nbsp;of&nbsp;its&nbsp;contributors</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;endorse&nbsp;or&nbsp;promote&nbsp;products&nbsp;derived&nbsp;from&nbsp;this&nbsp;software</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;without&nbsp;specific&nbsp;prior&nbsp;written&nbsp;permission.</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">THIS&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;BY&nbsp;THE&nbsp;PROJECT&nbsp;AND&nbsp;CONTRIBUTORS&nbsp;``AS&nbsp;IS''&nbsp;AND</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">ANY&nbsp;EXPRESS&nbsp;OR&nbsp;IMPLIED&nbsp;WARRANTIES,&nbsp;INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED&nbsp;TO,&nbsp;THE</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY&nbsp;AND&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">ARE&nbsp;DISCLAIMED.&nbsp;&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE&nbsp;PROJECT&nbsp;OR&nbsp;CONTRIBUTORS&nbsp;BE&nbsp;LIABLE</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">FOR&nbsp;ANY&nbsp;DIRECT,&nbsp;INDIRECT,&nbsp;INCIDENTAL,&nbsp;SPECIAL,&nbsp;EXEMPLARY,&nbsp;OR&nbsp;CONSEQUENTIAL</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">DAMAGES&nbsp;(INCLUDING,&nbsp;BUT&nbsp;NOT&nbsp;LIMITED&nbsp;TO,&nbsp;PROCUREMENT&nbsp;OF&nbsp;SUBSTITUTE&nbsp;GOODS</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">OR&nbsp;SERVICES;&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA,&nbsp;OR&nbsp;PROFITS;&nbsp;OR&nbsp;BUSINESS&nbsp;INTERRUPTION)</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">HOWEVER&nbsp;CAUSED&nbsp;AND&nbsp;ON&nbsp;ANY&nbsp;THEORY&nbsp;OF&nbsp;LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;CONTRACT,&nbsp;STRICT</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-doc">LIABILITY,&nbsp;OR&nbsp;TORT&nbsp;(INCLUDING&nbsp;NEGLIGENCE&nbsp;OR&nbsp;OTHERWISE)&nbsp;ARISING&nbsp;IN&nbsp;ANY&nbsp;WAY</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-doc">OUT&nbsp;OF&nbsp;THE&nbsp;USE&nbsp;OF&nbsp;THIS&nbsp;SOFTWARE,&nbsp;EVEN&nbsp;IF&nbsp;ADVISED&nbsp;OF&nbsp;THE&nbsp;POSSIBILITY&nbsp;OF</span></div></li>
+<li><div class="src-line"><a name="a32"></a><span class="src-doc">SUCH&nbsp;DAMAGE.</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">**/</span></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a35"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a36"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Name:&nbsp;PHP&nbsp;MimeType&nbsp;Class</span></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Version:&nbsp;1.0</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Date&nbsp;Released:&nbsp;10/20/02</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Description:&nbsp;This&nbsp;class&nbsp;allows&nbsp;a&nbsp;PHP&nbsp;script&nbsp;to&nbsp;determine&nbsp;the&nbsp;mime&nbsp;type</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;a&nbsp;file&nbsp;based&nbsp;on&nbsp;the&nbsp;file&nbsp;extension.&nbsp;&nbsp;This&nbsp;class&nbsp;is&nbsp;handy&nbsp;for&nbsp;PHP&nbsp;versions</span></div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;without&nbsp;the&nbsp;benefit&nbsp;of&nbsp;other&nbsp;tools&nbsp;to&nbsp;determine&nbsp;the&nbsp;mime&nbsp;type.&nbsp;&nbsp;The&nbsp;class</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;octet-stream&nbsp;so&nbsp;if&nbsp;the&nbsp;file&nbsp;type&nbsp;is&nbsp;not&nbsp;recognized&nbsp;the&nbsp;user</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;is&nbsp;presented&nbsp;with&nbsp;a&nbsp;file&nbsp;download&nbsp;prompt.</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;NOTES:&nbsp;The&nbsp;mime&nbsp;types&nbsp;for&nbsp;this&nbsp;version&nbsp;are&nbsp;based&nbsp;on&nbsp;Apache&nbsp;1.3.27</span></div></li>
+<li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;mime&nbsp;types&nbsp;may&nbsp;change&nbsp;or&nbsp;need&nbsp;to&nbsp;be&nbsp;added&nbsp;in&nbsp;the&nbsp;future,&nbsp;the&nbsp;mime&nbsp;types</span></div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;are&nbsp;stored&nbsp;in&nbsp;an&nbsp;array&nbsp;so&nbsp;that&nbsp;an&nbsp;awk&nbsp;or&nbsp;other&nbsp;script&nbsp;can&nbsp;automatically</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;generate&nbsp;the&nbsp;code&nbsp;to&nbsp;make&nbsp;the&nbsp;array.</span></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Usage:</span></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a54"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;First&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;mimetype&nbsp;class&nbsp;must&nbsp;be&nbsp;created,&nbsp;then&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a55"></a><span class="src-doc">&nbsp;&nbsp;getType&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;with&nbsp;the&nbsp;filename.&nbsp;&nbsp;It&nbsp;will&nbsp;return</span></div></li>
+<li><div class="src-line"><a name="a56"></a><span class="src-doc">&nbsp;&nbsp;the&nbsp;mime&nbsp;type,&nbsp;an&nbsp;example&nbsp;follows.</span></div></li>
+<li><div class="src-line"><a name="a57"></a><span class="src-doc">&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a58"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Example:</span></div></li>
+<li><div class="src-line"><a name="a59"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mimetype&nbsp;=&nbsp;new&nbsp;mimetype();</span></div></li>
+<li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;$mimetype-&gt;getType('acrobat.pdf');</span></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a63"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;Author:&nbsp;Jason&nbsp;Sheets&nbsp;&lt;jsheets@shadonet.com&gt;</span></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;License:&nbsp;This&nbsp;script&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the&nbsp;BSD&nbsp;License,&nbsp;you&nbsp;are&nbsp;free</span></div></li>
+<li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;to&nbsp;use,&nbsp;or&nbsp;modify&nbsp;it&nbsp;however&nbsp;you&nbsp;like.&nbsp;&nbsp;If&nbsp;you&nbsp;find&nbsp;this&nbsp;script&nbsp;useful&nbsp;please</span></div></li>
+<li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;e-mail&nbsp;me.</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">**/</span></div></li>
+<li><div class="src-line"><a name="a68"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a70"></a><span class="src-key">class&nbsp;</span><a href="../ThaFrame/MimeType.html">MimeType</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a72"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;mimetype&nbsp;string&nbsp;based&nbsp;in&nbsp;the&nbsp;filename&nbsp;extension</span></div></li>
+<li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a74"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$filename&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../ThaFrame/MimeType.html#methodgetType">getType</a><span class="src-sym">(</span><span class="src-var">$filename</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;get&nbsp;base&nbsp;name&nbsp;of&nbsp;the&nbsp;filename&nbsp;provided&nbsp;by&nbsp;user</span></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$filename&nbsp;</span>=&nbsp;<a href="http://www.php.net/basename">basename</a><span class="src-sym">(</span><span class="src-var">$filename</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;break&nbsp;file&nbsp;into&nbsp;parts&nbsp;seperated&nbsp;by&nbsp;.</span></div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$filename&nbsp;</span>=&nbsp;<a href="http://www.php.net/explode">explode</a><span class="src-sym">(</span><span class="src-str">'.'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$filename</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a84"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;take&nbsp;the&nbsp;last&nbsp;part&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;get&nbsp;the&nbsp;file&nbsp;extension</span></div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$filename&nbsp;</span>=&nbsp;<span class="src-var">$filename</span><span class="src-sym">[</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$filename</span><span class="src-sym">)</span>-<span class="src-num">1</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a86"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;find&nbsp;mime&nbsp;type</span></div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">privFindType</span><span class="src-sym">(</span><span class="src-var">$filename</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">privFindType</span><span class="src-sym">(</span><span class="src-var">$ext</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;create&nbsp;mimetypes&nbsp;array</span></div></li>
+<li><div class="src-line"><a name="a93"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$mimetypes&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">privBuildMimeArray</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a95"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;return&nbsp;mime&nbsp;type&nbsp;for&nbsp;extension</span></div></li>
+<li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$mimetypes</span><span class="src-sym">[</span><span class="src-var">$ext</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$mimetypes</span><span class="src-sym">[</span><span class="src-var">$ext</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;if&nbsp;the&nbsp;extension&nbsp;wasn't&nbsp;found&nbsp;return&nbsp;octet-stream</span></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-key">else&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-str">'application/octet-stream'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a105"></a>&nbsp;&nbsp;&nbsp;<span class="src-key">private&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">privBuildMimeArray</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a106"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line"><a name="a107"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ez&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/andrew-inset&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;hqx&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/mac-binhex40&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;cpt&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/mac-compactpro&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a110"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;doc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/msword&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a111"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;bin&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dms&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a113"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;lha&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a114"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;lzh&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a115"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;exe&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a116"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;class&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;so&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dll&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/octet-stream&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;oda&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/oda&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pdf&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/pdf&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a121"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ai&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/postscript&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;eps&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/postscript&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ps&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/postscript&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a124"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;smi&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/smil&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a125"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;smil&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/smil&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a126"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wbxml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/vnd.wap.wbxml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a127"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wmlc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/vnd.wap.wmlc&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a128"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wmlsc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/vnd.wap.wmlscriptc&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;bcpio&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-bcpio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a130"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;vcd&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-cdlink&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a131"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pgn&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-chess-pgn&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;cpio&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-cpio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;csh&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-csh&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a134"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dcr&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-director&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a135"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dir&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-director&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a136"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dxr&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-director&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a137"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;dvi&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-dvi&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a138"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;spl&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-futuresplash&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a139"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;gtar&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-gtar&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a140"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;hdf&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-hdf&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a141"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;js&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-javascript&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a142"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;skp&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-koan&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a143"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;skd&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-koan&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a144"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;skt&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-koan&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a145"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;skm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-koan&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a146"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;latex&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-latex&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a147"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;nc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-netcdf&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a148"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;cdf&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-netcdf&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sh&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-sh&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a150"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;shar&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-shar&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a151"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;swf&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-shockwave-flash&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a152"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sit&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-stuffit&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a153"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sv4cpio&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-sv4cpio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a154"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sv4crc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-sv4crc&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a155"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tar&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-tar&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a156"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tcl&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-tcl&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a157"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tex&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-tex&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a158"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;texinfo&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-texinfo&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a159"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;texi&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-texinfo&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a160"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;t&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a161"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tr&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a162"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;roff&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a163"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;man&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff-man&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a164"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;me&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff-me&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a165"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ms&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-troff-ms&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a166"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ustar&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-ustar&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a167"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;src&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/x-wais-source&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a168"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xhtml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/xhtml+xml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a169"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xht&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/xhtml+xml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a170"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;zip&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;application/zip&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a171"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;au&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/basic&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a172"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;snd&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/basic&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a173"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mid&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/midi&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a174"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;midi&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/midi&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a175"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;kar&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/midi&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a176"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mpga&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a177"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mp2&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a178"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mp3&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a179"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;aif&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-aiff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a180"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;aiff&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-aiff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a181"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;aifc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-aiff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a182"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;m3u&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-mpegurl&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a183"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ram&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-pn-realaudio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a184"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;rm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-pn-realaudio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a185"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;rpm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-pn-realaudio-plugin&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a186"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ra&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-realaudio&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a187"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wav&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;audio/x-wav&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a188"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pdb&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;chemical/x-pdb&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a189"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xyz&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;chemical/x-xyz&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a190"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;bmp&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/bmp&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a191"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;gif&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/gif&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a192"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ief&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/ief&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a193"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;jpeg&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/jpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a194"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;jpg&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/jpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a195"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;jpe&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/jpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a196"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;png&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/png&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a197"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tiff&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/tiff&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a198"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tif&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/tif&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a199"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;djvu&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/vnd.djvu&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a200"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;djv&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/vnd.djvu&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a201"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wbmp&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/vnd.wap.wbmp&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a202"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ras&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-cmu-raster&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a203"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pnm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-portable-anymap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a204"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pbm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-portable-bitmap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a205"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;pgm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-portable-graymap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a206"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ppm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-portable-pixmap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a207"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;rgb&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-rgb&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a208"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xbm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-xbitmap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a209"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xpm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-xpixmap&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a210"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xwd&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;image/x-windowdump&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a211"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;igs&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/iges&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a212"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;iges&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/iges&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a213"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;msh&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/mesh&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a214"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mesh&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/mesh&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a215"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;silo&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/mesh&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a216"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wrl&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/vrml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a217"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;vrml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;model/vrml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a218"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;css&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/css&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a219"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;html&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/html&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a220"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;htm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/html&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a221"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;asc&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/plain&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a222"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;txt&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/plain&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a223"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;rtx&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/richtext&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a224"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;rtf&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/rtf&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a225"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sgml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/sgml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a226"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;sgm&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/sgml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a227"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;tsv&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/tab-seperated-values&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a228"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/vnd.wap.wml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a229"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;wmls&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/vnd.wap.wmlscript&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a230"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;etx&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/x-setext&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a231"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xml&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/xml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a232"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;xsl&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text/xml&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a233"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mpeg&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a234"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mpg&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a235"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mpe&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/mpeg&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a236"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;qt&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/quicktime&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a237"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mov&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/quicktime&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a238"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;mxu&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/vnd.mpegurl&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a239"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;avi&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/x-msvideo&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a240"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;movie&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;video/x-sgi-movie&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line"><a name="a241"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;ice&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;x-conference-xcooltalk&quot;</span></div></li>
+<li><div class="src-line"><a name="a242"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a243"></a>&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a244"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a245"></a><span class="src-php">?&gt;</span></div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:33:47 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

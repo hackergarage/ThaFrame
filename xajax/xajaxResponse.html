@@ -1,0 +1,2014 @@
+<html>
+<head>
+<title>Docs For Class xajaxResponse</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">xajax</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                                                                                
+                              		  [ <a href="../classtrees_xajax.html" class="menu">class tree: xajax</a> ]
+		  [ <a href="../elementindex_xajax.html" class="menu">index: xajax</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="ric">
+					<p><a href="../ric_README.html">README</a></p>
+			</div>
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_ThaFrame.html">ThaFrame</a><br />
+              <a href="../li_Chart.html">Chart</a><br />
+              <a href="../li_cmf.html">cmf</a><br />
+              <a href="../li_Garson.html">Garson</a><br />
+              <a href="../li_PHPMailer.html">PHPMailer</a><br />
+              <a href="../li_Spyc.html">Spyc</a><br />
+              <a href="../li_Swift.html">Swift</a><br />
+              <a href="../li_xajax.html">xajax</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../xajax/_vendors---xajax---xajax.inc.php.html">		xajax.inc.php
+		</a><br>
+			<a href="../xajax/_vendors---xajax---xajaxCompress.php.html">		xajaxCompress.php
+		</a><br>
+			<a href="../xajax/_vendors---xajax---xajaxResponse.inc.php.html">		xajaxResponse.inc.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../xajax/xajax.html">xajax</a><br />
+	    		<a href="../xajax/xajaxResponse.html">xajaxResponse</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: xajaxResponse</h1>
+Source Location: /vendors/xajax/xajaxResponse.inc.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">The xajaxResponse class is used to create responses to be sent back to your  Web page.  A response contains one or more command messages for updating  your page.</div><br /><br />
+
+
+
+
+
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../xajax/xajaxResponse.html#var$aCommands">$aCommands</a></li>
+    <li><a href="../xajax/xajaxResponse.html#var$bOutputEntities">$bOutputEntities</a></li>
+    <li><a href="../xajax/xajaxResponse.html#var$sEncoding">$sEncoding</a></li>
+    <li><a href="../xajax/xajaxResponse.html#var$xml">$xml</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../xajax/xajaxResponse.html#methodxajaxResponse">xajaxResponse</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddAlert">addAlert</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddAppend">addAppend</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddAssign">addAssign</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddClear">addClear</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddCommand">addCommand</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddConfirmCommands">addConfirmCommands</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddCreate">addCreate</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddCreateInput">addCreateInput</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddEvent">addEvent</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddHandler">addHandler</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddIncludeScript">addIncludeScript</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddInsert">addInsert</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddInsertAfter">addInsertAfter</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddInsertInput">addInsertInput</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddInsertInputAfter">addInsertInputAfter</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddPrepend">addPrepend</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddRedirect">addRedirect</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddRemove">addRemove</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddRemoveHandler">addRemoveHandler</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddReplace">addReplace</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddScript">addScript</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodaddScriptCall">addScriptCall</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodalert">alert</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodappend">append</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodassign">assign</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodcall">call</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodclear">clear</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodconfirmCommands">confirmCommands</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodcreate">create</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodcreateInput">createInput</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodgetOutput">getOutput</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodgetXML">getXML</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodincludeScript">includeScript</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodinsert">insert</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodinsertAfter">insertAfter</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodinsertInput">insertInput</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodinsertInputAfter">insertInputAfter</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodloadCommands">loadCommands</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodloadXML">loadXML</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodoutputEntitiesOff">outputEntitiesOff</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodoutputEntitiesOn">outputEntitiesOn</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodprepend">prepend</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodredirect">redirect</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodremove">remove</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodremoveHandler">removeHandler</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodreplace">replace</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodscript">script</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodsetCharEncoding">setCharEncoding</a></li>
+    <li><a href="../xajax/xajaxResponse.html#methodsetOutputEntities">setOutputEntities</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a68">68</a>]<br />
+The xajaxResponse class is used to create responses to be sent back to your  Web page.  A response contains one or more command messages for updating  your page.<br /><br /><p>Currently xajax supports 21 kinds of command messages, including some common  ones such as:  <ul><li>Assign - sets the specified attribute of an element in your page</li><li>Append - appends data to the end of the specified attribute of an
+ element in your page</li><li>Prepend - prepends data to the beginning of the specified attribute of
+ an element in your page</li><li>Replace - searches for and replaces data in the specified attribute of
+ an element in your page</li><li>Script - runs the supplied JavaScript code</li><li>Alert - shows an alert box with the supplied message text</li></ul></p><p><em>Note:</em> elements are identified by their HTML id, so if you don't see  your browser HTML display changing from the request, make sure you're using  the right id names in your response.</p><br /></div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$aCommands"></a>
+	<p></p>
+	<h4>$aCommands = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a76">76</a>]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>internal command storage</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$bOutputEntities"></a>
+	<p></p>
+	<h4>$bOutputEntities = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a89">89</a>]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>if special characters in the XML should be converted to               entities</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>boolean</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$sEncoding"></a>
+	<p></p>
+	<h4>$sEncoding = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a84">84</a>]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>the encoding type to use</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$xml"></a>
+	<p></p>
+	<h4>$xml = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a80">80</a>]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>internal XML storage</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="methodxajaxResponse"></a>
+	<h3>constructor xajaxResponse <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a106">106</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>xajaxResponse xajaxResponse(
+[string
+$sEncoding = XAJAX_DEFAULT_CHAR_ENCODING], [boolean
+$bOutputEntities = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		The constructor's main job is to set the character encoding for the  response.<br /><br /><p><em>Note:</em> to change the character encoding for all of the  responses, set the XAJAX_DEFAULT_ENCODING constant before you  instantiate xajax.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sEncoding</b>&nbsp;&nbsp;</td>
+        <td>contains the character encoding string to use</td>
+      </tr>
+          <tr>
+        <td class="type">boolean&nbsp;&nbsp;</td>
+        <td><b>$bOutputEntities</b>&nbsp;&nbsp;</td>
+        <td>lets you set if you want special characters in the output                 converted to HTML entities</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddAlert"></a>
+	<h3>method addAlert <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a292">292</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addAlert(
+string
+$sMsg)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an alert command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addAlert(&quot;This is important information&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sMsg</b>&nbsp;&nbsp;</td>
+        <td>the text to be displayed in the Javascript alert box</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddAppend"></a>
+	<h3>method addAppend <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a207">207</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addAppend(
+string
+$sTarget, string
+$sAttribute, string
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an append command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addAppend(&quot;contentDiv&quot;, &quot;innerHTML&quot;, &quot;Some New Text&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td>the part of the element you wish to modify (&quot;innerHTML&quot;,                &quot;value&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td>the data you want to append to the end of the attribute</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddAssign"></a>
+	<h3>method addAssign <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a186">186</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addAssign(
+string
+$sTarget, string
+$sAttribute, string
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an assign command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addAssign(&quot;contentDiv&quot;, &quot;innerHTML&quot;, &quot;Some Text&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td>the part of the element you wish to modify (&quot;innerHTML&quot;,                &quot;value&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td>the data you want to set the attribute to</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddClear"></a>
+	<h3>method addClear <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a274">274</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addClear(
+string
+$sTarget, string
+$sAttribute)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a clear command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addClear(&quot;contentDiv&quot;, &quot;innerHTML&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td>the part of the element you wish to clear (&quot;innerHTML&quot;,                &quot;value&quot;, etc.)</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddCommand"></a>
+	<h3>method addCommand <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a795">795</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addCommand(
+array
+$aAttributes, mixed
+$mData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a commmand to the array of all commands<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$aAttributes</b>&nbsp;&nbsp;</td>
+        <td>associative array of attributes</td>
+      </tr>
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$mData</b>&nbsp;&nbsp;</td>
+        <td>data</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddConfirmCommands"></a>
+	<h3>method addConfirmCommands <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a165">165</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addConfirmCommands(
+integer
+$iCmdNumber, string
+$sMessage)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a confirm commands command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addConfirmCommands(1, &quot;Do you want to preview the new data?&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$iCmdNumber</b>&nbsp;&nbsp;</td>
+        <td>the number of commands to skip if the user presses                 Cancel in the browsers's confirm dialog</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sMessage</b>&nbsp;&nbsp;</td>
+        <td>the message to show in the browser's confirm dialog</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddCreate"></a>
+	<h3>method addCreate <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a426">426</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addCreate(
+string
+$sParent, string
+$sTag, string
+$sId, [string
+$sType = &quot;&quot;])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a create element command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addCreate(&quot;parentDiv&quot;, &quot;h3&quot;, &quot;myid&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sParent</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element to to which the new                element will be appended.</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td>the tag to be added</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td>deprecated, use the addCreateInput() method instead</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddCreateInput"></a>
+	<h3>method addCreateInput <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a497">497</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addCreateInput(
+string
+$sParent, string
+$sType, string
+$sName, string
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a create input command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addCreateInput(&quot;form1&quot;, &quot;text&quot;, &quot;username&quot;, &quot;input1&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sParent</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element to which the new input                will be appended</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td>the type of input to be created (text, radio, checkbox,                etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td>the name to be assigned to the new input and the variable                name when it is submitted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new input</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddEvent"></a>
+	<h3>method addEvent <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a565">565</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addEvent(
+string
+$sTarget, string
+$sEvent, string
+$sScript)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an event command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addEvent(&quot;contentDiv&quot;, &quot;onclick&quot;, &quot;alert(\'Hello World\');&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sEvent</b>&nbsp;&nbsp;</td>
+        <td>the event you wish to set (&quot;onclick&quot;, &quot;onmouseover&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sScript</b>&nbsp;&nbsp;</td>
+        <td>the Javascript string you want the event to invoke</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddHandler"></a>
+	<h3>method addHandler <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a581">581</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addHandler(
+string
+$sTarget, string
+$sEvent, string
+$sHandler)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a handler command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addHandler(&quot;contentDiv&quot;, &quot;onclick&quot;, &quot;content_click&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sEvent</b>&nbsp;&nbsp;</td>
+        <td>the event you wish to set (&quot;onclick&quot;, &quot;onmouseover&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sHandler</b>&nbsp;&nbsp;</td>
+        <td>the name of a Javascript function that will handle the                event. Multiple handlers can be added for the same event</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddIncludeScript"></a>
+	<h3>method addIncludeScript <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a616">616</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addIncludeScript(
+string
+$sFileName)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an include script command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addIncludeScript(&quot;functions.js&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sFileName</b>&nbsp;&nbsp;</td>
+        <td>URL of the Javascript file to include</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddInsert"></a>
+	<h3>method addInsert <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a452">452</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addInsert(
+string
+$sBefore, string
+$sTag, string
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a insert element command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addInsert(&quot;childDiv&quot;, &quot;h3&quot;, &quot;myid&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sBefore</b>&nbsp;&nbsp;</td>
+        <td>contains the id of the child before which the new element                will be inserted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td>the tag to be added</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new element</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddInsertAfter"></a>
+	<h3>method addInsertAfter <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a473">473</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addInsertAfter(
+string
+$sAfter, string
+$sTag, string
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a insert element command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addInsertAfter(&quot;childDiv&quot;, &quot;h3&quot;, &quot;myid&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAfter</b>&nbsp;&nbsp;</td>
+        <td>contains the id of the child after which the new element                will be inserted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td>the tag to be added</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new element</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddInsertInput"></a>
+	<h3>method addInsertInput <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a521">521</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addInsertInput(
+string
+$sBefore, string
+$sType, string
+$sName, string
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an insert input command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addInsertInput(&quot;input5&quot;, &quot;text&quot;, &quot;username&quot;, &quot;input1&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sBefore</b>&nbsp;&nbsp;</td>
+        <td>contains the id of the child before which the new element                will be inserted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td>the type of input to be created (text, radio, checkbox,                etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td>the name to be assigned to the new input and the variable                name when it is submitted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new input</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddInsertInputAfter"></a>
+	<h3>method addInsertInputAfter <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a545">545</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addInsertInputAfter(
+string
+$sAfter, string
+$sType, string
+$sName, string
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an insert input command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addInsertInputAfter(&quot;input7&quot;, &quot;text&quot;, &quot;email&quot;, &quot;input2&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAfter</b>&nbsp;&nbsp;</td>
+        <td>contains the id of the child after which the new element                will be inserted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td>the type of input to be created (text, radio, checkbox,                etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td>the name to be assigned to the new input and the variable                name when it is submitted</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td>the id to be assigned to the new input</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddPrepend"></a>
+	<h3>method addPrepend <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a229">229</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addPrepend(
+string
+$sTarget, string
+$sAttribute, string
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds an prepend command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addPrepend(&quot;contentDiv&quot;, &quot;innerHTML&quot;, &quot;Some Starting Text&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td>the part of the element you wish to modify (&quot;innerHTML&quot;,                &quot;value&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td>the data you want to prepend to the beginning of the                attribute</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddRedirect"></a>
+	<h3>method addRedirect <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a310">310</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addRedirect(
+string
+$sURL, [
+$iDelay = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Uses the addScript() method to add a Javascript redirect to another URL.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;redirect(&quot;http://www.xajaxproject.org&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sURL</b>&nbsp;&nbsp;</td>
+        <td>the URL to redirect the client browser to</td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$iDelay</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddRemove"></a>
+	<h3>method addRemove <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a404">404</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addRemove(
+string
+$sTarget)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a remove element command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addRemove(&quot;Div2&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element to be removed</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddRemoveHandler"></a>
+	<h3>method addRemoveHandler <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a598">598</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addRemoveHandler(
+string
+$sTarget, string
+$sEvent, string
+$sHandler)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a remove handler command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addRemoveHandler(&quot;contentDiv&quot;, &quot;onclick&quot;, &quot;content_click&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sEvent</b>&nbsp;&nbsp;</td>
+        <td>the event you wish to remove (&quot;onclick&quot;, &quot;onmouseover&quot;,                etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sHandler</b>&nbsp;&nbsp;</td>
+        <td>the name of a Javascript handler function that you want to                remove</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddReplace"></a>
+	<h3>method addReplace <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a252">252</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addReplace(
+string
+$sTarget, string
+$sAttribute, string
+$sSearch, string
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a replace command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addReplace(&quot;contentDiv&quot;, &quot;innerHTML&quot;, &quot;text&quot;, &quot;&lt;b&gt;text&lt;/b&gt;&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td>contains the id of an HTML element</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td>the part of the element you wish to modify (&quot;innerHTML&quot;,                &quot;value&quot;, etc.)</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sSearch</b>&nbsp;&nbsp;</td>
+        <td>the string to search for</td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td>the string to replace the search string when found in the                attribute</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddScript"></a>
+	<h3>method addScript <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a363">363</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addScript(
+string
+$sJS)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a Javascript command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addScript(&quot;var x = prompt('get some text');&quot;);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sJS</b>&nbsp;&nbsp;</td>
+        <td>contains Javascript code to be executed</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddScriptCall"></a>
+	<h3>method addScriptCall <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a382">382</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addScriptCall(
+string
+$sFunc, mixed
+$args,...)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a Javascript function call command message to the XML response.<br /><br /><p><em>Usage:</em> <kbd>$objResponse-&gt;addScriptCall(&quot;myJSFunction&quot;, &quot;arg 1&quot;, &quot;arg 2&quot;, 12345);</kbd></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sFunc</b>&nbsp;&nbsp;</td>
+        <td>the name of a Javascript function</td>
+      </tr>
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$args,...</b>&nbsp;&nbsp;</td>
+        <td>optional arguments to pass to the Javascript function</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodalert"></a>
+	<h3>method alert <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a298">298</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void alert(
+
+$sMsg)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sMsg</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodappend"></a>
+	<h3>method append <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a213">213</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void append(
+
+$sTarget, 
+$sAttribute, 
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodassign"></a>
+	<h3>method assign <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a192">192</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void assign(
+
+$sTarget, 
+$sAttribute, 
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcall"></a>
+	<h3>method call <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a391">391</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void call(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodclear"></a>
+	<h3>method clear <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a280">280</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void clear(
+
+$sTarget, 
+$sAttribute)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodconfirmCommands"></a>
+	<h3>method confirmCommands <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a171">171</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void confirmCommands(
+
+$iCmdNumber, 
+$sMessage)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$iCmdNumber</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sMessage</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcreate"></a>
+	<h3>method create <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a437">437</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void create(
+
+$sParent, 
+$sTag, 
+$sId, [
+$sType = &quot;&quot;])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sParent</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcreateInput"></a>
+	<h3>method createInput <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a503">503</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void createInput(
+
+$sParent, 
+$sType, 
+$sName, 
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sParent</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetOutput"></a>
+	<h3>method getOutput <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a637">637</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string getOutput(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns the XML to be returned from your function to the xajax processor  on your page. Since xajax 0.2, you can also return an xajaxResponse  object from your function directly, and xajax will automatically request  the XML using this method call.<br /><br /><p><em>Usage:</em> <kbd>return $objResponse-&gt;getXML();</kbd></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>response XML data</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetXML"></a>
+	<h3>method getXML <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a662">662</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void getXML(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodincludeScript"></a>
+	<h3>method includeScript <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a622">622</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void includeScript(
+
+$sFilename)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sFilename</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinsert"></a>
+	<h3>method insert <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a458">458</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void insert(
+
+$sBefore, 
+$sTag, 
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sBefore</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinsertAfter"></a>
+	<h3>method insertAfter <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a479">479</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void insertAfter(
+
+$sAfter, 
+$sTag, 
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAfter</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTag</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinsertInput"></a>
+	<h3>method insertInput <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a527">527</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void insertInput(
+
+$sBefore, 
+$sType, 
+$sName, 
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sBefore</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinsertInputAfter"></a>
+	<h3>method insertInputAfter <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a551">551</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void insertInputAfter(
+
+$sAfter, 
+$sType, 
+$sName, 
+$sId)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAfter</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sType</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sId</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadCommands"></a>
+	<h3>method loadCommands <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a696">696</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void loadCommands(
+
+$mCommands)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$mCommands</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodloadXML"></a>
+	<h3>method loadXML <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a679">679</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void loadXML(
+string
+$mCommands)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds the commands of the provided response XML output to this response  object<br /><br /><p><em>Usage:</em>  <ol><li><div class="src-line"><span class="src-var">$r1&nbsp;</span>=&nbsp;<span class="src-var">$objResponse1</span><span class="src-sym">-&gt;</span><a href="../xajax/xajaxResponse.html#methodgetXML">getXML</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$objResponse2</span><span class="src-sym">-&gt;</span><a href="../xajax/xajaxResponse.html#methodloadXML">loadXML</a><span class="src-sym">(</span><span class="src-var">$r1</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$objResponse2</span><span class="src-sym">-&gt;</span><a href="../xajax/xajaxResponse.html#methodgetXML">getXML</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$mCommands</b>&nbsp;&nbsp;</td>
+        <td>the response XML (returned from a getXML() method) to add                to the end of this response object</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodoutputEntitiesOff"></a>
+	<h3>method outputEntitiesOff <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a151">151</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void outputEntitiesOff(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Tells the response object to output special characters intact. (default<br /><br /><p>behavior)</p><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodoutputEntitiesOn"></a>
+	<h3>method outputEntitiesOn <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a142">142</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void outputEntitiesOn(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Tells the response object to convert special characters to HTML entities  automatically (only works if the mb_string extension is available).<br /><br /><br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodprepend"></a>
+	<h3>method prepend <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a235">235</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void prepend(
+
+$sTarget, 
+$sAttribute, 
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodredirect"></a>
+	<h3>method redirect <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a351">351</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void redirect(
+
+$sURL, [
+$iDelay = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sURL</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$iDelay</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodremove"></a>
+	<h3>method remove <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a410">410</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void remove(
+
+$sTarget)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodremoveHandler"></a>
+	<h3>method removeHandler <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a604">604</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void removeHandler(
+
+$sTarget, 
+$sEvent, 
+$sHandler)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sEvent</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sHandler</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodreplace"></a>
+	<h3>method replace <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a260">260</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void replace(
+
+$sTarget, 
+$sAttribute, 
+$sSearch, 
+$sData)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sTarget</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sAttribute</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sSearch</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sData</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodscript"></a>
+	<h3>method script <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a369">369</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void script(
+
+$sJS)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$sJS</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetCharEncoding"></a>
+	<h3>method setCharEncoding <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a122">122</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setCharEncoding(
+string
+$sEncoding)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Sets the character encoding for the response based on $sEncoding, which<br /><br /><p>is a string containing the character encoding to use. You don't need to  use this method normally, since the character encoding for the response  gets set automatically based on the XAJAX_DEFAULT_CHAR_ENCODING  constant.</p><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$sEncoding</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetOutputEntities"></a>
+	<h3>method setOutputEntities <span class="smalllinenumber">[line <a href="../__filesource/fsource_xajax__vendorsxajaxxajaxResponse.inc.php.html#a132">132</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setOutputEntities(
+
+$bOption)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		If true, tells the response object to convert special characters to HTML  entities automatically (only works if the mb_string extension is  available).<br /><br /><br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$bOption</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 05 Sep 2011 20:34:58 -0500 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
