@@ -133,7 +133,7 @@ class TablePattern Extends TemplatePattern
    * @param string $field the field
    * @return void
    */
-  public function setRowId($prefix, $field )
+  public function setRowId($prefix, $field)
   {
     $this->_prefix = $prefix;
     $this->_row_id = $field;
@@ -382,6 +382,12 @@ class TablePattern Extends TemplatePattern
       $this->setPageName($config['__general']['page_name']); 
     }
     unset($config['__general']);
+    
+    if( isset($config['__row_id']) ) {
+      $this->setRowId($config['__row_id']['prefix'], $config['__row_id']['field']);
+    }
+    unset($config['__row_id']);
+    
     
     if( isset($config['__filters']) ) {
       foreach($config['__filters'] AS $field => $properties) {
