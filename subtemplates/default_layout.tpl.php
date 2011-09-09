@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="<?php $Helper->createFrameLink('style/style.css');?>" type="text/css" media="screen"/>
     
     <link type="text/css" href="<?php $Helper->createFrameLink('vendors/jqueryui/css/redmond/jquery-ui-1.8.13.custom.css');?>" rel="Stylesheet" />	
-	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-1.5.2.min.js');?>"></script>
-	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-1.8.13.custom.min.js');?>"></script>
+	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-1.6.2.min.js');?>"></script>
+	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-1.8.16.custom.min.js');?>"></script>
 	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-timepicker-addon.js');?>"></script>
     
     <script type="text/javascript" src="<?= TO_ROOT ?>/includes/functions.js"></script>
