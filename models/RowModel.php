@@ -125,6 +125,7 @@ class RowModel {
     if ( !$this->loaded ){
       $this->loaded=true;
     }
+    
     return true;
   }
  

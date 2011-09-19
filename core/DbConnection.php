@@ -157,7 +157,6 @@ class DbConnection {
     if ( !$results = @mysql_query($sql, $this->db_connection) ) {
       throw new RunTimeException("Couldn't execute query: ". mysql_error($this->db_connection) );
     }
-    
     if ( $row = mysql_fetch_array($results) ) {
       return $row[0];
     }

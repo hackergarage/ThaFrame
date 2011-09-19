@@ -67,7 +67,7 @@ class GetRequest {
     return $this->_request_uri;
   }
   
-  public function zeroParameter($field,$format='string'){
+  public static function zeroParameter($field, $format='string'){
     if( isset($_GET[$field]) && !empty($_GET[$field]) ) {
     	switch ($format)
     	{
@@ -76,7 +76,6 @@ class GetRequest {
     		default :
     			 	return $_GET[$field];
     	}
-     
     }
     return 0;
   }

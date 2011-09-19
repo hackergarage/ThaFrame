@@ -46,7 +46,7 @@ function BasicConfig() {
 		width: 700,
 		modal: true,
 		resizable: true,
-		title: $('#overlay h3').attr('innerHTML')
+		title: $('#overlay h3').html()
 	});
 	
 	$( "input:submit, input:button,  ul.action a").button();

@@ -1,7 +1,12 @@
 <?php
+
+define('SESSION_MESSAGE_INFO', 'info');
+define('SESSION_MESSAGE_WARNING', 'warning');
+define('SESSION_MESSAGE_ERROR', 'error');
+define('SESSION_MESSAGE_SUCCESS', 'success');
+
 class Session
 {
-  
   /**
    * Holds the logged in user, usually {@link UserModel} or some child class
    * @var  UserModel
@@ -84,5 +89,16 @@ class Session
   
   public static function getErrorString() {
     return self::$_error;
+  }
+  
+  /**
+   * saves a message in session
+   * @param string $message
+   * @param string $level might be: info, warning, error, success
+   * @return false
+   */
+  public static function setMessage($message = '', $level='info') {
+    $_SESSION['__message_text'] = $message;
+    $_SESSION['__message_level'] = $level;
   }
 }

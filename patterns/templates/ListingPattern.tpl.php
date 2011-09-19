@@ -96,7 +96,7 @@
       foreach($__filters AS $field => $filter){
         $Filter = (object)$filter;
         if($Filter->type=='custom'){
-          echo $Filter->label.": ";
+          echo t($Filter->label).": ";
           $options = array();
           foreach($Filter->options AS $option) {
             $options[$option['value']] = $option['label'];

@@ -80,8 +80,7 @@ class PagePattern extends TemplatePattern
    */
   public static function goToPage($url, $message = '', $level='info') {
     if ( $message ) {
-      $_SESSION['__message_text'] = $message;
-      $_SESSION['__message_level'] = $level;
+      Session::setMessage($message, $level);
     }
     header("location: $url");
     die();

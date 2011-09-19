@@ -104,6 +104,7 @@ body {
 }
 
 #sidebar {
+	position:relative;
 	float: left;
 	width: 150px;
 	padding: 5px;
@@ -134,6 +135,7 @@ body {
 }
 
 #content {
+	position:relative;
 	background: white;
 	border-left: 1px solid gray;
 	margin-left: 173px;
@@ -270,7 +272,7 @@ table {
 	border-spacing: 0px;
 	border-collapse: collapse;
 	border-spacing: 0px;
-	clear: both;
+	clear: right;
 }
 tr:nth-child(odd) {
   	background: #EEE;
