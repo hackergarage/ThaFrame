@@ -35,7 +35,8 @@ function BasicConfig() {
 		showButtonPanel: true,
 		changeYear: true,
 		changeMonth: true,
-		yearRange: '1940:2010'
+		yearRange: '1940:2010',
+		gotoCurrent: true
 	});
 	
 	$("#pagination .next,#pagination .previous").button();

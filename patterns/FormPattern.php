@@ -392,14 +392,14 @@ class FormPattern Extends FieldListPattern
    * Creates the javascript that powers the dependent engine
    * @return string the code that should be added to the template using {@link addJavascript()}
    */
-  public function createDependentJavascript($run_update=False)
+  public function createDependentJavascript($run_update=false)
   {
     $code = false;
     if( count($this->_dependents) ) {
       
       $code .= "\n  function update".str_replace(' ', '',ucwords(str_replace('_', ' ', $this->_form_id)))."Dependents()\n  {";
       
-      foreach($this->dependents as $field => $parameters)
+      foreach($this->_dependents as $field => $parameters)
       {
         switch( $this->_fields[$field]['type'])
         {
