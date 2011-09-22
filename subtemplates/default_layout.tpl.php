@@ -10,6 +10,7 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'/>
     <link type="text/plain" rel="author" href="<?= $Config->system_web_root ?>humans.txt" />
     <link rel="stylesheet" href="<?php $Helper->createFrameLink('style/style.css');?>" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="<?php $Helper->createFrameLink('style/print.css');?>" type="text/css" media="print"/>
     
     <link type="text/css" href="<?php $Helper->createFrameLink('vendors/jqueryui/css/redmond/jquery-ui-1.8.13.custom.css');?>" rel="Stylesheet" />	
 	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-1.6.2.min.js');?>"></script>
