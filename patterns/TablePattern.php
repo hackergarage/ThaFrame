@@ -269,7 +269,7 @@ class TablePattern Extends TemplatePattern
         'empty' => $empty,
         'options' => array()
     );
-    if($type='active') {
+    if($type == 'active') {
       $aux['type'] = 'custom';
       $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>$extra_data['prefix'].'active=\'1\'');
       $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>$extra_data['prefix'].'active=\'0\'');
@@ -407,11 +407,17 @@ class TablePattern Extends TemplatePattern
               $this->addFilterOption($field, 'all', 'All', false, '1');
             }
           }
+          if($properties['type']=='active') {
+            
+          } else if ($properties['type']=='custom') {
+            $this->addFilterOptions($field, $properties['options'], $properties['condition']);
+          }
         }
       }
       }
     }
     unset($config['__filters']);
+    
     if( isset($config['__query']['sql']) ) {
       $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
       $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
