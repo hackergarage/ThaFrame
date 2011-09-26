@@ -304,11 +304,14 @@ class TablePattern Extends TemplatePattern
         'condition' => $condition,
     );
     if($default) {
-      $this->_filters[$field]['default']= $value;
+      $this->_filters[$field]['default'] = $value;
     }
     $this->_filters[$field]['options'][] = $aux;
   }
   
+  public function setFilterDefault($field, $value) {
+    $this->_filters[$field]['default'] = $value;
+  }
   public function addFilterOptions($field, $values, $condition)
   {
     if (is_array($values) ) {
@@ -316,7 +319,7 @@ class TablePattern Extends TemplatePattern
         $search  = array('{value}', '{label}');
         $replace = array(mysql_escape_string($value), mysql_escape_string($label));
         $replaced_condition = str_replace($search, $replace, $condition);
-        $this->addFilterOption($field, $value, $label, FALSE, $replaced_condition);
+        $this->addFilterOption($field, $value, $label, false, $replaced_condition);
       }
     }
   }
@@ -395,18 +398,22 @@ class TablePattern Extends TemplatePattern
         if($properties['type']=='hidden') {
           $this->addHiddenFilter($field, $properties['value'], $properties['condition']);
         } else {
+          
           if ( isset($properties['prefix']) ) {
             $this->addFilter($field, $properties['label'], $properties['type'], array('prefix'=>$properties['prefix']));
           } else {
             $this->addFilter($field, $properties['label'], $properties['type']);
           }
+          
+          
           if($properties['add_all']) {
-            if($properties['default']=='all') {
-              $this->addFilterOption($field, 'all', 'All', true, '1');
-            } else {
-              $this->addFilterOption($field, 'all', 'All', false, '1');
-            }
+            $this->addFilterOption($field, 'all', 'All', false, '1');
           }
+          
+          if( isset($properties['default']) ) {
+            $this->setFilterDefault($field, $properties['default']);
+          }
+          
           if($properties['type']=='active') {
             
           } else if ($properties['type']=='custom') {
