@@ -60,6 +60,29 @@ function BasicConfig() {
 	$("form:not(.filter) :input:visible:enabled:first").focus();
 };
 
+var myBindings = Array ();
+var isCtrl = false;
+$(document).keyup(
+	function (e) {	if(e.which == 16) isCrtl=false;}
+);
+$(document).keydown(
+	function (e) {
+	    if(e.which == 17) {
+	    	isCtrl = true;
+	    } else if(isCtrl==true) {
+	    	var character;
+	    	character = String.fromCharCode(e.which);
+			for(key in myBindings)
+			{
+			   if(key == character) {
+				  eval(myBindings[key]);
+				  return false;
+			   }
+			}
+		}
+	 }
+);
+
 $(document).ready(function(){
 	BasicConfig();
 	if(typeof ExtendedConfig == 'function') {

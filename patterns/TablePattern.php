@@ -32,6 +32,13 @@ class TablePattern Extends TemplatePattern
   private $_prefix  = '';
   
   /**
+   * Holds Key Bindings for the General Actions
+   * Key => Action
+   * @var array
+   */
+  private $_keybindings = array();
+  
+  /**
    * Holds filter options and configuration
    * @var array
    */
@@ -241,18 +248,25 @@ class TablePattern Extends TemplatePattern
    * @param string $icon  The optional icon that could go with the text
    * @return void
    */
-  public function AddGeneralAction($action, $title, $icon='', $ajax=false)
+  public function AddGeneralAction($action, $title, $icon='', $ajax=false, $show_in='bottom', $keybinding='')
   {
+    $show_in = (!empty($show_in))?$show_in:'bottom';
     $aux = array (
         'action'  => $action,
         'title'   => $title,
         'icon'    => $icon,
         'ajax'    => $ajax,
+        'show_in' => $show_in,
       );
+    if ( !empty($keybinding) ) {
+      $this->addKeyBinding($keybinding, $action);
+    }
     $this->_general_actions[] = $aux;
   }
   
-
+  public function addKeyBinding($keybinding, $action) {
+    $this->_keybinding[$keybinding]=$action;
+  }
   
   /**
    * Adds a filter form to the list
@@ -404,8 +418,6 @@ class TablePattern Extends TemplatePattern
           } else {
             $this->addFilter($field, $properties['label'], $properties['type']);
           }
-          
-          
           if($properties['add_all']) {
             $this->addFilterOption($field, 'all', 'All', false, '1');
           }
@@ -447,7 +459,7 @@ class TablePattern Extends TemplatePattern
     
     if( isset($config['__generalAction']) ) {
       foreach($config['__generalAction'] AS $properties) {
-        $this->AddGeneralAction($properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
+        $this->AddGeneralAction($properties['action'], $properties['title'], $properties['icon'], $properties['ajax'], $properties['show_in'], $properties['keybinding']);
       }
     }
     unset($config['__generalAction']);
@@ -480,6 +492,13 @@ class TablePattern Extends TemplatePattern
       }
     }
     return true;
+  }
+  public function getKeyBindingsScript() {
+    $script = "";
+    foreach($this->_keybinding AS $key => $action) {
+      $script .= "myBindings[\"$key\"] =\"". $action ."\";\n";
+    }
+    return $script;
   }
   
   public function isLoaded() {

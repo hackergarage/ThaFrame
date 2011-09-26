@@ -1,4 +1,4 @@
-/** Functions fot the message Dialog **/
+/** Functions for the message Dialog **/
 $.fn.clearForm = function() {
   return this.each(function() {
     var type = this.type, tag = this.tagName.toLowerCase();
