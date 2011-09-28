@@ -53,7 +53,7 @@ function BasicConfig() {
 	$( "input:submit, input:button,  ul.action a").button();
 	
 
-	$(".__radio").buttonset();
+	/*$(".__radio").buttonset();*/
 
 	
 	//Behaviors
