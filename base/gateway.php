@@ -17,7 +17,7 @@ include TO_ROOT . "/includes/main.inc.php";
 $file = $_GET['file'];
 
 $match=FALSE;
-$allowed_extensions = array('png','jpg','gif','js','txt','html','css');
+$allowed_extensions = array('png','jpg','gif','js','txt','html','css', 'less');
 foreach($allowed_extensions AS $extension){
   if ( preg_match("/\.$extension$/i", $file) > 0) {
     $match=TRUE;
