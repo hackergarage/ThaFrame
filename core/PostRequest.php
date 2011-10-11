@@ -67,4 +67,17 @@ class PostRequest {
     return $this->_request_uri;
   }
   
+  public static function zeroParameter($field, $format='string'){
+    if( isset($_POST[$field]) && !empty($_POST[$field]) ) {
+    	switch ($format)
+    	{
+    		case 'int':
+    				return (intval($_POST[$field]));
+    		default :
+    			 	return $_POST[$field];
+    	}
+    }
+    return 0;
+  }
+  
 }

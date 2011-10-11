@@ -179,7 +179,7 @@ class FieldListPattern extends TemplatePattern
    */
   public function insertSplitter($target, $content='', $position='after', $name='')
   {
-    $aux= array('type' => 'separator', 'content' => $content);
+    $aux= array('type' => 'splitter', 'content' => $content);
     return $this->insertField("{$name}_splitter", $aux, $target, $position);
   }
   
