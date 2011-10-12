@@ -78,7 +78,7 @@
           }
           break;
         case "textarea":
-          echo "<br/>\n<textarea name=\"$field\" id=\"$field\" $input_parameters $readonly>".htmlspecialchars($Properties->value)."</textarea>";
+          echo "<textarea name=\"$field\" id=\"$field\" $input_parameters $readonly>".htmlspecialchars($Properties->value)."</textarea>";
           break;
         case "password":
           echo "<input type=\"password\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
