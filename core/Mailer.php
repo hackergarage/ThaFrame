@@ -36,7 +36,8 @@ class Mailer {
    * @param string $email
    * @param string $full_name
    * @param string $subject
-   * @param body $body
+   * @param string $body
+   * @param boolean $html
    * @return True on success false otherwise
    */
 

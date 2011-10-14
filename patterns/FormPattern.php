@@ -136,7 +136,8 @@ class FormPattern Extends FieldListPattern
         } else if($action == 'action') {
           $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
         } else if($action == 'splitter') {
-          $this->insertSplitter($field, $properties['content'], $properties['position'], $field);
+          $id = (empty($properties['id']))?$field:$properties['id'];
+          $this->insertSplitter($field, $properties['content'], $properties['position'], $id);
         } else if($action == 'linked') {
           $this->setAsLinked($field, $properties['table_name'], $DbConnection, $properties['table_id'], $properties['name_field'], $properties['condition']);
         } else if($action == 'dependent') {

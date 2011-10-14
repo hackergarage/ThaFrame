@@ -28,14 +28,15 @@ class XajaxHelper {
    * @param string $table_name
    * @return True on success, false otherwise
    */
-  public static function saveRow($data, $table_name)
+  public static function saveRow($data, $table_name, RowModel $Row=null)
   {
     $DbConnection = DbConnection::getInstance();
     
     $table_id = "{$table_name}_id";
     $id = (int)$data[$table_id];
-    $Row = new RowModel($table_name, $id, $DbConnection);
-    
+    if ( !isset($Row) ) {
+      $Row = new RowModel($table_name, $id, $DbConnection);
+    }
     if ( !$Row->load() && $id!=0 ) {
       throw new UnexpectedValueException('Couldn\'t load row, to be saved');
     }

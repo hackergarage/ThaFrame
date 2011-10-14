@@ -37,7 +37,7 @@
       if ( $Properties->dependent ) {
         echo ($Properties->content=='')?"\n":"  <div class=\"splitter\">$Properties->content</div>\n";
       } else {
-        echo ($Properties->content=='')?"\n":"</p>\n\n<div class=\"splitter\">$Properties->content</div>\n\n<p>\n";
+        echo ($Properties->content=='')?"\n":"</p>\n\n<div class=\"splitter\" id=\"{$Properties->id}_splitter\">$Properties->content</div>\n\n<p  id=\"$Properties->id\">\n";
       }
     } elseif ($Properties->type != 'hidden') {
       switch($Properties->type){//For PreLabels

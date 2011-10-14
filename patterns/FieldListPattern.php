@@ -177,10 +177,10 @@ class FieldListPattern extends TemplatePattern
    * @param string $position 'after' or 'before', Default: 'after'
    * @return bool true on success false otherwise
    */
-  public function insertSplitter($target, $content='', $position='after', $name='')
+  public function insertSplitter($target, $content='', $position='after', $id='')
   {
-    $aux= array('type' => 'splitter', 'content' => $content);
-    return $this->insertField("{$name}_splitter", $aux, $target, $position);
+    $aux= array('type' => 'splitter', 'content' => $content, 'id' => $id);
+    return $this->insertField("{$id}_splitter", $aux, $target, $position);
   }
   
   /**
