@@ -7,56 +7,7 @@
   if ($Vars->before_text) {
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
-  if ($Vars->paginate && $__rows) {
-      echo "\n\n<div id=\"pagination\">\n";
-      $string = '';
-      //$string .= t('Page Number  ').": ";
-      if($Vars->page_number != 0) {
-        $parameters = array(
-            '__page_number' => $Vars->page_number-1,
-            '__page_size' => $Vars->page_size,
-          );
-        $url = $Helper->createSelfUrl($parameters, TRUE);
-        $string .="<a  class=\"previous\" href=\"".htmlspecialchars($url)."\" title=\"".t('Previous')."\"><span>&lt;&lt; ".t('Previous')."</span></a>\n";
-      }else {
-        $string .="<a  class=\"previous disabled\" href=\"javascript:void();\" title=\"".t('Previous')."\"><span>&lt;&lt; ".t('Previous')."</span></a>\n";
-      }
-      
-      $parameters = array(
-          '__page_number' => "replace_with_page_number",
-          '__page_size' => $Vars->page_size,
-        );
-      $url = $Helper->createSelfUrl($parameters, TRUE);
-      $string .= HelperPattern::createComboBox(range(1,$Vars->pages), 'page_number', $Vars->page_number,"onchange=\"javascript:change_page(this, '".htmlspecialchars($url)."');\"");
-      
-      if($Vars->page_number != $Vars->pages - 1) {
-        $parameters = array(
-            '__page_number' => $Vars->page_number+1,
-            '__page_size' => $Vars->page_size,
-          );
-        $url = $Helper->createSelfUrl($parameters, TRUE);
-        $string .="<a class=\"next\" href=\"".htmlspecialchars($url)."\" title=\"".t('Next')."\"><span>".t('Next')." &gt;&gt;</span></a>\n";
-      } else {
-        $string .="<a class=\"next disabled\" href=\"javascript:void();\" title=\"".t('Next')."\"><span>".t('Next')." &gt;&gt;</span></a>\n";
-      }
-      
-      $parameters = array(
-          '__page_number' => $Vars->page_number,
-          '__page_size' => 'replace_with_page_size',
-        );
-      $url = $Helper->createSelfUrl($parameters, TRUE);
-      //$string .= t('Items per Page').": ";
-      $page_sizes = array(
-          '20' => '20',
-          '50' => '50',
-          '100' => '100',
-          '200' => '200'
-        );
-      $string .= HelperPattern::createComboBox($page_sizes, 'page_size', $Vars->page_size,"onchange=\"javascript:change_page_size(this, '".htmlspecialchars($url)."');\"");
-      
-      echo $string;
-      echo "</div>\n";
-    }
+  
     if ( !empty($__filters)) {
       //echo "<pre>".htmlentities(print_r($__filters,1))."</pre>";
       echo "<form id=\"filters_form\" name='filters' method='get' action='' class='list_filters'><div>\n<strong>".t('Filter'). " &gt;&gt;</strong>\n";
@@ -81,7 +32,7 @@
       
    }
    
-   $Helper->loadSubTemplate('table_pattern_actions',false,'place:top' );
+   $Helper->loadSubTemplate('table_pattern_actions',false,'place:top');
    
    if ( $__rows ) {
       echo "\n<table>\n";
@@ -189,9 +140,9 @@
         echo "\n<p><strong>".t("There are no items")."</strong\n</p>";
       }
     }
-    if ($Vars->after_text) {
-      echo "\n<p>$Vars->after_text</p>\n";
-    }
+    
+    $Helper->loadSubTemplate('table_pagination');
+    
+    echo ($Vars->after_text)?"\n<p>$Vars->after_text</p>\n":'';
     
     $Helper->loadSubTemplate('table_pattern_actions',false,'place:bottom');
-  

@@ -62,7 +62,7 @@ class UserModel extends RowModel
     $User->load();
     return  $User;
   }
-  
+   
   public function loadPermissions()
   {
     $Config = Config::getInstance();

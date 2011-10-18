@@ -216,6 +216,7 @@ class MimeType {
          "wrl" => "model/vrml",
          "vrml" => "model/vrml",
          "css" => "text/css",
+         "less" => "text/css",
          "html" => "text/html",
          "htm" => "text/html",
          "asc" => "text/plain",

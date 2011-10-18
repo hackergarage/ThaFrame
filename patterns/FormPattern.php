@@ -149,6 +149,8 @@ class FormPattern Extends FieldListPattern
               'input_parameters'=> array('maxlength' => 45),
             );
           $this->insertField($field, $data, $properties['target'], $properties['position']);
+        } else if($action == 'move') {
+          $this->moveField($field, $properties['position'], $properties['target']);
         }
       } else {
        if(is_array($properties)) {

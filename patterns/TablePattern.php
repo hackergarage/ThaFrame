@@ -2,10 +2,52 @@
 class TablePattern Extends TemplatePattern
 {
   /**
+   * Stores if the page should be paginated
+   *
+   * @var boolean
+   */
+  private $_paginate = false;
+  
+  /**
+   * Holds the number of elements for each page
+   *
+   * @var integer
+   */
+  private $_page_size = 10;
+  
+  /**
+   * Which page to show
+   *
+   * @var integer
+   */
+  private $_page_number = 0;
+  
+  /**
+   * Number of pages
+   *
+   * @var integer
+   */
+  private $_pages = 0;
+  
+  /**
    * Holds all the raw data that will be listed
    * @var array
    */
   private $_rows    = array();
+  
+  /**
+   * Holds total rows to be listed
+   * @var int
+   */
+  private $_rows_count    = 0;
+  
+  /**
+   * Holds how many items in the list are needed to trigger that
+   * actions configured to appear in both bottom and top, actually
+   * apears in both places..
+   * @var int
+   */
+  private $_actions_overflow_trigger   = 10;
    
   /**
    * Holds the field names that will form the table header
@@ -68,7 +110,6 @@ class TablePattern Extends TemplatePattern
     }
     if ($paginate) {
       $this->_paginate = true;
-      
       //Get a Grip of the whole thing
       $sql_without_conditions = str_replace('{conditions}','',$sql);
       $count_sql = "SELECT count(*) FROM ($sql_without_conditions) AS count_table;";
@@ -76,7 +117,7 @@ class TablePattern Extends TemplatePattern
       
       //Create some basic pattern variables
       $this->_page_number = (empty($_GET['__page_number']))?'0':$_GET['__page_number'];
-      $this->_page_size = (empty($_GET['__page_size']))?25:$_GET['__page_size'];
+      $this->_page_size = (empty($_GET['__page_size']))?10:$_GET['__page_size'];
       $this->_pages = ceil($total_rows/$this->_page_size);
       
       if($this->_page_number > $this->_pages){
@@ -348,6 +389,8 @@ class TablePattern Extends TemplatePattern
    */
   private function setRows($rows) {
     $this->_rows = $rows;
+    $this->_rows_count = count($this->_rows);
+    
     if ( $rows ) {
       $fields_names = array_keys($rows[0]);
       foreach($fields_names AS $field_name)
@@ -355,6 +398,7 @@ class TablePattern Extends TemplatePattern
         $this->_fields[$field_name] = ucwords(str_replace('_', ' ',$field_name));
       }
     }
+    
     $this->_loaded = true;
   }
     
@@ -364,14 +408,16 @@ class TablePattern Extends TemplatePattern
    */
   public function getAsString()
   {
-    $this->assign('__rows'    , $this->_rows);
-    $this->assign('__fields'  , $this->_fields);
-    $this->assign('__links'   , $this->_links);
-    $this->assign('__actions' , $this->_actions);
-    $this->assign('__prefix'  , $this->_prefix);
-    $this->assign('__row_id'  , $this->_row_id);
-    $this->assign('__filters' , $this->_filters);
-    $this->assign('__general_actions' , $this->_general_actions);
+    $this->assign('__rows'       , $this->_rows);
+    $this->assign('__rows_count' , $this->_rows_count);
+    $this->assign('__fields'     , $this->_fields);
+    $this->assign('__links'      , $this->_links);
+    $this->assign('__actions'    , $this->_actions);
+    $this->assign('__prefix'     , $this->_prefix);
+    $this->assign('__row_id'     , $this->_row_id);
+    $this->assign('__filters'    , $this->_filters);
+    $this->assign('__general_actions'         , $this->_general_actions);
+    $this->assign('__actions_overflow_trigger', $this->_actions_overflow_trigger);
 
     return parent::getAsString();
   }

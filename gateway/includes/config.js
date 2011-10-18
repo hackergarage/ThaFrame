@@ -38,10 +38,7 @@ function BasicConfig() {
 		yearRange: '1940:2010',
 		gotoCurrent: true
 	});
-	
-	$("#pagination .next,#pagination .previous").button();
-	$("#pagination .disabled,#pagination .disabled").button({disabled:true}	);
-	
+		
 	$("#overlay").dialog({
 		autoOpen: false,
 		width: 700,
@@ -50,7 +47,7 @@ function BasicConfig() {
 		title: $('#overlay h3').html()
 	});
 	
-	$( "input:submit, input:button,  ul.action a").button();
+	$( "input:submit, input:button, ul.action a").button();
 	
 
 	/*$(".__radio").buttonset();*/

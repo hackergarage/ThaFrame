@@ -40,9 +40,27 @@ class FieldListPattern extends TemplatePattern
     $this->_Row = $Row;
     $this->_no_fields = 0;
     $this->parseStructure();
-  } 
+  }
   
- /**
+  public function disableField($field)
+  {
+    return $this->setFieldProperty($field, 'disabled', 'true');
+  }
+  
+  public function moveField($field, $position, $target='') {
+    switch ($position) {
+      case 'after':
+        return $this->moveAfter($field, $target);
+      case 'before':
+        return $this->moveBefore($field, $target);
+      case 'end':
+        return $this->moveToEnd($field);
+      case 'start':
+        return $this->moveToStart($field, $target);
+    }
+  }
+ 
+  /**
    * Moves the given field to the start of the form
    * @param string $field the field to be moved
    * @return bool true in success and false otherwise
@@ -72,11 +90,6 @@ class FieldListPattern extends TemplatePattern
       return true;
     }
     return false;
-  }
-  
-  public function disableField($field)
-  {
-    return $this->setFieldProperty($field, 'disabled', 'true');
   }
   
   /**
