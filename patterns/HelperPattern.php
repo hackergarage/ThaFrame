@@ -119,7 +119,7 @@ class HelperPattern {
       $icon =  self::createFrameLink($icon, TRUE, $absolute_path);
       $string .= "<img src=\"$icon\" alt=\"$title\"/>";
     }
-    $string .= "$title</a>";
+    $string .= " $title</a>";
     
     if ($return_string){
       return $string;

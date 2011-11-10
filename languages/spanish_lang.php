@@ -64,6 +64,7 @@ $_default_translation = array (
   'Error' => 'Error',
   'Warning' => 'Precaución',
   'Info' => 'Información',
+  'Cancel' => 'Cancelar',
   
   /** Common Strings **/
   'Succesfully Logged Out' => 'Sesión Cerrada exitosamente',

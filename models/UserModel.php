@@ -49,7 +49,10 @@ class UserModel extends RowModel
     }
     return true;
   }
-  
+  /**
+   * @param string $name
+   * @return UserModel
+   */
   public static function getUserByName($name)
   {
     $DbConnection = DbConnection::getInstance();
