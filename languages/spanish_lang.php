@@ -59,4 +59,17 @@ $_default_translation = array (
   'View Details' => 'Ver Detalles',
   'Update' => 'Update',
   'Search' => 'Buscar',
+
+  'Success' => 'Éxito',
+  'Error' => 'Error',
+  'Warning' => 'Precaución',
+  'Info' => 'Información',
+  
+  /** Common Strings **/
+  'Succesfully Logged Out' => 'Sesión Cerrada exitosamente',
+  'User or password wrong' => 'Usuario o contraseña Equivocada',
+  'Successfully Logged In' => 'Sesión Iniciada exitosamente',
 );
+
+include TO_ROOT. "/languages/spanish_lang.php";
+$_translation = array_merge($_default_translation, $_translation);
