@@ -42,6 +42,7 @@ $_default_translation = array (
   'Next' => 'Siguiente',
   'Previous' => 'Anterior',
   'Filter' => 'Filtrar',
+  'There are no items' => 'No hay ningún elemento',
 
 
   /** Common Actions **/

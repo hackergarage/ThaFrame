@@ -47,8 +47,12 @@ class DbConnection {
    * @return DbConnection
    * @todo Change to Use config from files.
    */
-  public static function getInstance($connection='default') {
-    if ( !isset(self::$_instances[$connection]) ) {
+  public static function getInstance($connection='') {
+    if ( empty($connection) || !isset(self::$_instances[$connection]) ) {
+      $Config = Config::getInstance();
+      if ( empty($connection) ) {
+        $connection = $Config->system_enviroment;
+      }
       $DbConfig = Config::getDbConfig($connection);
       $DbConnection = new DbConnection($DbConfig->db_host, $DbConfig->db_user, $DbConfig->db_password, $DbConfig->db_name);
       try {
