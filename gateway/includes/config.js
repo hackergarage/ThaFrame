@@ -38,6 +38,8 @@ function BasicConfig() {
 		yearRange: '1940:2010',
 		gotoCurrent: true
 	});
+	
+	$('.time').timepicker($timepickerDefault);
 		
 	$("#overlay").dialog({
 		autoOpen: false,

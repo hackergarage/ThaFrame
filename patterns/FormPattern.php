@@ -238,6 +238,9 @@ class FormPattern Extends FieldListPattern
           $aux['parameters']['before'] = '5';
           $aux['parameters']['after'] = '5';
           break;
+        case 'time':
+          $aux['type'] = 'time';
+          break;
         case 'enum':
         case 'set'://Testing
           if ($match[2] == "'0','1'") {

@@ -77,6 +77,15 @@
             echo HelperPattern::createDateComboBox($Properties->value, $Properties->parameters['before'], $Properties->parameters['after'], $field);
           }
           break;
+        case "time":
+          if ( !empty($readonly)) {
+            echo $Properties->value;
+            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+          } else {
+            echo "<input size=\"45\" type=\"text\" class=\"time\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            //echo HelperPattern::createDateComboBox($Properties->value, $Properties->parameters['before'], $Properties->parameters['after'], $field);
+          }
+          break;
         case "textarea":
           echo "<textarea name=\"$field\" id=\"$field\" $input_parameters $readonly>".htmlspecialchars($Properties->value)."</textarea>";
           break;
