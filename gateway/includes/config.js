@@ -8,7 +8,8 @@ function BasicConfig() {
 		secondText:"Segundo",
 		currentText:"Ahora",
 		closeText:"Cerrar",
-		stepMinute: 10
+		stepMinute: 10,
+		timeFormat: 'hh:mm:ss'
 		
 	};
 	$.datepicker.regional['es'] = {
@@ -35,8 +36,8 @@ function BasicConfig() {
 		showButtonPanel: true,
 		changeYear: true,
 		changeMonth: true,
-		yearRange: '1940:2010',
-		gotoCurrent: true
+		gotoCurrent: true,
+		yearRange: '-80:+20'
 	});
 	
 	$('.time').timepicker($timepickerDefault);

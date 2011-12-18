@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?= "$Config->system_name -".t($__page_name) ?></title>
+    <title><?= "$Config->system_name - ".t($__page_name) ?></title>
     
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'/>
     <link type="text/plain" rel="author" href="<?= $Config->system_web_root ?>humans.txt" />

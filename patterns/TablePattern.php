@@ -451,6 +451,12 @@ class TablePattern Extends TemplatePattern
     }
     unset($config['__row_id']);
     
+    if( isset($config['__links']) ) {
+      foreach($config['__links'] AS $field => $properties) {
+        $this->addLink($field, $properties['value'], $properties['action'], $properties['title']);
+      }
+    }
+    unset($config['__links']);
     
     if( isset($config['__filters']) ) {
       foreach($config['__filters'] AS $field => $properties) {
@@ -475,7 +481,13 @@ class TablePattern Extends TemplatePattern
           if($properties['type']=='active') {
             
           } else if ($properties['type']=='custom') {
-            $this->addFilterOptions($field, $properties['options'], $properties['condition']);
+            if ( isset($properties['options_query']) ) {
+              $DbConnection == DbConnection::getInstance();
+              $options =  $DbConnection->getArrayPair($properties['options_query']);
+              $this->addFilterOptions($field, $options, $properties['condition']);
+            }else if(isset($properties['options'])) {
+              $this->addFilterOptions($field, $properties['options'], $properties['condition']); 
+            }
           }
         }
       }
@@ -517,13 +529,6 @@ class TablePattern Extends TemplatePattern
     }
     unset($config['__action']);
     
-    if( isset($config['__link']) ) {
-      foreach($config['__link'] AS $properties) {
-        $this->addLink($properties['field'], $properties['value'], $properties['action'], $properties['title']);
-      }
-    }
-    unset($config['__link']);
-   
     foreach($config AS $field => $properties){
       if (is_array($properties)) {
         foreach($properties AS $property => $value) {
