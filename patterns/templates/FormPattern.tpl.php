@@ -10,7 +10,7 @@
     echo "<p>".t($Vars->before_text)."</p>\n";
   }
   
-  if( $__type== 'single') {
+  if( $__type == 'single') {
     echo "<form action=\"$__action\" method=\"$__method\" id=\"$__form_id\" name=\"$__form_id\" >\n";
   } else {
     echo "<form action=\"$__action\" method=\"$__method\" enctype=\"multipart/form-data\" id=\"$__form_id\" name=\"$__form_id\">\n";
@@ -101,7 +101,7 @@
           break;
         default:
           if ( $Properties->size > 45 ) {
-            echo "<input size=\"80\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            echo "<input size=\"57\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
           } else {
             echo "<input size=\"45\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
           }

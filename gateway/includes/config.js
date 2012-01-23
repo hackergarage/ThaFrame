@@ -52,12 +52,11 @@ function BasicConfig() {
 	
 	$( "input:submit, input:button, ul.action a").button();
 	
-
+	// @todo fix buttonset and dependant conflicts heavily
 	/*$(".__radio").buttonset();*/
 
-	
 	//Behaviors
-	$("form:not(.filter) :input:visible:enabled:first").focus();
+	//$("form:not(.filter) :input:visible:enabled:first").focus();
 };
 
 var myBindings = Array ();

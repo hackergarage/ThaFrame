@@ -70,6 +70,20 @@ $_default_translation = array (
   'Succesfully Logged Out' => 'Sesión Cerrada exitosamente',
   'User or password wrong' => 'Usuario o contraseña Equivocada',
   'Successfully Logged In' => 'Sesión Iniciada exitosamente',
+  
+  /** Dates **/
+	'January'=>'Enero',
+	'February'=>'Febrero', 
+	'March'=>'Marzo',
+	'April'=>'Abril', 
+	'May'=>'Mayo',
+	'June'=>'Junio',
+	'July'=>'Julio',
+	'August'=>'Agosto',
+	'September'=>'Septiembre', 
+	'October'=>'Octubre',
+	'November'=>'Noviembre',
+	'December'=>'Diciembre'
 );
 
 include TO_ROOT. "/languages/spanish_lang.php";

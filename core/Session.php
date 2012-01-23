@@ -1,10 +1,14 @@
 <?php
-
 define('SESSION_MESSAGE_INFO', 'info');
 define('SESSION_MESSAGE_WARNING', 'warning');
 define('SESSION_MESSAGE_ERROR', 'error');
 define('SESSION_MESSAGE_SUCCESS', 'success');
 
+/**
+ * Utility functions to handle sessions and users
+ * @author levhita
+ * @package ThaFrame
+ */
 class Session
 {
   /**
@@ -15,10 +19,7 @@ class Session
   
   protected static $_error;
   
-  protected function __construct()
-  {
-      
-  }
+  public function __construct() {}
      
   public static function setAsLoggedIn($user_id)
   {
@@ -100,5 +101,30 @@ class Session
   public static function setMessage($message = '', $level='info') {
     $_SESSION['__message_text'] = $message;
     $_SESSION['__message_level'] = $level;
+  }
+  
+  public function __set($variable, $value) {
+    $_SESSION[$variable] = $value;
+  }
+  
+  public function __get($variable) {
+    if (array_key_exists($variable, $_SESSION)) {
+      return $_SESSION[$variable];
+    }
+    $trace = debug_backtrace();
+    trigger_error(
+    	'Undefined property via __get(): ' . $variable .
+      ' in ' . $trace[0]['file'] .
+      ' on line ' . $trace[0]['line'],
+      E_USER_NOTICE);
+    return null;
+  }
+  
+  public function __isset($variable) {
+    return isset($_SESSION[$variable]);
+  }
+  
+  public function __unset($variable){
+    unset($_SESSION['variable']);
   }
 }

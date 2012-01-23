@@ -41,6 +41,27 @@
     return $date;
   }
   
+    /**
+   * Returns the given date in a friendly manner
+   * @param string $date The date in any format supported by {@link strtotime()}
+   * @param string $format They are 3 formats supported: 'long', 'medium' and 'short'
+   * @filesource
+   * @return string
+   */
+  function formatAsTime($date, $format='ampm')
+  {
+    if(empty($date)){
+      return "";
+    }
+    if ($format == "ampm") {
+      return date('g:i a', strtotime($date));
+    }
+    if ($format == "long") {
+      return date('h:i:s', strtotime($date));
+    }
+    return $date;
+  }
+  
   function formatAsLongDate($date){
     $new_format = date('j-n-Y', strtotime($date));
     $data       = explode('-', $new_format);

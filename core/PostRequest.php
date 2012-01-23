@@ -41,7 +41,7 @@ class PostRequest {
   
   /**
    * Get a single instance of the class (Singleton)
-   * @return Request
+   * @return PostRequest
    */
   public static function getInstance() {
     if (!self::$__instance instanceof self) {

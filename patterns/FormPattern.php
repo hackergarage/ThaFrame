@@ -137,7 +137,8 @@ class FormPattern Extends FieldListPattern
           $this->addAction($field, $properties['action'], $properties['title'], $properties['icon'], $properties['ajax']);
         } else if($action == 'splitter') {
           $id = (empty($properties['id']))?$field:$properties['id'];
-          $this->insertSplitter($field, $properties['content'], $properties['position'], $id);
+          $position = (empty($properties['position']))?'before':$properties['position'];
+          $this->insertSplitter($field, $properties['content'], $position, $id);
         } else if($action == 'linked') {
           $this->setAsLinked($field, $properties['table_name'], $DbConnection, $properties['table_id'], $properties['name_field'], $properties['condition']);
         } else if($action == 'dependent') {
@@ -362,8 +363,8 @@ class FormPattern Extends FieldListPattern
   /**
    * Set as dependent of certain field condition a set of fields.
    * @param string $field The field wich they depend.
-   * @param string $condition JavaScript valid condition.
-   * @param string $value The value that must match(javascript).
+   * @param string $condition JavaScript valid condition(==, >=).
+   * @param string $value The value that must match (javascript, use quotes if string!).
    * @param string $dependents Comma separated list of fields that depend on
    *                           this field value.
    * @return bool true on success and false otherwise.
@@ -401,9 +402,11 @@ class FormPattern Extends FieldListPattern
   public function createDependentJavascript($run_update=false)
   {
     $code = false;
+    $dependant_functions=array();
     if( count($this->_dependents) ) {
-      
-      $code .= "\n  function update".str_replace(' ', '',ucwords(str_replace('_', ' ', $this->_form_id)))."Dependents()\n  {";
+      $dependant_function = "update" . str_replace(' ', '',ucwords(str_replace('_', ' ', $this->_form_id))) . "Dependents";
+      $dependant_functions[] = $dependant_function;
+      $code .= "\n  function $dependant_function()\n  {";
       
       foreach($this->_dependents as $field => $parameters)
       {
@@ -455,8 +458,14 @@ class FormPattern Extends FieldListPattern
       }
       $code .="  }\n";
     }
-    if($run_update==true) {
-      $code .= "update".str_replace(' ', '',ucwords(str_replace('_', ' ', $this->form_id)))."Dependents();\n";
+    
+    /**Run the updates when document is ready **/
+    if ( $run_update==true ) {
+      $code .= '  $(document).ready(function(){';
+      foreach($dependant_functions AS $dependant_function) {  
+        $code .= "\n    $dependant_function();";
+      }
+      $code .= "\n  });\n";
     }
     return $code ;
   }

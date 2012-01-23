@@ -49,6 +49,7 @@ class UserModel extends RowModel
     }
     return true;
   }
+  
   /**
    * @param string $name
    * @return UserModel
