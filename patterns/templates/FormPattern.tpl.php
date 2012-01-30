@@ -19,6 +19,9 @@
   
   foreach($__fields as $field => $properties){
     $Properties = (object) $properties;
+    $class= "class='{$Properties->class}'";
+    $label_class = "class='{$Properties->label_class}'";
+    
     $input_parameters = "";
     if ( count($Properties->input_parameters) ) {
       foreach($Properties->input_parameters AS $property => $value)
@@ -34,10 +37,10 @@
     }
     
     if ($Properties->type == 'splitter') {
-      if ( $Properties->dependent ) {
-        echo ($Properties->content=='')?"\n":"  <div class=\"splitter\">$Properties->content</div>\n";
+      if ( isset($Properties->dependent) && $Properties->dependent==TRUE) {
+        echo ($Properties->content=='')?"\n":"</p>\n\n<div class=\"splitter\" id=\"{$Properties->id}_splitter\">$Properties->content</div>\n\n<p id=\"$Properties->id\">\n";        
       } else {
-        echo ($Properties->content=='')?"\n":"</p>\n\n<div class=\"splitter\" id=\"{$Properties->id}_splitter\">$Properties->content</div>\n\n<p  id=\"$Properties->id\">\n";
+        echo ($Properties->content=='')?"\n":"  <div class=\"splitter\">$Properties->content</div>\n";
       }
     } elseif ($Properties->type != 'hidden') {
       switch($Properties->type){//For PreLabels
@@ -45,7 +48,7 @@
           echo "<label>".t($Properties->label).":</label> ";
           break;
         default:
-          echo "<label for=\"$field\">".t($Properties->label).":</label> ";
+          echo "<label for=\"$field\" $label_class>".t($Properties->label).":</label> ";
       }
       if ($Properties->help_text){
         echo "<span class=\"input_help\">".t($Properties->help_text).".</span>";
@@ -56,7 +59,7 @@
         case "select":
           if ( !empty($readonly)) {
             echo $Properties->parameters['options'][$Properties->value];
-            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $class/>";
           } else {
             echo HelperPattern::createComboBox($Properties->parameters['options'], $field, $Properties->value, $input_parameters);
           }
@@ -64,7 +67,7 @@
         case "radio":
           if ( !empty($readonly) ) {
             echo htmlspecialchars($Properties->parameters['options'][$Properties->value]);
-            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $class/>";
           } else {
             echo HelperPattern::createRadioButton($Properties->parameters['options'], $field, $Properties->value, $input_parameters);
           }
@@ -72,7 +75,7 @@
         case "date":
           if ( !empty($readonly)) {
             echo $Properties->value;
-            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $class/>";
           } else {
             echo HelperPattern::createDateComboBox($Properties->value, $Properties->parameters['before'], $Properties->parameters['after'], $field);
           }
@@ -80,20 +83,20 @@
         case "time":
           if ( !empty($readonly)) {
             echo $Properties->value;
-            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+            echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $class/>";
           } else {
-            echo "<input size=\"45\" type=\"text\" class=\"time\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            echo "<input size=\"45\" type=\"text\" class=\"time\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly $class/>";
             //echo HelperPattern::createDateComboBox($Properties->value, $Properties->parameters['before'], $Properties->parameters['after'], $field);
           }
           break;
         case "textarea":
-          echo "<textarea name=\"$field\" id=\"$field\" $input_parameters $readonly>".htmlspecialchars($Properties->value)."</textarea>";
+          echo "<textarea name=\"$field\" id=\"$field\" $input_parameters $readonly $class>".htmlspecialchars($Properties->value)."</textarea>";
           break;
         case "password":
-          echo "<input type=\"password\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+          echo "<input type=\"password\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly $class/>";
           if ( $Properties->repeat && empty($readonly)) {
             echo "<br/>\n<label for=\"{$field}_repeat\">" . t('Repeat the %1%', t($Properties->label) ) . ":</label><br/>";
-            echo "<input type=\"password\" name=\"{$field}_repeat\" id=\"{$field}_repeat\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
+            echo "<input type=\"password\" name=\"{$field}_repeat\" id=\"{$field}_repeat\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $class/>";
           }
           break;
         case "file":
@@ -101,9 +104,9 @@
           break;
         default:
           if ( $Properties->size > 45 ) {
-            echo "<input size=\"57\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            echo "<input size=\"57\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly $class/>";
           } else {
-            echo "<input size=\"45\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly/>";
+            echo "<input size=\"45\" type=\"text\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters $readonly $class/>";
           }
           break;
       }

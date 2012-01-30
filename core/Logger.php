@@ -24,16 +24,16 @@ class Logger {
    * @param string $level Valid values are: notice, warning, error
    * @return null
    */
-  public static function log($name, $details='', $level=LOGGER_NOTICE){
+  public static function log ($name, $details='', $level=LOGGER_NOTICE){
     $Config = Config::getInstance();
     
     /* Creates Log array */
     $log = array (
-            'time'    => date("D M j G:i:s T Y"),
-            'level'   => $level,
-            'name'    => $name,
-            'uri'  => $_SERVER['REQUEST_URI'],
-            'details' => $details,
+            'time'     => date("D M j G:i:s T Y"),
+            'level'    => $level,
+            'name'     => $name,
+            'uri'      => $_SERVER['REQUEST_URI'],
+            'details'  => $details,
       );
     /* Save it in the instance */
     self::$logs[] = $log;

@@ -107,7 +107,7 @@ class HelperPattern {
     $string = "";
     $title = t($title);
     if( $is_ajax ) {
-      $string .= "<a href=\"#\" onclick=\"xajax_$action($value);\" title=\"$title\">";
+      $string .= "<a href=\"javascript:void(xajax_$action($value));\" title=\"$title\">";
     } else {
       if ( !empty($field) ) {
         $string .= "<a href=\"$action?$field=$value\" title=\"$title\">";

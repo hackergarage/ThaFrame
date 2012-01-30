@@ -85,10 +85,14 @@
       development from <a href="http://thasystems.net">ThaSystems</a>.
       </div><!-- footer -->
       <div id="log">
-       <?php foreach(Logger::getWebLog() as $log ): ?>
+       <?php
+       if ( $logs = Logger::getWebLog() ):
+         foreach( $logs as $log ): ?>
          <p><strong>'<?=$log['name']?>'</strong> (<?=$log['time']?> - <?=$log['level']?>)</p>
          <pre style="text-align: left"><?=print_r($log['details'],1)?></pre>
-       <?php endforeach; ?>
+       <?php
+         endforeach;
+       endif;?>
       </div>
     </div><!-- page --> 
   </body>

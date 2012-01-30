@@ -24,16 +24,35 @@ function showOverlay() {
   BasicConfig();
 }
 
+function fancyAlert(message){
+	$('<div>'+message+'</div>').dialog({
+		resizable: true,
+		height:200,
+		modal: true,
+		buttons: {
+			Cerrar: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	});
+}
+
 /**
  * @todo fix languaje issues
- * @todo fix url issues
- * @param to_root
  * @param image
  * @return void
  */
-function overlayImage(to_root, image) {
-	content ="<img src='"+image+"' /> <ul class='action'><li><a href='javascript:closeOverlay();' title='Volver'><img src='"+to_root+"/images/toolbars/undo.png' alt='Back' /></a></li></ul>";
-	showOverlay(content); 
+function overlayImage(image) {
+	$("<div><img src='"+image + "' /></div>").dialog({
+		resizable: true,
+		width: 650,
+		modal: true,
+		buttons: {
+			Cerrar: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	});
 }
 
 /** Paging functions for Listings **/
