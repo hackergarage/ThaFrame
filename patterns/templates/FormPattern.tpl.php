@@ -30,7 +30,7 @@
       }
     }
     if ( $Properties->dependent ) {
-      echo "</p>\n\n<div class=\"dependent\" id=\"{$field}_dependent\" style=\"display:none\">\n";
+      echo "<div class=\"dependent\" id=\"{$field}_dependent\" style=\"display:none\">\n";
     }
     if ($Properties->parent) {
       $input_parameters .= " onchange=\"update".str_replace(' ', '',ucwords(str_replace('_', ' ', $__form_id)))."Dependents();\"";
@@ -126,7 +126,7 @@
       echo "<input type=\"hidden\" name=\"$field\" id=\"$field\" value=\"".htmlspecialchars($Properties->value)."\" $input_parameters/>";
     }
     if ( $Properties->dependent ) {
-      echo "</div>\n\n<p>\n";
+      echo "</div>\n";
     }
   }
   echo "</p>\n</form>\n";
