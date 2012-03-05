@@ -33,8 +33,8 @@ class Mailer {
   }
   /**
    * Sends an email using default settings.
-   * @param string $email
-   * @param string $full_name
+   * @param string $email To Address
+   * @param string $full_name Name of the Recipient
    * @param string $subject
    * @param string $body
    * @param boolean $html

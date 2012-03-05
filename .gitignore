@@ -1,3 +1,5 @@
 .buildpath
 .project
 .settings/
+backend/configs/system_config.ini
+backend/configs/databases.ini
