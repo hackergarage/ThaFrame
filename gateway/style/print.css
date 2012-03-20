@@ -6,22 +6,13 @@ body {
 	font-family: 'Droid Sans', arial, serif;
 }
 #message, #top_menu , #sidebar, #overlay #content #pagination,
-#content #filters_form, #footer,ul.action {
+#content #filters_form, #footer,ul.action, #header  {
 	display:none;
 }
-#header {
-	display:inline;
+#print_header, #print_footer {
+		clear:both;
 	}
-#header h1 {
-	text-size:12px;
-	margin:0px;
-	padding:10px;
-}
-#header a {
-	color: black;
-	font-weight: bold;
-	text-decoration: none;
-}
+
 #page_title {
 	position:absolute;
 	right:10px;

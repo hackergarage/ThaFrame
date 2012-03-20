@@ -195,5 +195,13 @@ class RowModel {
   {
     return $this->data;
   }
+  
+  public function getHTMLData(){
+    $escaped = array();
+    foreach($this->data AS $key => $value) {
+      $escaped[$key] = htmlspecialchars($value);  
+    } 
+    return (object)$escaped;
+  }
 }
 ?>

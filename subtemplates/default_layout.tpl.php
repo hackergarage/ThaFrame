@@ -9,16 +9,15 @@
     
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'/>
     <link type="text/plain" rel="author" href="<?= $Config->system_web_root ?>humans.txt" />
-    <!--<link rel="stylesheet" href="<?php $Helper->createFrameLink('style/style.css');?>" type="text/css" media="screen"/>-->
     <link rel="stylesheet" href="<?php $Helper->createFrameLink('style/print.css');?>" type="text/css" media="print"/>
+    <link rel="stylesheet" href="/style/custom_print.css" type="text/css" media="print"/>
     <link rel="stylesheet/less" type="text/css" href="<?php $Helper->createFrameLink('style/style.less');?>" media="screen"/>
-	<script src="<?php $Helper->createFrameLink('vendors/less.js');?>" type="text/javascript"></script>
+    <script src="<?php $Helper->createFrameLink('vendors/less.js');?>" type="text/javascript"></script>
     
-    
-    <link type="text/css" href="<?php $Helper->createFrameLink('vendors/jqueryui/css/redmond/jquery-ui-1.8.13.custom.css');?>" rel="Stylesheet" />	
-	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-1.6.2.min.js');?>"></script>
-	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-1.8.16.custom.min.js');?>"></script>
-	<script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-timepicker-addon.js');?>"></script>
+    <link type="text/css" href="<?php $Helper->createFrameLink('vendors/jqueryui/css/redmond/jquery-ui-1.8.13.custom.css');?>" rel="Stylesheet" />
+    <script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-1.6.2.min.js');?>"></script>
+    <script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-1.8.16.custom.min.js');?>"></script>
+    <script type="text/javascript" src="<?php $Helper->createFrameLink('vendors/jqueryui/js/jquery-ui-timepicker-addon.js');?>"></script>
     
     <script type="text/javascript" src="<?= TO_ROOT ?>/includes/functions.js"></script>
     <script type="text/javascript" src="<?= TO_ROOT ?>/f/includes/functions.js"></script>
@@ -53,10 +52,15 @@
   }
   ?> >
     <div id="overlay"></div>
-    
-    
+   
     <div id="page">
       <?php $Helper->loadSubTemplate('message'); ?>
+      
+      <?php if(isset($Config->print_header)): ?>
+        <div id="print_header">
+          <?= $Config->print_header ?>
+        </div>
+      <?php endif;?>
       
       <div id="header">
       	<h1><a href="<?= $Config->system_web_root ?>" title="<?=t('Home')?>"> <?=$Config->system_name ?></a></h1>
@@ -75,15 +79,24 @@
         <?=$_content_ ?>
       </div><!-- content -->
       
+      
+        <?php if(isset($Config->print_footer)): ?>
+        <div id="print_footer">
+          <?= $Config->print_footer ?>
+        </div>
+      <?php endif;?>
+      
       <div id="footer">
-      <?= $Config->system_copyright ?><br/>
-      <?= $Config->system_author ?><br/>
-      <?php /** Do NOT remove this Notice!! **/ ?>
-      <?php /** Of course you are welcome to give it a more apropiated format **/ ?>
-      Made with <a href="http://thasystems.net/thaframe">ThaFrame</a>,
-      a <a href="http://en.wikipedia.org/wiki/Free_software">Free Software</a>
-      development from <a href="http://thasystems.net">ThaSystems</a>.
+        <?= $Config->system_copyright ?><br/>
+        <?= $Config->system_author ?><br/>
+        
+        <?php /** Do NOT remove this Notice!! **/ ?>
+        <?php /** Of course you are welcome to give it a more apropiated format **/ ?>
+        Made with <a href="http://github.com/hackergarage/thaframe">ThaFrame</a>,
+        a <a href="http://en.wikipedia.org/wiki/Free_software">Free Software</a>
+        development from <a href="http://thasystems.net">ThaSystems</a>.
       </div><!-- footer -->
+      
       <div id="log">
        <?php
        if ( $logs = Logger::getWebLog() ):
