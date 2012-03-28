@@ -67,11 +67,11 @@ class UserModel extends RowModel
     return  $User;
   }
    
-  public function loadPermissions()
+  public function loadPermissions($force_permission = false)
   {
     $Config = Config::getInstance();
     $this->assertLoaded();
-    if(isset($Config->user_uses_permissions) && $Config->user_uses_permissions==false) {
+    if(!$force_permission && isset($Config->user_uses_permissions) && $Config->user_uses_permissions==false) {
       return TRUE;
     }
     $sql = "SELECT name, actions
