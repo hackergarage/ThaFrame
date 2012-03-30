@@ -143,19 +143,30 @@ class HelperPattern {
    * @param $extra_parameters string any other extra string to be attached at the end
    * @return string the combobox in a single string
    */
-  public static function createComboBox($items, $name, $selected=0, $extra_parameters='', $innerHTML=false)
+  public static function createComboBox($items, $name, $selected=0, $extra_parameters='', $innerHTML=false, $associative=true)
   {
     $output = "";
     if ( !$innerHTML ) {
       $output .= "<span id=\"{$name}_container\"><select name=\"$name\" id=\"$name\" $extra_parameters>\n";
     }
-    foreach ( $items as $key => $value )
-    {
-      $output .= "<option value=\"" . htmlentities($key) . "\"";
-      if ( $key==$selected ) {
-        $output .=" selected=\"selected\" ";
+    if ($associative) {
+      foreach ( $items as $key => $value )
+      {
+        $output .= "<option value=\"" . htmlentities($key) . "\"";
+        if ( $key==$selected ) {
+          $output .=" selected=\"selected\" ";
+        }
+        $output.=">".htmlspecialchars(t(ucwords($value)))."</option>\n";
       }
-      $output.=">".htmlspecialchars(t(ucwords($value)))."</option>\n";
+    } else {
+      foreach ( $items as $value )
+      {
+        $output .= "<option value=\"" . htmlspecialchars($value) . "\"";
+        if ( $value==$selected ) {
+          $output .=" selected=\"selected\" ";
+        }
+        $output.=">".htmlspecialchars(t(ucwords($value)))."</option>\n";
+      }
     }
     if ( !$innerHTML ) {
       $output.="</select></span>\n";
