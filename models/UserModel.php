@@ -26,6 +26,7 @@ class UserModel extends RowModel
   public function __construct($table_name, $id)
   {
     $DbConnection = DbConnection::getInstance();
+    
     $this->assert_message ="User instance isn't loaded";
     parent::__construct($table_name, $id, $DbConnection);
   }

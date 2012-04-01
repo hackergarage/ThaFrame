@@ -324,10 +324,10 @@ class TablePattern Extends TemplatePattern
         'empty' => $empty,
         'options' => array()
     );
-    if($type == 'active') {
+    if($type == 'active' || $type == 'yes_no') {
       $aux['type'] = 'custom';
-      $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>$extra_data['prefix'].'active=\'1\'');
-      $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>$extra_data['prefix'].'active=\'0\'');
+      $aux['options'][] = array('label'=>'Yes', 'value'=>'1' , 'condition'=>$extra_data['prefix']."$field='1'");
+      $aux['options'][] = array('label'=>'No',  'value'=>'0' , 'condition'=>$extra_data['prefix']."$field='0'");
     }
     $this->_filters[$field] = $aux;
   }
@@ -478,7 +478,7 @@ class TablePattern Extends TemplatePattern
             $this->setFilterDefault($field, $properties['default']);
           }
           
-          if($properties['type']=='active') {
+          if($properties['type']=='active' && $properties['type']=='yes_no') {
             
           } else if ($properties['type']=='custom') {
             if ( isset($properties['options_query']) ) {
