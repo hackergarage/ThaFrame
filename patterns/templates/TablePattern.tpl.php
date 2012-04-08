@@ -37,9 +37,40 @@
    if ( $__rows ) {
       echo "\n<table>\n";
       echo "<tr>";
-      foreach($__fields as $field_title)
-      {
-        echo "<th>" . t($field_title) . "</th>";
+      
+      if (!count($__order_by)) {
+        foreach($__fields as $field_title)
+        {
+          echo "<th>" . t($field_title) . "</th>";
+        }
+      } else {
+        foreach($__fields as $field_title)
+        {
+          $original_field_title = strtolower(str_replace(' ','_', $field_title));
+          foreach($_GET AS $key=>$value){
+            if(substr($key, 0, 9)=='order_by_') {
+              unset($_GET[$key]);
+            }
+          }
+          
+          echo "<th";
+          $sort='DESC';
+          if ( $original_field_title==$__selected_order_by ) {
+            if( $__selected_order=='ASC' ) {
+              echo ' class="asc"';
+            } else {
+              echo ' class="desc"';
+              $sort='ASC';
+            }
+          }
+          if ( array_search($original_field_title, $__order_by) !== FALSE ) {
+            
+            $url = HelperPattern::createSelfUrl(array('order_by_'. $original_field_title=>$sort),1);
+            
+            echo "><a href=\"{$url}\"";
+          }
+          echo '>'.t($field_title) . "</th>";
+        }
       }
       if ( count($__actions) ) {
         echo "<th class=\"action\">".t('Actions')."</th>";

@@ -31,6 +31,12 @@ class ListingPattern extends PagePattern
   private $_fields  = array();
   
   /**
+   * Holds the field names for wich the query can be ordered by
+   * @var array
+   */
+  private $_order_by  = array();
+  
+  /**
    * Holds the links that will be embedded into some fields
    * @var array
    */
@@ -308,7 +314,7 @@ EOT;
         'field'   => $field ,
         'value'   => $value ,
         'icon'    => $icon,
-    	'ajax'    => $ajax,
+    		'ajax'    => $ajax,
       );
     $this->_general_actions[] = $aux;
   }
@@ -395,6 +401,7 @@ EOT;
       
       //Get a Grip of the whole thing
       $sql_without_conditions = str_replace('{conditions}','',$sql);
+      $sql_without_conditions = str_replace('{order_by}','',$sql_without_conditions);
       $count_sql = "SELECT count(*) FROM ($sql_without_conditions) AS count_table;";
       $total_rows = $DbConnection->getOneValue($count_sql);
       
@@ -446,12 +453,13 @@ EOT;
         }
       }
     }
-
     if ( empty($conditions) ) {
       $sql = str_replace('{conditions}','',$sql);
     } else {
       $sql = str_replace('{conditions}', $conditions, $sql);
     }
+    
+
     
     $this->_conditions = $conditions;
     $this->_sql        = $sql;
@@ -484,8 +492,10 @@ EOT;
     $this->assign('__prefix'  , $this->_prefix);
     $this->assign('__row_id'  , $this->_row_id);
     $this->assign('__filters' , $this->_filters);
-    $this->assign('__general_actions' , $this->_general_actions);
-
+    $this->assign('__general_actions' ,  $this->_general_actions);
+    $this->assign('__order_by',          $this->_order_by);
+    $this->assign('__selected_order_by', $this->_selected_order_field);
+    $this->assign('__selected_order',    $this->_selected_order);
     parent::display();
   }
   
@@ -525,7 +535,10 @@ EOT;
       $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
       $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
     }
-    unset($config['__set_query']);
+    if( isset($config['__query']['order_by']) ) {
+      $this->orderBy($config['__query']['order_by']); 
+    }
+    unset($config['__query']);
     
     if( isset($config['__pattern']) ) {
       foreach($config['__pattern'] AS $field=>$value) {
@@ -566,6 +579,13 @@ EOT;
       }
     }
     return true;
+  }
+  
+  public function orderBy($fields) {
+    if ( !is_array($fields) ) {
+      throw new InvalidArgumentException('Fields are supposed to be an array');
+    }
+    $this->_order_by = $fields; 
   }
 }
 ?>

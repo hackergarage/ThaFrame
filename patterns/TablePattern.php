@@ -56,6 +56,12 @@ class TablePattern Extends TemplatePattern
   private $_fields  = array();
   
   /**
+   * Holds the field names for wich the query can be ordered by
+   * @var array
+   */
+  private $_order_by  = array();
+  
+  /**
    * Holds the links that will be embedded into some fields
    * @var array
    */
@@ -168,6 +174,22 @@ class TablePattern Extends TemplatePattern
     } else {
       $sql = str_replace('{conditions}', $conditions, $sql);
     }
+    if ( count($this->_order_by) ) {
+      foreach($this->_order_by AS $field) {
+        if( isset($_GET["order_by_{$field}"]) ) {
+          $this->_selected_order_field = $field; 
+          $this->_selected_order = $_GET["order_by_{$field}"];
+        }
+      }
+    }
+    
+    if ( empty($this->_selected_order_field) ) {
+      $sql = str_replace('{order_by}','',$sql);
+    } else {
+      $order_by = "ORDER BY {$this->_selected_order_field} {$this->_selected_order}";
+      $sql = str_replace('{order_by}', $order_by, $sql);
+    }
+    
     $rows = $DbConnection->getAllRows($sql);
     $this->setRows($rows);
   }
@@ -418,7 +440,9 @@ class TablePattern Extends TemplatePattern
     $this->assign('__filters'    , $this->_filters);
     $this->assign('__general_actions'         , $this->_general_actions);
     $this->assign('__actions_overflow_trigger', $this->_actions_overflow_trigger);
-
+    $this->assign('__order_by',          $this->_order_by);
+    $this->assign('__selected_order_by', $this->_selected_order_field);
+    $this->assign('__selected_order',    $this->_selected_order);
     return parent::getAsString();
   }
   
@@ -495,11 +519,15 @@ class TablePattern Extends TemplatePattern
     }
     unset($config['__filters']);
     
+    if( isset($config['__commands']['order_by']) ) {
+      $this->orderBy($config['__commands']['order_by']); 
+    }
+    
     if( isset($config['__query']['sql']) ) {
       $paginate = (isset($config['__query']['paginate']))?$config['__query']['paginate']:false;
       $this->setQuery($config['__query']['sql'], DbConnection::getInstance(), $paginate); 
     }
-    unset($config['__set_query']);
+    unset($config['__query']);
     
     if( isset($config['__pattern']) ) {
       foreach($config['__pattern'] AS $field=>$value) {
@@ -554,5 +582,12 @@ class TablePattern Extends TemplatePattern
   
   public function isLoaded() {
     return $this->_loaded;
+  }
+  
+  public function orderBy($fields) {
+    if ( !is_array($fields) ) {
+      throw new InvalidArgumentException('Fields are supposed to be an array');
+    }
+    $this->_order_by = $fields; 
   }
 }

@@ -387,6 +387,20 @@ th {
 	background: @th_color;
 	.top_down_gradient(@th_color, darken(@th_color, 20%));
 	.emboss;
+  a {
+    color:white;
+    text-decoration:none;
+    text-indent: 20px;
+    display:inline-block;
+    background: url('/f/images/tables/right.png') no-repeat;
+  }
+  &.asc a {
+    background: url('/f/images/tables/asc.png') no-repeat;
+  }
+  &.desc a {
+    background: url('/f/images/tables/desc.png')no-repeat;
+  }
+
 }
 
 td {
