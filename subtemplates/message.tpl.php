@@ -8,6 +8,8 @@
   <script type="text/javascript">
   	$('#message').dialog({
   		title: $('#level_image').attr('alt'),
+  		minWidth:400,
+      minHeight:250,
   		buttons: {"Ok": function() { $(this).dialog("close"); } }
   	} );
 </script>

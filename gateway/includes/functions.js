@@ -27,7 +27,7 @@ function showOverlay() {
 function fancyAlert(message){
 	$('<div>'+message+'</div>').dialog({
 		resizable: true,
-		height:200,
+		height:300,
 		modal: true,
 		buttons: {
 			Cerrar: function() {
