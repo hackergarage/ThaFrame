@@ -203,5 +203,20 @@ class RowModel {
     } 
     return (object)$escaped;
   }
+  
+  public function getAllFromSql($sql, $class='RowModel') {
+    $this->assertLoaded();
+    if(!$ids = $this->DbConnection->getOneColumn($sql)) {
+      return array();
+    }
+    
+    $instances = array();
+    foreach($ids AS $id) {
+      $Aux = new $class((int)$id);
+      $Aux->load();
+      $instances[] = $Aux;
+    }
+    return $instances;
+  }
 }
 ?>

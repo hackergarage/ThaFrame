@@ -50,7 +50,16 @@ class PostRequest {
     return self::$__instance;
   }
   
-  public function getParams() {
+  public function getParams( $white_list = NULL ) {
+    if ( is_array($white_list) ) {
+      $result = array();
+      foreach ($white_list AS $parameter) {
+        if ( isset($_POST[$parameter]) ) {
+          $result[$parameter] = $_POST[$parameter];
+        }
+      }
+      return $result;
+    }
     return $_POST;
   }
   
